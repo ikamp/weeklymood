@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="Angular-App">
+<html lang="en" ng-app="Weekly-Moods">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -10,10 +10,13 @@
 <body>
     <div class="container container-fluid">
         <h3>Hello, World</h3>
+        <input ng-model="mode" type="text"/>
+        <label>{{mode}}</label>
+
     </div>
 <footer>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular.min.js"></script>
+    <script src="app/angular.min.js"></script>
+    <script src="js/app.js"></script>
     <script src="js/all.js"></script>
 </footer>
 </body>
