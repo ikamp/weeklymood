@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMoodcontentTagTable extends Migration
+class CreateMoodContentTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMoodcontentTagTable extends Migration
      */
     public function up()
     {
-        Schema::create('moodcontent_tag', function (Blueprint $table) {
+        Schema::create('moodcontenttag', function (Blueprint $table) {
             $table->integer('moodcontent_id');
             $table->integer('tag_id');
 
@@ -29,6 +29,6 @@ class CreateMoodcontentTagTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('moodtag');
+        Schema::dropIfExists('moodcontenttag');
     }
 }
