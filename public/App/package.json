@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate#readme",
   "dependencies": {
+    "angular-route": "^1.6.5",
     "eslint": "^4.3.0"
   },
   "devDependencies": {
