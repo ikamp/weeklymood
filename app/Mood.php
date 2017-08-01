@@ -9,7 +9,7 @@ class Mood extends Model
     protected $table='mood';
     public $timestamps=false;
 
-    public function  moods()
+    public function  moodContent()
     {
         return $this->hasOne('App\MoodContent','id','mood_id');
     }
