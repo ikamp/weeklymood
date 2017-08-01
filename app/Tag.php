@@ -9,7 +9,7 @@ class Tag extends Model
     protected $table='tag';
     protected $timestamp=false;
 
-    public function moodcontenttags()
+    public function moodContentTags()
     {
         return $this->hasMany('App\MoodContentTag','tag_id');
     }
