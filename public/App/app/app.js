@@ -13,15 +13,15 @@ angular
                 controller: 'login.controller.js',
                 templateUrl: '../views/login.view.html'
             })
-            .when('/restaurant/:id', {
+            .when('/user/:id', {
                 templateUrl: '',
                 controller: ''
             })
-            .when('/order/:id', {
+            .when('/user/:id', {
                 templateUrl: '',
                 controller: ''
             })
-            .when('/orders', {
+            .when('/uss', {
                 templateUrl: '',
                 controller: ''
             })
