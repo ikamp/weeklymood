@@ -9,7 +9,7 @@ class MoodContent extends Model
     protected $table='moodcontent';
     protected $timestamp=true;
 
-    public function moodcontenttags()
+    public function moodContentTags()
     {
         return $this->hasMany('App\MoodContentTag','moodcontent_id');
     }

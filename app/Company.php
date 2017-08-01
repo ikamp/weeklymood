@@ -9,7 +9,7 @@ class Company extends Model
     protected $table='company';
     protected $timestamp=false;
 
-    public function company()
+    public function users()
     {
         return $this->belongsTo('App\User','company_id');
     }
