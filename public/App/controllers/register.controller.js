@@ -1,0 +1,3 @@
+var registerController = function () {
+
+};
