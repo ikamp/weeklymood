@@ -9,21 +9,21 @@ angular
                 templateUrl: '../views/first.view.html'
                 // controller: 'HomeController'
             })
-            .when('/restaurant-list', {
-                templateUrl: 'views/restaurant-list.html',
-                controller: 'RestaurantListController'
+            .when('/login', {
+                controller: 'login.controller.js',
+                templateUrl: '../views/login.view.html'
             })
             .when('/restaurant/:id', {
-                templateUrl: 'views/restaurant-detail.html',
-                controller: 'RestaurantDetailController'
+                templateUrl: '',
+                controller: ''
             })
             .when('/order/:id', {
-                templateUrl: 'views/order.html',
-                controller: 'orderController'
+                templateUrl: '',
+                controller: ''
             })
             .when('/orders', {
-                templateUrl: 'views/user-orders.html',
-                controller: 'UserOrderController'
+                templateUrl: '',
+                controller: ''
             })
             .otherwise({
                 redirectTo: '/'
