@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $table='user';
-    protected $timestamp=true;
+    public $timestamps=true;
 
     public function department()
     {
