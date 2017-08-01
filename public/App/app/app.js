@@ -13,18 +13,6 @@ angular
                 controller: 'login.controller.js',
                 templateUrl: '../views/login.view.html'
             })
-            .when('/user/:id', {
-                templateUrl: '',
-                controller: ''
-            })
-            .when('/user/:id', {
-                templateUrl: '',
-                controller: ''
-            })
-            .when('/uss', {
-                templateUrl: '',
-                controller: ''
-            })
             .otherwise({
                 redirectTo: '/'
             })});
