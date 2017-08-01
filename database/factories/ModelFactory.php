@@ -12,13 +12,32 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Department::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->firstName,
+    ];
+});
+
+$factory->define(App\Company::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->company,
+        'logo' => $faker->imageUrl(640,480,null,true,null),
+    ];
+});
+
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
-        'name' => $faker->name,
+        'name' => $faker->firstName,
+        'surname' => $faker->name,
         'email' => $faker->unique()->safeEmail,
-        'password' => $password ?: $password = bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'password' => $password ?: $password = bcrypt('12345'),
+        'position' => $faker->name,
+        'avatar' => $faker->imageUrl(640,480,null,true,null),
+        'department_id' => $faker->numberBetween(1, 20),
+        'company_id' => $faker->numberBetween(1,20),
+        'is_manager' => $faker->boolean(false),
+        'remember_token' => str_random(10)
     ];
 });
