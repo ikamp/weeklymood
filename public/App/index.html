@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
     <title>Angular App</title>
 </head>
 <body>
@@ -10,7 +11,8 @@
         <h3>Hello, World</h3>
         <input ng-model="mode" type="text"/>
         <label>{{mode}}</label>
-        <div class="content-block container"><ng-view></ng-view><div>
+        <div class="content-block container">
+            <ng-view></ng-view><div>
     </div>
     <footer>
         <footer-component></footer-component>
