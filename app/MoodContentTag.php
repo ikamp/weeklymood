@@ -8,7 +8,4 @@ class MoodContentTag extends Model
 {
     protected $table='moodcontenttag';
     protected $timestamp=false;
-
-
-
 }

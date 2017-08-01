@@ -22,5 +22,4 @@ class User extends Model
     {
         return $this->hasOne('App\Company','id','company_id');
     }
-
 }
