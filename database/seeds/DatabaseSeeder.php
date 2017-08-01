@@ -11,6 +11,28 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        DB::table('department')->delete();
+        App\Department::create([
+            'name' => 'HR',
+        ]);
+
+        DB::table('company')->delete();
+        App\Company::create([
+            'name' => 'Happy A.Ş.',
+            'logo' => 'logo',
+        ]);
+
+        DB::table('user')->delete();
+        App\User::create([
+            'name' => 'Helen',
+            'surname' => 'Smith',
+            'email' => 'helensmith@gmail.com',
+            'password' => Hash::make('12345'),
+            'position' => 'manager',
+            'avatar' => 'avatar',
+            'department_id' => '1',
+            'company_id' => '1',
+            'is_manager' => 'true',
+        ]);
     }
 }
