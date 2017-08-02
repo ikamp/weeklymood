@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
     <title>Angular App</title>
+
+
+
 </head>
 <body>
     <div class="container container-fluid">
-        <h3>Hello, World</h3>
-        <input ng-model="mode" type="text"/>
-        <label>{{mode}}</label>
-        <div class="content-block container">
-            <ng-view></ng-view><div>
+        <header-component></header-component>
+            <ng-view></ng-view></div>
     </div>
     <footer>
         <footer-component></footer-component>
@@ -22,7 +22,12 @@
     <script src="controllers/login.controller.js"></script>
     <script src="controllers/register.controller.js"></script>
     <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="components/headerComponent/header.component.js"></script>
+    <script src="components/directives/loginDirective/login.directive.js"></script>
+    <script src="components/directives/registerDirective/register.directive.js"></script>
     <script src="components/footerComponent/footer.component.js"></script>
+
+
 </body>
 </html>
 
