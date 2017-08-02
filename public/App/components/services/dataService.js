@@ -8,7 +8,9 @@ function dataService($http) {
         listUserMoods: listUserMoods,
         showUserMood: showUserMood,
         showWeeklyAnalysis: showWeeklyAnalysis,
-        showMonthlyAnalysis: showMonthlyAnalysis
+        showMonthlyAnalysis: showMonthlyAnalysis,
+        selectYourMood: selectYourMood,
+        activateYourAccount:activateYourAccount
     };
     
     function listCompanyUsers(companyId, callback, errorCallback) {
@@ -70,6 +72,28 @@ function dataService($http) {
         $http({
             method: 'GET',
             url: 'https://jsonplaceholder.typicode.com/monthly-analysis/' + companyId // '/api/weekly-analysis/'
+        }).then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+
+    function selectYourMood(userId, callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/select-your-mood/' + userId // '/api//select-your-mood'
+        }).then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+
+    function activateYourAccount(userId, callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/activate-your-account/' + userId // '/api//activate-your-account'
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
