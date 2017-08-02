@@ -148,7 +148,7 @@ class User
     /**
      * @return mixed
      */
-    public function getisManager()
+    public function getIsManager()
     {
         return $this->isManager;
     }
@@ -176,6 +176,5 @@ class User
     {
         $this->department = $department;
     }
-
 }
 
