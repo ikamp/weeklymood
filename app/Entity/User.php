@@ -13,6 +13,7 @@ class User
     private $departmentId;
     private $companyId;
     private $isManager;
+    private $isActive;
 
     /** @var \Entity\Department */
     private $department = null;
@@ -159,6 +160,16 @@ class User
     public function setIsManager($isManager)
     {
         $this->isManager = $isManager;
+    }
+
+    public function getIsActive()
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
     }
 
     /**

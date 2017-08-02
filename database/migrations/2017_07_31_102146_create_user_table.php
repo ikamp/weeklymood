@@ -24,6 +24,7 @@ class CreateUserTable extends Migration
             $table->integer('department_id');
             $table->integer('company_id');
             $table->boolean('is_manager');
+            $table->boolean('is_active');
             $table->timestamps();
             $table->rememberToken();
 

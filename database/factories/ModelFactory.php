@@ -38,6 +38,7 @@ $factory->define(App\Model\User::class, function (Faker\Generator $faker) {
         'department_id' => $faker->numberBetween(1, 20),
         'company_id' => $faker->numberBetween(1,20),
         'is_manager' => $faker->boolean(false),
+        'is_active' => $faker->boolean(true),
         'remember_token' => str_random(10)
     ];
 });
