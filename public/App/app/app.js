@@ -17,6 +17,10 @@ angular
                 controller: 'RegisterController',
                 templateUrl: '/components/directives/registerDirective/register.html'
             })
+            .when('/password-reset', {
+                controller: 'PasswordResetController',
+                templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
+            })
             .otherwise({
                 redirectTo: '/login'
             })});
