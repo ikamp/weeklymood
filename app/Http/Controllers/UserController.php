@@ -1,5 +1,7 @@
 <?php
 namespace App\Http\Controllers;
+use App\Model\Department;
+use App\Model\Mood;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Model;
@@ -15,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(User::all());
+        return response()->json(Mood::getUserTotalMoodsByIdAction(2));
     }
 
     /**

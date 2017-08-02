@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
-    protected $table='company';
+    protected $table = 'company';
     public $timestamps = false;
     public function users()
     {
@@ -29,6 +29,18 @@ class Company extends Model
             ->where('is_manager' , '=' , true);
         dd($manager);
 
-        return  ;
+        return  $manager;
+    }
+
+    public static function listAllCompaniesAction()
+    {
+        $companies = Company::all();
+        return $companies;
+    }
+
+    public static function getThisCompanyMembersAction($companyId)
+    {
+        $users = User::all()->where('company_id', '=', $companyId);
+        return $users;
     }
 }
