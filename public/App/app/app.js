@@ -23,4 +23,5 @@ angular
             })
             .otherwise({
                 redirectTo: '/login'
-            })});
+            });
+    });
