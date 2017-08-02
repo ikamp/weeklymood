@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class MoodContent extends Model
 {
-    protected $table='moodcontent';
-    protected $timestamp=true;
+    protected $table = 'moodcontent';
+    protected $timestamp = true;
 
     public function moodContentTags()
     {

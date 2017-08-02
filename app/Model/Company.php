@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Company extends Model
 {
     protected $table='company';
-    public $timestamps=false;
+    public $timestamps = false;
     public function users()
     {
         return $this->belongsTo('Model\User','company_id','id');
@@ -31,6 +31,4 @@ class Company extends Model
 
         return  ;
     }
-
-
 }
