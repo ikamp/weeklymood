@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -11,6 +11,6 @@ class MoodContent extends Model
 
     public function moodContentTags()
     {
-        return $this->hasMany('App\MoodContentTag','moodcontent_id');
+        return $this->hasMany('Model\MoodContentTag','moodcontent_id');
     }
 }
