@@ -70,6 +70,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '1',
             'company_id' => '1',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -83,6 +84,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '2',
             'company_id' => '2',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -96,6 +98,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '2',
             'company_id' => '3',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -109,6 +112,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '3',
             'company_id' => '4',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -122,6 +126,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '4',
             'company_id' => '5',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -135,6 +140,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '1',
             'company_id' => '6',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -148,6 +154,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '7',
             'company_id' => '7',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -161,6 +168,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '6',
             'company_id' => '8',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -174,6 +182,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '10',
             'company_id' => '9',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -187,6 +196,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '10',
             'company_id' => '10',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -200,6 +210,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '1',
             'company_id' => '11',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -213,6 +224,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '11',
             'company_id' => '12',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -226,6 +238,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '12',
             'company_id' => '13',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -239,6 +252,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '14',
             'company_id' => '14',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -252,6 +266,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '15',
             'company_id' => '15',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -265,6 +280,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '16',
             'company_id' => '16',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -278,6 +294,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '15',
             'company_id' => '17',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -291,6 +308,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '17',
             'company_id' => '18',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -304,6 +322,7 @@ class DatabaseSeeder extends Seeder
             'department_id' => '18',
             'company_id' => '18',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
 
@@ -317,9 +336,9 @@ class DatabaseSeeder extends Seeder
             'department_id' => '1',
             'company_id' => '19',
             'is_manager' => 'true',
+            'is_active' => 'true',
             'remember_token' => 'asdfgh'
         ]);
-
         return;
     }
 }
