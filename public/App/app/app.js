@@ -10,12 +10,12 @@ angular
                 templateUrl: '../views/first.view.html'
             })
             .when('/login', {
-                controller: 'login.controller.js',
-                templateUrl: '../views/login.view.html'
+                controller: 'LoginController',
+                templateUrl: '/components/directives/loginDirective/login.html'
             })
             .when('/register', {
-                controller: 'register.controller.js',
-                templateUrl: '../views/register.view.html'
+                controller: 'RegisterController',
+                templateUrl: '/components/directives/registerDirective/register.html'
             })
             .otherwise({
                 redirectTo: '/login'
