@@ -12,20 +12,20 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\Department::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\Department::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
     ];
 });
 
-$factory->define(App\Company::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\Company::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
         'logo' => $faker->imageUrl(640,480,null,true,null),
     ];
 });
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Model\User::class, function (Faker\Generator $faker) {
     static $password;
 
     return [
@@ -38,6 +38,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'department_id' => $faker->numberBetween(1, 20),
         'company_id' => $faker->numberBetween(1,20),
         'is_manager' => $faker->boolean(false),
+        'is_active' => $faker->boolean(true),
         'remember_token' => str_random(10)
     ];
 });

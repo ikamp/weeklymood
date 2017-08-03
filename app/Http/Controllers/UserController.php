@@ -1,11 +1,15 @@
 <?php
-
 namespace App\Http\Controllers;
-
+use App\Model\Department;
+use App\Model\Mood;
+use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Model;
+use App\Model\Company;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Mood::getUserTotalMoodsByIdAction(2));
     }
 
     /**
@@ -23,7 +27,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -45,7 +49,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::getUserByIdAction($id);
+        dd($user);
+        return response()->json($user);
     }
 
     /**
@@ -56,7 +62,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -79,6 +85,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroyThisUserById($id);
+        return response()->json('Deleted This User');
     }
 }
