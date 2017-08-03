@@ -16,7 +16,21 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(dd(User::with('company')->get()));
+
+        $user = new User();
+        $user->name = "burak";
+        $user->surname = "olgun";
+        $user->email = "burak@mail.com";
+        $user->password = "111111";
+        $user->is_manager = false;
+        $user->avatar = "123";
+        $user->position = "123";
+        $user->company_id = 1;
+        $user->department_id = 1;
+        $user->save();
+
+
+        return response()->json(dd($user));
     }
 
     /**

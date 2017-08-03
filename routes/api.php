@@ -16,7 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::resource('user','UserController');
-Route::resource('tag','TagController');
-Route::resource('mood','MoodContent');
-Route::resource('company','CompanyController');
+
+Route::group(['middleware' => 'auth:api'], function()
+{
+    Route::resource('user','UserController');
+    Route::resource('tag','TagController');
+    Route::resource('mood','MoodContent');
+    Route::resource('company','CompanyController');
+});
