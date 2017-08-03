@@ -7,10 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Model;
 use App\Model\Company;
 
-
 class UserController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -90,3 +88,4 @@ class UserController extends Controller
         return response()->json('Deleted This User');
     }
 }
+
