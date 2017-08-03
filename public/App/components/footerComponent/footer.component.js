@@ -1,4 +1,4 @@
-angular.module('Weekly-Moods')
+angular.module('weeklyMood')
     .component('footerComponent',{
         controller: footerController,
         templateUrl:'components/footerComponent/footer.html'
