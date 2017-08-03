@@ -14,7 +14,7 @@ class User extends Model
      */
     public function department()
     {
-        return $this->hasOne('Model\Department','id','department_id');
+        return $this->hasOne('App\Model\Department','id','department_id');
     }
 
     /**
@@ -22,7 +22,7 @@ class User extends Model
      */
     public function moodContents()
     {
-        return $this->hasMany('Model\MoodContent','user_id');
+        return $this->hasMany('App\Model\MoodContent','user_id');
     }
 
     /**
@@ -30,7 +30,12 @@ class User extends Model
      */
     public function company()
     {
-        return $this->hasOne('Model\Company','id','company_id');
+        return $this->hasOne('App\Model\Company','id','company_id');
+    }
+
+    public function token()
+    {
+        return $this->hasOne('App\Model\Token','user_id','id');
     }
 
     /**

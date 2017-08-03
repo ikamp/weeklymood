@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Model;
 use App\Model\Company;
 
+
 class UserController extends Controller
 {
 
@@ -17,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(Mood::getUserTotalMoodsByIdAction(2));
+        return response()->json(dd(User::with('company')->get()));
     }
 
     /**
