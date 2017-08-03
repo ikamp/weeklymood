@@ -7,5 +7,5 @@ angular.module('Weekly-Moods')
         templateUrl:'components/headerComponent/header.html'
     });
 function headerComponent($scope) {
-    $scope.title = "Yalcin"
+    $scope.title = "WeeklyMood"
 }

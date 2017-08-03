@@ -4,7 +4,7 @@ angular.module('Weekly-Moods', ['ngRoute'])
         $routeProvider
             .when('/', {
                 // controller: 'HomeController'
-                templateUrl: '../views/first.view.html'
+                templateUrl: '../views/firstpage.view.html'
             })
             .when('/login', {
                 controller: 'LoginController',

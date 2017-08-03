@@ -3,14 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/css/all.css">
     <link rel="stylesheet" href="assets/lib/bootstrap/css/bootstrap.min.css">
-    <title>Angular App</title>
-</head>
-<body>
-    <div class="container container-fluid"><header-component></header-component><ng-view></ng-view></div>
-    <footer>
-        <footer-component></footer-component>
-    </footer>
+    <link rel="stylesheet" href="assets/lib/bootstrap/fonts/font-awesome.min.css">
+
+    <title>WeeklyMood Application</title>
+
+<body class="container-fluid register-image">
+    <div class="row headerrow-opacity">
+        <div class="col-md-12 header-main">
+           <header-component></header-component>
+        </div>
+    </div>
+    <div class="row">
+        <div>
+            <ng-view></ng-view>
+        </div>
+    </div>
+
     <script src="js/angular.min.js"></script>
     <script src="app/app.js"></script>
     <script src="controllers/passwordReset.controller.js"></script>

@@ -1,2 +1,136 @@
-$size : 4px;
+$size :94px;
+
+.body-background{
+  background-color: #259d6d;
+}
+.header-main{
+  background-color: #ffe9e9;
+  height: $size;
+  width: 100%;
+}
+.login-border{
+  border-radius: 8px;
+  width: 30%;
+  height: 645px;
+  border:3px solid #ffffff;
+  margin:100px;
+  margin-left: 600px;
+  background-color: #ffe9e9;
+
+}
+.register-border{
+  border-radius: 8px;
+  width: 30%;
+  height: 645px;
+  border:3px solid #ffffff;
+  margin:100px;
+  margin-left: 600px;
+  background-color: #ffe9e9;
+
+}
+.logo-config{
+  margin-top: 10px;
+  width: 150px;
+  height: 75px;
+  margin-left: 50px;
+}
+.btn-md{
+  max-width:188px;
+  max-height:50px;
+  background-color:#6FB048;
+  border:0px;
+  color:#ffffff;
+  font-family: 'montserratregular';
+}
+.footer-main{
+  background-color: #2e6da4;
+  height: $size;
+  width: 100%;
+  margin-top: 500px;
+}
+.icons-color{
+  color:#2e6da4;
+}
+.register-image{
+
+  background: url("../../images/blur_bright_colors.jpg") no-repeat;
+  background-size:cover;
+}
+.fontletter{
+  font-family:Arial;
+}
+.login-button-conf{
+  background-color:#84a7c5;
+  color:#fff;
+  border-radius:10px;
+  padding:5px 10px;
+  margin-top:20px;
+  margin-right: 10px;
+
+}
+.register-button-conf{
+  background-color:#84a7c5;
+  color:#fff;
+  border-radius:10px;
+  padding:5px 10px;
+  margin-top:20px;
+  margin-right: 400px;
+
+}
+.tryit-button-conf{
+  background:#84a7c5;
+  color:#fff;
+  font-size: 20px;
+  border-radius:5px;
+  padding:5px 10px;
+  margin-top:20px;
+  margin-right: 10px;
+
+}
+.banner-overlay{
+  background: transparent;
+  height: 800px;
+}
+.banner-content{
+  padding:195px 0;
+  max-width:515px;
+  color:#fff;
+  margin-top:50px;
+}
+.register-input-width{
+  width: 500px;
+  margin-left: 34px;
+
+}
+.headerrow-opacity{
+  opacity: 0.9;
+}
+.register-btn{
+  width: 500px;
+  margin-left: 34px;
+  height: 40px;
+  background: #84a7c5;
+}
+.login-btn{
+  width: 500px;
+  height: 40px;
+  color: #fff;
+  margin-left: 35px;
+  border-color: #2e6da4;
+  background: #84a7c5;
+}
+.label-have-account{
+  font-size: 16px;
+  display: block;
+  margin-left: 150px;
+  margin-top: 40px;
+  font-style:italic;
+
+}
+.cancel-btn{
+  font-size: 16px;
+}
+
+
+
 
