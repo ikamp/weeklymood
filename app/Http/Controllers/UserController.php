@@ -17,11 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
-
-        $user  = ['status' =>  auth()->check(),
-                    'userId' => auth()->user()->getAuthIdentifier(),
-                    'user' => User::getUserByIdAction(1)];
-
+        $user = ['status'=>Auth::check(),
+                 'id'=>Auth::user()->getAuthIdentifier()
+                ];
         return response()->json($user);
     }
 
@@ -68,8 +66,6 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::getUserByIdAction($id);
-
-        dd($user);
         return response()->json($user);
     }
 

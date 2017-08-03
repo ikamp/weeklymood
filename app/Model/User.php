@@ -49,7 +49,6 @@ class User extends Model  implements Authenticatable
         return User::all();
     }
 
-
     /**
      * @param $name string
      * @param $surname string
@@ -111,9 +110,27 @@ class User extends Model  implements Authenticatable
     /**
      * @param User $user
      */
-    public static function updateThisUserAction(User $user)
+    public static function updateThisUserAction(
+       User $user,
+        $name,
+        $surname,
+        $email,
+        $password,
+        $position,
+        $avatar,
+        $departmentId,
+        $companyId,
+        $isManager)
     {
-
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->email = $email;
+        $user->password = $password;
+        $user->position = $position;
+        $user->avatar = $avatar;
+        $user->department_id = $departmentId;
+        $user->company_id = $companyId;
+        $user->is_manager = $isManager;
     }
 
     /**
@@ -133,6 +150,5 @@ class User extends Model  implements Authenticatable
     {
         $user->save();
     }
-
 
 }

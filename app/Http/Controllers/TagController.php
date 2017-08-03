@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Tag;
 use Illuminate\Http\Request;
 
 class TagController extends Controller
@@ -13,17 +14,17 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Tag::listAllTagsAction());
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+
+
     }
 
     /**
@@ -34,7 +35,8 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $tag = Tag::createNewTagAction($request->name);
+        return response()->json($tag);
     }
 
     /**
@@ -45,7 +47,7 @@ class TagController extends Controller
      */
     public function show($id)
     {
-        //
+        Tag::returnThisTagAction($id);
     }
 
     /**
@@ -68,7 +70,8 @@ class TagController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updatedTag = Tag::updateThisTagAction($id,$request->name);
+        return response()->json($updatedTag);
     }
 
     /**
