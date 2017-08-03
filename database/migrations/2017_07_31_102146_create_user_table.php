@@ -19,8 +19,8 @@ class CreateUserTable extends Migration
             $table->string('surname');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('position');
-            $table->string('avatar');
+            $table->string('position')->nullable();
+            $table->string('avatar')->nullable();
             $table->integer('department_id');
             $table->integer('company_id');
             $table->boolean('is_manager');

@@ -4,6 +4,7 @@ use App\Model\Department;
 use App\Model\Mood;
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Model;
 use App\Model\Company;
 
@@ -16,17 +17,35 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(dd(User::with('company')->get()));
+
+        $user  = ['status' =>  auth()->check(),
+                    'userId' => auth()->user()->getAuthIdentifier(),
+                    'user' => User::getUserByIdAction(1)];
+
+        return response()->json($user);
     }
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
+        if ($request->isManager != null)
+        {
+            User::createNewUserAction(
+                $request->name,
+                $request->surname,
+                $request->email,
+                $request->password,
+                $request->position,
+                $request->avatar,
+                $request->departmentId,
+                $request->companyId,
+                $request->isManager );
+        }
+        return response()->json("User Created");
     }
 
     /**
@@ -49,6 +68,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::getUserByIdAction($id);
+
         dd($user);
         return response()->json($user);
     }
