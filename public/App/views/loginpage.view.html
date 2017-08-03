@@ -1,0 +1,81 @@
+<html lang="en" ng-app="weeklyMood">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="../styles/css/all.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="../node_modules/angular-material/angular-material.scss">
+    <link rel="stylesheet" href="../assets/lib/bootstrap/css/simple-sidebar.css">
+    <link rel="stylesheet" href="../assets/lib/bootstrap/css/sb-admin.css">
+    <title>WeeklyMood Application</title>
+
+
+
+<body class="container-fluid register-image">
+<div class="row headerrow-opacity">
+    <div class="col-md-12 header-main">
+        <div class="col-md-12">
+            <img class="logo-config " title="Weekly Mood isimli logonuz" src="https://www.freelogoservices.com/api/main/images/1j+ojlxEOMkX9Wyqfhe43D6kjfaDpRJIkR...JwWJqZ1ccoFQw2TtQ2a0...46E5JwtFvwhKxkECc8M9iSN7VYETiw==" alt="Weekly MoodLogo">
+            <div  class="nav navbar-nav navbar-right">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/login" class="login-button-conf">LOGIN</a></li>
+                    <li><a href="#/register" class="register-button-conf">REGISTER</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div>
+        <div class="col-md-4 col-md-offset-4 login-border">
+            <h2 class="fontletter">Login</h2>
+            <form name="form" ng-submit="" role="form">
+                <div class="form-group register-input-width" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
+                    <label for="username"></label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon1" ><span class="glyphicon glyphicon-user icons-color"></span></span>
+                        <input type="text" name="username" id="username" placeholder="Username" class="form-control" ng-model="user.username" required />
+                    </div>
+                    <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+
+                </div>
+                <div class="form-group register-input-width" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                    <label for="password"></label>
+                    <div class="input-group input-group-lg">
+                        <span class="input-group-addon" id="sizing-addon2"><span class="glyphicon glyphicon-asterisk icons-color"></span></span>
+                        <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password" required />
+                    </div>
+                    <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
+
+                </div>
+                <div class="form-actions">
+                    <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn login-btn">Login</button>
+                    <img ng-if="loading" src=""/>
+                    <a href="#/register" class="btn btn-link">Register</a>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
+<script src="../js/jquery.js"></script>
+<script src="../js/angular.min.js"></script>
+
+<script src="../node_modules/angular-material/angular-material.js"></script>
+<script src="../app/app.js"></script>
+<script src="../controllers/passwordReset.controller.js"></script>
+<script src="../controllers/register.controller.js"></script>
+<script src="../controllers/login.controller.js"></script>
+<script type="text/javascript" src="../components/services/dataService.js"></script>
+<script src="../node_modules/angular-route/angular-route.min.js"></script>
+<script src="../components/headerComponent/header.component.js"></script>
+<script src="../components/directives/loginDirective/login.directive.js"></script>
+<script src="../components/directives/registerDirective/register.directive.js"></script>
+<script src="../components/directives/passwordResetDirective/passwordReset.directive.js"></script>
+<script src="../components/footerComponent/footer.component.js"></script>
+
+
+</body>
+</html>

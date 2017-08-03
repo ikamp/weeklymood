@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-1.6-boilerplate",
+  "name": "weeklymood",
   "version": "1.0.0",
-  "description": "Angular boilerplate",
+  "description": "Weeklymood",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,7 @@
     "angularjs",
     "boilerplate"
   ],
-  "author": "Burak Olgun",
+  "author": "Yalcin Tatar,Burak Olgun,Busra Gumusel",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate/issues"
