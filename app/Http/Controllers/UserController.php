@@ -27,12 +27,25 @@ class UserController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-
+        if ($request->isManager != null)
+        {
+            User::createNewUserAction(
+                $request->name,
+                $request->surname,
+                $request->email,
+                $request->password,
+                $request->position,
+                $request->avatar,
+                $request->departmentId,
+                $request->companyId,
+                $request->isManager );
+        }
+        return response()->json("User Created");
     }
 
     /**

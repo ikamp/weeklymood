@@ -49,12 +49,42 @@ class User extends Model  implements Authenticatable
         return User::all();
     }
 
-    /**
-     *
-     */
-    public static function createNewUserAction()
-    {
 
+    /**
+     * @param $name string
+     * @param $surname string
+     * @param $email string
+     * @param $password string
+     * @param $position mixed
+     * @param $avatar string
+     * @param $departmentId integer
+     * @param $companyId integer
+     * @param $isManager boolean
+     * @return User
+     */
+    public static function createNewUserAction(
+        $name,
+        $surname,
+        $email,
+        $password,
+        $position,
+        $avatar,
+        $departmentId,
+        $companyId,
+        $isManager )
+    {
+        $user = new User();
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->email = $email;
+        $user->password = $password;
+        $user->position = $position;
+        $user->avatar = $avatar;
+        $user->department_id = $departmentId;
+        $user->company_id = $companyId;
+        $user->is_manager = $isManager;
+        self::saveThisUserAction($user);
+        return $user;
     }
 
     /**
@@ -78,6 +108,9 @@ class User extends Model  implements Authenticatable
         return $company;
     }
 
+    /**
+     * @param User $user
+     */
     public static function updateThisUserAction(User $user)
     {
 
@@ -91,5 +124,15 @@ class User extends Model  implements Authenticatable
     {
         User::delete();
     }
+
+    /**
+     * @param User $user
+     * Save The User
+     */
+    public static function saveThisUserAction(User $user)
+    {
+        $user->save();
+    }
+
 
 }
