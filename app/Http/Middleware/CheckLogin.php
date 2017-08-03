@@ -15,9 +15,11 @@ class CheckLogin
      */
     public function handle($request, Closure $next)
     {
-        if (1 === 2){
-            return $next($request);}
-            return response()->json(401);
+        if (auth()->check())
+        {
+            return $next($request);
+        }
+        return response()->json('401');
     }
 
 

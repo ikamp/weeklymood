@@ -4,6 +4,7 @@ use App\Model\Department;
 use App\Model\Mood;
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Model;
 use App\Model\Company;
 
@@ -17,20 +18,11 @@ class UserController extends Controller
     public function index()
     {
 
-        $user = new User();
-        $user->name = "burak";
-        $user->surname = "olgun";
-        $user->email = "burak@mail.com";
-        $user->password = "111111";
-        $user->is_manager = false;
-        $user->avatar = "123";
-        $user->position = "123";
-        $user->company_id = 1;
-        $user->department_id = 1;
-        $user->save();
+        $user  = ['status' =>  auth()->check(),
+                    'userId' => auth()->user()->getAuthIdentifier(),
+                    'user' => User::getUserByIdAction(1)];
 
-
-        return response()->json(dd($user));
+        return response()->json($user);
     }
 
     /**
@@ -63,6 +55,7 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::getUserByIdAction($id);
+
         dd($user);
         return response()->json($user);
     }

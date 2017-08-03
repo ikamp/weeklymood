@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+//auth:api
 Route::group(['middleware' => 'auth:api'], function()
 {
     Route::resource('user','UserController');
@@ -24,3 +24,9 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::resource('mood','MoodContent');
     Route::resource('company','CompanyController');
 });
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
