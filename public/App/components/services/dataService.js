@@ -1,4 +1,4 @@
-angular.module('Weekly-Moods')
+angular.module('weeklyMood')
     .factory('DataService',dataService);
 
 function dataService($http) {

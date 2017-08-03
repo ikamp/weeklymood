@@ -1,7 +1,7 @@
 /**
  * Created by yalcin on 02.08.2017.
  */
-angular.module('Weekly-Moods')
+angular.module('weeklyMood')
     .component('headerComponent',{
         controller: headerComponent,
         templateUrl:'components/headerComponent/header.html'
