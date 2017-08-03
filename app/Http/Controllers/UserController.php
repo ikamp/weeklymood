@@ -9,7 +9,6 @@ use App\Model\Company;
 
 class UserController extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(Mood::getUserTotalMoodsByIdAction(2));
+        return response()->json(dd(User::with('company')->get()));
     }
 
     /**
@@ -89,3 +88,4 @@ class UserController extends Controller
         return response()->json('Deleted This User');
     }
 }
+

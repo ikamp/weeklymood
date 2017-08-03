@@ -10,7 +10,7 @@ class Company extends Model
     public $timestamps = false;
     public function users()
     {
-        return $this->belongsTo('Model\User','company_id','id');
+        return $this->belongsTo('App\Model\User','user_id','id');
     }
 
     public static function getAllCompanyAction()
