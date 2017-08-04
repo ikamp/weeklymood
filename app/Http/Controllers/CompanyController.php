@@ -16,9 +16,7 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = CompanyManager::mapper(Company::getCompanyByIdAction(1));
 
-        return response()->json($company->getName());
     }
 
     /**
@@ -50,7 +48,9 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = CompanyManager::mapper(Company::getCompanyByIdAction($id));
+
+        return response()->json($company->getName());
     }
 
     /**
