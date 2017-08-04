@@ -16,6 +16,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
+        $company = CompanyManager::mapper(Company::getCompanyByIdAction(2));
+        dd($company->getusers());
 
     }
 

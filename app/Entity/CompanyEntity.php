@@ -9,22 +9,56 @@ class CompanyEntity
     private $id;
     private $name;
     private $logo;
-    private $companyUsers = [];
+    private $users = [];
+    private $moods = [];
+    private $manager;
+
+    /**
+     * @return mixed
+     */
+    public function getManager()
+    {
+        return $this->manager;
+    }
+
+    /**
+     * @param mixed $manager
+     */
+    public function setManager($manager)
+    {
+        $this->manager = $manager;
+    }
 
     /**
      * @return array
      */
-    public function getCompanyUsers()
+    public function getmoods()
     {
-        return $this->companyUsers;
+        return $this->moods;
     }
 
     /**
-     * @param array $companyUsers
+     * @param array $moods
      */
-    public function setCompanyUsers($companyUsers)
+    public function setmoods($moods)
     {
-        $this->companyUsers = $companyUsers;
+        $this->moods = $moods;
+    }
+
+    /**
+     * @return array
+     */
+    public function getusers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param array $users
+     */
+    public function setusers($users)
+    {
+        $this->users = $users;
     }
 
     /**

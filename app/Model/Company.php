@@ -23,14 +23,7 @@ class Company extends Model
         return Company::find($companyid);
     }
 
-    public static function getThisCompanyManagerAction($companyid)
-    {
-        $manager = User::all()->where('company_id', '=' ,$companyid )
-            ->where('is_manager' , '=' , true);
-        dd($manager);
 
-        return  $manager;
-    }
 
     public static function listAllCompaniesAction()
     {
@@ -38,15 +31,7 @@ class Company extends Model
         return $companies;
     }
 
-    /**
-     * @param $companyId
-     * @return array static
-     */
-    public static function getThisCompanyMembersAction($companyId)
-    {
-        $users = User::all()->where('company_id', '=', $companyId);
-        return $users;
-    }
+
 
     public static function updateCompanyAction($companyId, $name, $logo)
     {
