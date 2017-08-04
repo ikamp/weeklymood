@@ -86,14 +86,7 @@ class User extends Model  implements Authenticatable
         return $user;
     }
 
-    /**
-     * @param $userid
-     * @return \Illuminate\Database\Eloquent\Collection|Model|null|static|static[]
-     */
-    public static function getUserByIdAction($userid)
-    {
-        return User::find($userid);
-    }
+
 
     /**
      * @param $userid
@@ -133,14 +126,6 @@ class User extends Model  implements Authenticatable
         $user->is_manager = $isManager;
     }
 
-    /**
-     * @param User $user
-     * Delete This User!
-     */
-    public static function destroyThisUserById(User $user)
-    {
-        User::delete();
-    }
 
     /**
      * @param User $user

@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Manager\UserManager;
 use App\Model\Department;
 use App\Model\Mood;
 use App\Model\User;
@@ -17,10 +18,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = ['status'=>Auth::check(),
-                 'id'=>Auth::user()->getAuthIdentifier()
-                ];
-        return response()->json($user);
+        $user = UserManager::mapper(22);
+        return response()->json($user->getNameWithSurname());
     }
 
     /**
