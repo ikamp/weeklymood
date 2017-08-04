@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Manager\CompanyManager;
 use App\Model\Company;
 use App\Model\User;
+use App\Entity\companyEntity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
 class CompanyController extends Controller
 {
     /**
@@ -16,7 +16,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-
+        $company = CompanyManager::mapper(Company::getCompanyByIdAction(1));
+        dd($company->getCompanyUsers());
     }
 
     /**

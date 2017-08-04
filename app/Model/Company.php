@@ -38,9 +38,22 @@ class Company extends Model
         return $companies;
     }
 
+    /**
+     * @param $companyId
+     * @return array static
+     */
     public static function getThisCompanyMembersAction($companyId)
     {
         $users = User::all()->where('company_id', '=', $companyId);
         return $users;
+    }
+
+    public static function updateCompanyAction($companyId, $name, $logo)
+    {
+        $_company = Company::getCompanyByIdAction($companyId);
+        $_company->name = $name;
+        $_company->logo = $logo;
+        $_company->save();
+
     }
 }
