@@ -16,8 +16,6 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $company = CompanyManager::mapper(Company::getCompanyByIdAction(2));
-        dd($company->getusers());
 
     }
 
@@ -97,10 +95,12 @@ class CompanyController extends Controller
     {
         $userId = Auth::user()->getAuthIdentifier();
         $userCompanyID = User::getThisUserCompanyAction($userId)->id;
+
         if ($userCompanyID == $companyId)
         {
-            $members = Company::getThisCompanyMembersAction($companyId);
-            return response()->json($members);
+            $company = CompanyManager::mapper(Company::getCompanyByIdAction($companyId));
+
+            return response()->json($company->getusers());
         }
         return response()->json(401);
     }
