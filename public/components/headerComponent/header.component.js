@@ -3,9 +3,9 @@
  */
 angular.module('weeklyMood')
     .component('headerComponent',{
-        controller: headerComponent,
+        controller: headerController,
         templateUrl:'components/headerComponent/header.html'
     });
-function headerComponent($scope,$rootScope) {
+function headerController($scope,$rootScope) {
     $scope.title = "WeeklyMood";
 }
