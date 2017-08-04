@@ -2,6 +2,7 @@ angular.module('weeklyMood')
     .factory('DataService',dataService);
 
 function dataService($http) {
+    'use strict';
     return {
         listCompanyUsers: listCompanyUsers,
         listDepartmentUsers: listDepartmentUsers,
@@ -10,7 +11,9 @@ function dataService($http) {
         showWeeklyAnalysis: showWeeklyAnalysis,
         showMonthlyAnalysis: showMonthlyAnalysis,
         selectYourMood: selectYourMood,
-        activateYourAccount:activateYourAccount
+        activateYourAccount: activateYourAccount,
+        login: login,
+        init: init
     };
     
     function listCompanyUsers(companyId, callback, errorCallback) {
@@ -96,6 +99,26 @@ function dataService($http) {
             url: 'https://jsonplaceholder.typicode.com/activate-your-account/' + userId // '/api//activate-your-account'
         }).then(function (response) {
             callback && callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+
+    function login(user, callback, errorCallback) {
+        $http.post('/api/login', {email: user.email, password: user.password})
+        .then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+
+    function init(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/init'
+        }).then(function (response) {
+            callback(response.data);
         }, function (error) {
             errorCallback &&  errorCallback(error);
         });

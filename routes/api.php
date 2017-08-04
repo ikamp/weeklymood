@@ -23,10 +23,10 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::resource('tag','TagController');
     Route::resource('mood','MoodContent');
     Route::resource('company','CompanyController');
+    Route::get('/init', 'HomeController@init');
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-

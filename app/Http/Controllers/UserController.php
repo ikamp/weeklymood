@@ -19,8 +19,9 @@ class UserController extends Controller
     {
 
         $user  = ['status' =>  auth()->check(),
-                    'userId' => auth()->user()->getAuthIdentifier(),
-                    'user' => User::getUserByIdAction(1)];
+                  'userId' => auth()->user()->getAuthIdentifier(),
+                  'user' => User::getUserByIdAction(1)];
+                  Auth::logout();
 
         return response()->json($user);
     }

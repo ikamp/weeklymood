@@ -1,13 +1,13 @@
-<div class="col-md-4 col-md-offset-4 login-border">
+<div ng-controller="LoginController" class="col-md-4 col-md-offset-4 login-border">
     <h2 class="fontletter">Login</h2>
     <form name="form" ng-submit="" role="form">
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.username.$dirty && form.username.$error.required }">
-            <label for="username"></label>
+        <div class="form-group register-input-width" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+            <label for="email"></label>
             <div class="input-group input-group-lg">
             <span class="input-group-addon" id="sizing-addon1" ><span class="glyphicon glyphicon-user icons-color"></span></span>
-            <input type="text" name="username" id="username" placeholder="Username" class="form-control" ng-model="user.username" required />
+            <input type="text" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email" required />
             </div>
-            <span ng-show="form.username.$dirty && form.username.$error.required" class="help-block">Username is required</span>
+            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">Email is required</span>
 
         </div>
         <div class="form-group register-input-width" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
@@ -20,7 +20,7 @@
 
         </div>
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn login-btn">Login</button>
+            <button type="submit" ng-click="login(user)" ng-disabled="form.$invalid || vm.dataLoading" class="btn login-btn">Login</button>
             <img ng-if="loading" src=""/>
             <a href="#/register" class="btn btn-link">Register</a>
         </div>

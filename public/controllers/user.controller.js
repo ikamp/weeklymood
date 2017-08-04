@@ -1,6 +1,5 @@
 angular.module('weeklyMood')
-    .controller('EmployeeController',employeeController);
+    .controller('UserController',userController);
 
-function employeeController($scope, DataService) {
-
+function userController($scope, $routeParams, DataService) {
 }
