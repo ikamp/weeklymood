@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Manager\CompanyManager;
+use App\Manager\UserManager;
 use App\Model\Company;
 use App\Model\User;
 use App\Entity\companyEntity;
@@ -16,7 +17,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-
+        $id = Auth::id();
+        $company = User::getThisUserCompanyAction($id);
+        return response()->json($company);
     }
 
     /**
@@ -95,6 +98,7 @@ class CompanyController extends Controller
     {
         $userId = Auth::user()->getAuthIdentifier();
         $userCompanyID = User::getThisUserCompanyAction($userId)->id;
+        \auth()->logout();
 
         if ($userCompanyID == $companyId)
         {

@@ -48,4 +48,13 @@ class CompanyManager
         return  $manager;
     }
 
+    public static function createNewCompanyAction($name, $logo)
+    {
+        $company = new Company();
+        $company->name = $name;
+        $company->logo = $logo;
+        $company->save();
+        return $company;
+    }
+
 }

@@ -18,8 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = UserManager::mapper(22);
-        return response()->json($user->getNameWithSurname());
+
+        //        $user = UserManager::mapper(22);
+        //        return response()->json($user->getNameWithSurname());
     }
 
     /**
@@ -54,6 +55,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
 
+        $name = $request->name;
+        $surname = $request->surname;
+        $email = $request->email;
+        $password = $request->password;
+        $avatar = $request->avatar;
+        $position = $request->position;
+        $companyName = $request->companyName;
+        $companyLogo =$request->companyLogo;
+        $user = UserManager::createNewManagerAction(
+            $name,
+            $surname,
+            $email,
+            $password,
+            $position,
+            $avatar,
+            $companyName,
+            $companyLogo);
+        return response()->json($user->getNameWithSurname());
     }
 
     /**

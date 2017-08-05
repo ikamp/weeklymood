@@ -86,17 +86,7 @@ class User extends Model  implements Authenticatable
         return $user;
     }
 
-    /**
-     * @param $userid
-     * @return \Illuminate\Database\Eloquent\Collection|Model|null|static|static[]
-     */
-    public static function getThisUserCompanyAction($userid)
-    {
-        $user = self::getUserByIdAction($userid);
-        $companyid = $user->company_id;
-        $company = Company::getCompanyByIdAction($companyid);
-        return $company;
-    }
+
 
     /**
      * @param User $user
