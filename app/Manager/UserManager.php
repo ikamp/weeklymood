@@ -2,6 +2,7 @@
 namespace App\Manager;
 
 use App\Entity\UserEntity;
+use App\Model\Company;
 use App\Model\User;
 
 class UserManager
@@ -28,11 +29,55 @@ class UserManager
         return $user;
     }
 
-
-
+    /**
+     * @param $userId
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static|static[]
+     */
     protected static function getUserByIdAction($userId)
     {
         return User::find($userId);
     }
 
+    /**
+     * @param $userId
+     * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static|static[]
+     */
+    public static function getUserCompanyAction($userId)
+    {
+        $user = self::getUserByIdAction($userId);
+        $companyid = $user->company_id;
+        $company = Company::getCompanyByIdAction($companyid);
+        return $company;
+    }
+
+    public static function getUserMoodsAction()
+    {
+
+    }
+
+    public static function createNewManagerAction(
+        $name,
+        $surname,
+        $email,
+        $password,
+        $position,
+        $avatar,
+        $companyName,
+        $companyLogo )
+    {
+        $user = new User();
+        $user->is_manager = true;
+        $user->department_id = 1;
+        $user->is_active = false;
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->email = $email;
+        $user->password = $password;
+        $user->position = $position;
+        $user->avatar = $avatar;
+        $company = CompanyManager::createNewCompanyAction($companyName, $companyLogo);
+        $user->company_id = $company->id;
+        $user->save();
+        return self::mapper($user->id);
+    }
 }

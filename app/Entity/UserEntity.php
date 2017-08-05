@@ -252,20 +252,32 @@ class UserEntity
 
     }
 
+    /**
+     * @return string
+     */
     public function getNameWithSurname()
     {
         return $this->getName().' '.$this->getSurname();
     }
 
+    /**
+     * Return user company
+     * @return Company
+     */
     public function getUserCompany()
     {
-        Company::getCompanyByIdAction($this->getCompanyId());
+        return Company::getCompanyByIdAction($this->getCompanyId());
+
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     */
     public static function destroyThisUserAction($id)
     {
         User::destroy($id);
+        return response()->json("deleted");
     }
 
 }
-
