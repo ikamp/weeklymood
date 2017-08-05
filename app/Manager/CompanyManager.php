@@ -18,11 +18,11 @@ class CompanyManager
         return $company;
     }
 
-    /**
+      /**
      * @param $companyId
      * @return array static
      */
-    protected static function getThisCompanyMembersAction($companyId)
+    public static function getThisCompanyMembersAction($companyId)
     {
         $usersMapped = [];
         $i = 0;
@@ -40,7 +40,7 @@ class CompanyManager
         return $usersMapped;
     }
 
-    protected static function getThisCompanyManagerAction($companyId)
+    public static function getThisCompanyManagerAction($companyId)
     {
         $manager = User::all()
             ->where('company_id', '=' ,$companyId )

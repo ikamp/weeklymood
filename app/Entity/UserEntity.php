@@ -1,9 +1,14 @@
 <?php
 
-namespace Entity;
+namespace App\Entity;
+use App\Manager\CompanyManager;
+use App\Manager\UserManager;
+use App\Model\Company;
+use App\Model\User;
 
-class User
+class UserEntity
 {
+    private $id;
     private $name;
     private $surname;
     private $email;
@@ -14,12 +19,76 @@ class User
     private $companyId;
     private $isManager;
     private $isActive;
+    private $moods = [];
+    private $average;
+    private $Comments = [];
 
-    /** @var \Entity\Department */
-    private $department = null;
+    /**
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param integer $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMoods()
+    {
+        return $this->moods;
+    }
+
+    /**
+     * @param array $moods
+     */
+    public function setMoods($moods)
+    {
+        $this->moods = $moods;
+    }
 
     /**
      * @return mixed
+     */
+    public function getAverage()
+    {
+        return $this->average;
+    }
+
+    /**
+     * @param mixed $average
+     */
+    public function setAverage($average)
+    {
+        $this->average = $average;
+    }
+
+    /**
+     * @return array
+     */
+    public function getComments()
+    {
+        return $this->Comments;
+    }
+
+    /**
+     * @param array $Comments
+     */
+    public function setComments($Comments)
+    {
+        $this->Comments = $Comments;
+    }
+
+    /**
+     * @return string
      */
     public function getName()
     {
@@ -27,7 +96,7 @@ class User
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -35,7 +104,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getSurname()
     {
@@ -43,7 +112,7 @@ class User
     }
 
     /**
-     * @param mixed $surname
+     * @param string $surname
      */
     public function setSurname($surname)
     {
@@ -51,7 +120,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmail()
     {
@@ -59,7 +128,7 @@ class User
     }
 
     /**
-     * @param mixed $email
+     * @param string $email
      */
     public function setEmail($email)
     {
@@ -67,7 +136,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPassword()
     {
@@ -75,7 +144,7 @@ class User
     }
 
     /**
-     * @param mixed $password
+     * @param string $password
      */
     public function setPassword($password)
     {
@@ -83,7 +152,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getPosition()
     {
@@ -91,7 +160,7 @@ class User
     }
 
     /**
-     * @param mixed $position
+     * @param string $position
      */
     public function setPosition($position)
     {
@@ -99,7 +168,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getAvatar()
     {
@@ -107,7 +176,7 @@ class User
     }
 
     /**
-     * @param mixed $avatar
+     * @param string $avatar
      */
     public function setAvatar($avatar)
     {
@@ -115,7 +184,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getDepartmentId()
     {
@@ -123,7 +192,7 @@ class User
     }
 
     /**
-     * @param mixed $departmentId
+     * @param integer $departmentId
      */
     public function setDepartmentId($departmentId)
     {
@@ -131,7 +200,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return integer
      */
     public function getCompanyId()
     {
@@ -139,7 +208,7 @@ class User
     }
 
     /**
-     * @param mixed $companyId
+     * @param integer $companyId
      */
     public function setCompanyId($companyId)
     {
@@ -147,7 +216,7 @@ class User
     }
 
     /**
-     * @return mixed
+     * @return boolean
      */
     public function getIsManager()
     {
@@ -155,37 +224,48 @@ class User
     }
 
     /**
-     * @param mixed $isManager
+     * @param boolean $isManager
      */
     public function setIsManager($isManager)
     {
         $this->isManager = $isManager;
     }
 
+    /**
+     * @return boolean
+     */
     public function getIsActive()
     {
         return $this->isActive;
     }
 
+    /**
+     * @param boolean $isActive
+     */
     public function setIsActive($isActive)
     {
         $this->isActive = $isActive;
     }
 
-    /**
-     * @return Department
-     */
-    public function getDepartment()
+    public function saveThisUserAction()
     {
-        return $this->department;
+
     }
 
-    /**
-     * @param Department $department
-     */
-    public function setDepartment($department)
+    public function getNameWithSurname()
     {
-        $this->department = $department;
+        return $this->getName().' '.$this->getSurname();
     }
+
+    public function getUserCompany()
+    {
+        Company::getCompanyByIdAction($this->getCompanyId());
+    }
+
+    public static function destroyThisUserAction($id)
+    {
+        User::destroy($id);
+    }
+
 }
 
