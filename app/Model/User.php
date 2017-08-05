@@ -49,7 +49,6 @@ class User extends Model  implements Authenticatable
         return User::all();
     }
 
-
     /**
      * @param $name string
      * @param $surname string
@@ -87,42 +86,32 @@ class User extends Model  implements Authenticatable
         return $user;
     }
 
-    /**
-     * @param $userid
-     * @return \Illuminate\Database\Eloquent\Collection|Model|null|static|static[]
-     */
-    public static function getUserByIdAction($userid)
-    {
-        return User::find($userid);
-    }
 
-    /**
-     * @param $userid
-     * @return \Illuminate\Database\Eloquent\Collection|Model|null|static|static[]
-     */
-    public static function getThisUserCompanyAction($userid)
-    {
-        $user = self::getUserByIdAction($userid);
-        $companyid = $user->company_id;
-        $company = Company::getCompanyByIdAction($companyid);
-        return $company;
-    }
 
     /**
      * @param User $user
      */
-    public static function updateThisUserAction(User $user)
+    public static function updateThisUserAction(
+       User $user,
+        $name,
+        $surname,
+        $email,
+        $password,
+        $position,
+        $avatar,
+        $departmentId,
+        $companyId,
+        $isManager)
     {
-
-    }
-
-    /**
-     * @param User $user
-     * Delete This User!
-     */
-    public static function destroyThisUserById(User $user)
-    {
-        User::delete();
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->email = $email;
+        $user->password = $password;
+        $user->position = $position;
+        $user->avatar = $avatar;
+        $user->department_id = $departmentId;
+        $user->company_id = $companyId;
+        $user->is_manager = $isManager;
     }
 
     /**
@@ -133,6 +122,5 @@ class User extends Model  implements Authenticatable
     {
         $user->save();
     }
-
 
 }

@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Manager\CompanyManager;
+use App\Manager\UserManager;
+use App\Model\Company;
+use App\Model\User;
+use App\Entity\companyEntity;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 class CompanyController extends Controller
 {
     /**
@@ -13,7 +17,9 @@ class CompanyController extends Controller
      */
     public function index()
     {
-
+        $id = Auth::id();
+        $company = User::getThisUserCompanyAction($id);
+        return response()->json($company);
     }
 
     /**
@@ -45,7 +51,9 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        //
+        $company = CompanyManager::mapper(Company::getCompanyByIdAction($id));
+
+        return response()->json($company->getName());
     }
 
     /**
@@ -80,6 +88,25 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param $companyId integer
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function companyUsers($companyId)
+    {
+        $userId = Auth::user()->getAuthIdentifier();
+        $userCompanyID = User::getThisUserCompanyAction($userId)->id;
+        \auth()->logout();
+
+        if ($userCompanyID == $companyId)
+        {
+            $company = CompanyManager::mapper(Company::getCompanyByIdAction($companyId));
+
+            return response()->json($company->getusers());
+        }
+        return response()->json(401);
     }
 }
 

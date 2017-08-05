@@ -123,4 +123,10 @@ function dataService($http) {
             errorCallback &&  errorCallback(error);
         });
     }
+      function userRegister(data, callback) {
+        $http.post('/api/user', data)
+            .then(function (response) {
+                callback(response.data);
+            });
+    }
 }

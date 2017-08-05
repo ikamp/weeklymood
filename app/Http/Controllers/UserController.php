@@ -1,5 +1,6 @@
 <?php
 namespace App\Http\Controllers;
+use App\Manager\UserManager;
 use App\Model\Department;
 use App\Model\Mood;
 use App\Model\User;
@@ -57,7 +58,25 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $name = $request->name;
+        $surname = $request->surname;
+        $email = $request->email;
+        $password = $request->password;
+        $avatar = $request->avatar;
+        $position = $request->position;
+        $companyName = $request->companyName;
+        $companyLogo =$request->companyLogo;
+        $user = UserManager::createNewManagerAction(
+            $name,
+            $surname,
+            $email,
+            $password,
+            $position,
+            $avatar,
+            $companyName,
+            $companyLogo);
+        return response()->json($user->getNameWithSurname());
     }
 
     /**
@@ -69,8 +88,6 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::getUserByIdAction($id);
-
-        dd($user);
         return response()->json($user);
     }
 
@@ -109,4 +126,3 @@ class UserController extends Controller
         return response()->json('Deleted This User');
     }
 }
-

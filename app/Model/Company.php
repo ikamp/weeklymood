@@ -23,14 +23,7 @@ class Company extends Model
         return Company::find($companyid);
     }
 
-    public static function getThisCompanyManagerAction($companyid)
-    {
-        $manager = User::all()->where('company_id', '=' ,$companyid )
-            ->where('is_manager' , '=' , true);
-        dd($manager);
 
-        return  $manager;
-    }
 
     public static function listAllCompaniesAction()
     {
@@ -38,9 +31,14 @@ class Company extends Model
         return $companies;
     }
 
-    public static function getThisCompanyMembersAction($companyId)
+
+
+    public static function updateCompanyAction($companyId, $name, $logo)
     {
-        $users = User::all()->where('company_id', '=', $companyId);
-        return $users;
+        $_company = Company::getCompanyByIdAction($companyId);
+        $_company->name = $name;
+        $_company->logo = $logo;
+        $_company->save();
+
     }
 }
