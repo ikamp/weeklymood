@@ -10,8 +10,9 @@ function dataService($http) {
         showWeeklyAnalysis: showWeeklyAnalysis,
         showMonthlyAnalysis: showMonthlyAnalysis,
         selectYourMood: selectYourMood,
-        activateYourAccount:activateYourAccount,
-        userRegister:userRegister
+        activateYourAccount: activateYourAccount,
+        login: login,
+        init: init
     };
     
     function listCompanyUsers(companyId, callback, errorCallback) {
@@ -101,7 +102,27 @@ function dataService($http) {
             errorCallback &&  errorCallback(error);
         });
     }
-    function userRegister(data, callback) {
+
+    function login(user, callback, errorCallback) {
+        $http.post('/api/login', {email: user.email, password: user.password})
+        .then(function (response) {
+            callback && callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+
+    function init(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/init'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback &&  errorCallback(error);
+        });
+    }
+      function userRegister(data, callback) {
         $http.post('/api/user', data)
             .then(function (response) {
                 callback(response.data);

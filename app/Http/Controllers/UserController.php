@@ -18,9 +18,12 @@ class UserController extends Controller
      */
     public function index()
     {
+        $user  = ['status' =>  auth()->check(),
+                  'userId' => auth()->user()->getAuthIdentifier(),
+                  'user' => User::getUserByIdAction(1)];
+                  Auth::logout();
 
-        //        $user = UserManager::mapper(22);
-        //        return response()->json($user->getNameWithSurname());
+        return response()->json($user);
     }
 
     /**
@@ -54,7 +57,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $name = $request->name;
         $surname = $request->surname;
         $email = $request->email;
@@ -95,7 +97,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
@@ -122,4 +124,3 @@ class UserController extends Controller
         return response()->json('Deleted This User');
     }
 }
-

@@ -32,4 +32,13 @@ angular.module('weeklyMood', ['ngRoute'])
             .otherwise({
                 redirectTo: '/login'
             });
-    });
+    })
+    .run(function(DataService) {
+        DataService.init(function (response) {
+            $rootScope.user = response;
+            if ($rootScope.user != null) {
+                $location.path('/dashboard')
+            }
+        });
+    })
+;
