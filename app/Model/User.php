@@ -86,8 +86,6 @@ class User extends Model  implements Authenticatable
         return $user;
     }
 
-
-
     /**
      * @param $userid
      * @return \Illuminate\Database\Eloquent\Collection|Model|null|static|static[]
@@ -125,7 +123,6 @@ class User extends Model  implements Authenticatable
         $user->company_id = $companyId;
         $user->is_manager = $isManager;
     }
-
 
     /**
      * @param User $user
