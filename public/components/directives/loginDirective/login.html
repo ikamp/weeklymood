@@ -1,3 +1,4 @@
+<header-component></header-component>
 <div class="col-md-4 col-md-offset-4 login-border">
     <h2 class="fontletter">Login</h2>
     <form name="form" ng-submit="" role="form">
@@ -20,7 +21,7 @@
 
         </div>
         <div class="form-actions">
-            <button type="submit" ng-disabled="form.$invalid || vm.dataLoading" class="btn login-btn">Login</button>
+            <button href="#/dashboard" type="submit" class="btn login-btn">Login</button>
             <img ng-if="loading" src=""/>
             <a href="#/register" class="btn btn-link">Register</a>
         </div>

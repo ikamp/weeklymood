@@ -6,9 +6,6 @@ angular.module('weeklyMood', ['ngRoute'])
                 // controller: 'HomeController'
                 templateUrl: '../views/firstpage.view.html'
             })
-            .when('/loginpage',{
-                templateUrl:'../views/loginpage.view.html'
-            })
 
             .when('/login', {
                 controller: 'LoginController',
