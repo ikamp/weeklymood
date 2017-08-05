@@ -18,7 +18,6 @@ class UserController extends Controller
      */
     public function index()
     {
-
         $user  = ['status' =>  auth()->check(),
                   'userId' => auth()->user()->getAuthIdentifier(),
                   'user' => User::getUserByIdAction(1)];
@@ -58,7 +57,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $name = $request->name;
         $surname = $request->surname;
         $email = $request->email;
@@ -99,7 +97,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**
