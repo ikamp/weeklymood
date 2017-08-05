@@ -2,7 +2,6 @@ angular.module('weeklyMood')
     .factory('DataService',dataService);
 
 function dataService($http) {
-    'use strict';
     return {
         listCompanyUsers: listCompanyUsers,
         listDepartmentUsers: listDepartmentUsers,
