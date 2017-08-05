@@ -1,5 +1,6 @@
 <header-component></header-component>
-<div class="col-md-4 col-md-offset-4 register-border">
+<div ng-controller="RegisterController" class="col-md-4 col-md-offset-4 register-border">
+
     <h2>Register Page</h2>
     <form name="form" ng-submit="" role="form">
         <div class="form-group register-input-width" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
@@ -48,7 +49,7 @@
         </div>
 
         <div class="form-actions">
-            <button href="#/dashboard" type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary register-btn">Register</button>
+            <button  ng-click="registerUser()" type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary register-btn">Register</button>
             <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
         </div>
         <h4 class="label-have-account">Have an acount?<a href="#/login" class="btn btn-link cancel-btn">Sign in</a></h4>

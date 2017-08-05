@@ -10,7 +10,8 @@ function dataService($http) {
         showWeeklyAnalysis: showWeeklyAnalysis,
         showMonthlyAnalysis: showMonthlyAnalysis,
         selectYourMood: selectYourMood,
-        activateYourAccount:activateYourAccount
+        activateYourAccount:activateYourAccount,
+        userRegister:userRegister
     };
     
     function listCompanyUsers(companyId, callback, errorCallback) {
@@ -99,5 +100,11 @@ function dataService($http) {
         }, function (error) {
             errorCallback &&  errorCallback(error);
         });
+    }
+    function userRegister(data, callback) {
+        $http.post('/api/user', data)
+            .then(function (response) {
+                callback(response.data);
+            });
     }
 }
