@@ -1,58 +1,77 @@
-<div ng-controller="UserController" class="col-md-4 col-md-offset-4 register-border">
 <header-component></header-component>
 <div ng-controller="RegisterController" class="col-md-4 col-md-offset-4 register-border">
 
     <h2>Register Page</h2>
     <form name="form" ng-submit="" role="form">
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
             <label for="firstName"></label>
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon1" ><span class="glyphicon glyphicon-user icons-color"></span></span>
-            <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control" ng-model="user.firstName" required />
+                    <span class="input-group-addon" id="sizing-addon1"><span
+                            class="glyphicon glyphicon-user icons-color"></span></span>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control"
+                       ng-model="user.firstName" required/>
             </div>
             <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
         </div>
 
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
             <label for="lastName"></label>
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon2" ><span class="glyphicon glyphicon-user icons-color"></span></span>
-            <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control" ng-model="user.lastName" required />
+                    <span class="input-group-addon" id="sizing-addon2"><span
+                            class="glyphicon glyphicon-user icons-color"></span></span>
+                <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control"
+                       ng-model="user.lastName" required/>
             </div>
             <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
         </div>
 
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
             <label for="email"></label>
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon3" ><span class="glyphicon glyphicon-envelope icons-color"></span></span>
-            <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email" required />
+                    <span class="input-group-addon" id="sizing-addon3"><span
+                            class="glyphicon glyphicon-envelope icons-color"></span></span>
+                <input type="email" name="email" id="email" placeholder="Email" class="form-control"
+                       ng-model="user.email" required/>
             </div>
-            <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">E-mail is required</span>
+            <span ng-show="form.email.$dirty && form.email.$error.required"
+                  class="help-block">E-mail is required</span>
         </div>
 
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password"></label>
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon4" ><span class="glyphicon glyphicon-asterisk icons-color"></span></span>
-            <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password" required />
+                    <span class="input-group-addon" id="sizing-addon4"><span
+                            class="glyphicon glyphicon-asterisk icons-color"></span></span>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                       ng-model="user.password" required/>
             </div>
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">Password is required</span>
         </div>
 
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.companyName.$dirty && form.companyName.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.companyName.$dirty && form.companyName.$error.required }">
             <label for="companyName"></label>
             <div class="input-group input-group-lg">
-                <span class="input-group-addon" id="sizing-addon5" ><span class="glyphicon glyphicon-briefcase icons-color"></span></span>
-            <input type="text" name="companyName" id="companyName" placeholder="Company Name" class="form-control" ng-model="user.companyName" required />
+                    <span class="input-group-addon" id="sizing-addon5"><span
+                            class="glyphicon glyphicon-briefcase icons-color"></span></span>
+                <input type="text" name="companyName" id="companyName" placeholder="Company Name"
+                       class="form-control" ng-model="user.companyName" required/>
             </div>
             <span ng-show="form.companyName.$dirty && form.companyName.$error.required" class="help-block">Company name is required</span>
         </div>
 
         <div class="form-actions">
-            <button  ng-click="registerUser()" type="submit" ng-disabled="form.$invalid || dataLoading" class="btn btn-primary register-btn">Register</button>
-            <img ng-if="dataLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <button ng-click="registerUser()" type="submit" ng-disabled="form.$invalid || dataLoading"
+                    class="btn btn-primary register-btn">Register
+            </button>
+            <img ng-if="dataLoading"
+                 src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
         </div>
-        <h4 class="label-have-account">Have an acount?<a href="#/login" class="btn btn-link cancel-btn">Sign in</a></h4>
+        <h4 class="label-have-account">Have an acount?<a href="#/login" class="btn btn-link cancel-btn">Sign in</a>
+        </h4>
     </form>
 </div>

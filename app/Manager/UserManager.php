@@ -3,6 +3,7 @@ namespace App\Manager;
 
 use App\Entity\UserEntity;
 use App\Model\Company;
+use App\Model\Registration;
 use App\Model\User;
 
 class UserManager
@@ -52,7 +53,7 @@ class UserManager
 
     public static function getUserMoodsAction()
     {
-
+        //
     }
 
     public static function createNewManagerAction(
@@ -60,24 +61,23 @@ class UserManager
         $surname,
         $email,
         $password,
-        $position,
-        $avatar,
         $companyName,
-        $companyLogo )
+        $companyLogo)
     {
         $user = new User();
         $user->is_manager = true;
-        $user->department_id = 1;
+        $user->department_id = null;
         $user->is_active = false;
         $user->name = $name;
         $user->surname = $surname;
         $user->email = $email;
         $user->password = bcrypt($password);
-        $user->position = $position;
-        $user->avatar = $avatar;
+        $user->position = null;
+        $user->avatar = null;
         $company = CompanyManager::createNewCompanyAction($companyName, $companyLogo);
         $user->company_id = $company->id;
         $user->save();
+        Registration::createNewToken($user->id);
         return self::mapper($user->id);
     }
 }
