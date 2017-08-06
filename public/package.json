@@ -9,27 +9,27 @@
   "repository": {
     "type": "git",
     "url": "",
-  "keywords": [
-    "angularjs",
-    "boilerplate"
-  ],
-  "author": "Yalcin Tatar,Burak Olgun,Busra Gumusel",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate/issues"
-  },
-  "homepage": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate#readme",
-  "dependencies": {
-    "angular-route": "^1.6.5",
-    "eslint": "^4.3.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.18.13",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-csso": "^3.0.0",
-    "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0"
-  }
+    "keywords": [
+      "angularjs",
+      "boilerplate"
+    ],
+    "author": "Yalcin Tatar,Burak Olgun,Busra Gumusel",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate/issues"
+    },
+    "homepage": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate#readme",
+    "dependencies": {
+      "angular-route": "^1.6.5",
+      "eslint": "^4.3.0"
+    },
+    "devDependencies": {
+      "browser-sync": "^2.18.13",
+      "gulp": "^3.9.1",
+      "gulp-concat": "^2.6.1",
+      "gulp-csso": "^3.0.0",
+      "gulp-sass": "^3.1.0",
+      "gulp-uglify": "^3.0.0"
+    }
   }
 }
