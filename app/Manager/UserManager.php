@@ -72,7 +72,7 @@ class UserManager
         $user->name = $name;
         $user->surname = $surname;
         $user->email = $email;
-        $user->password = $password;
+        $user->password = bcrypt($password);
         $user->position = $position;
         $user->avatar = $avatar;
         $company = CompanyManager::createNewCompanyAction($companyName, $companyLogo);
