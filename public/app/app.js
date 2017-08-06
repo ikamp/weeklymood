@@ -33,11 +33,11 @@ angular.module('weeklyMood', ['ngRoute'])
                 redirectTo: '/login'
             });
     })
-    .run(function(DataService) {
+    .run(function(DataService, $rootScope, $location) {
         DataService.init(function (response) {
             $rootScope.user = response;
-            if ($rootScope.user != null) {
-                $location.path('/dashboard')
+            if ($rootScope.user !== null) {
+                $location.path('/dashboard');
             }
         });
     })

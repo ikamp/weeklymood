@@ -31,8 +31,7 @@ class UserController extends Controller
      */
     public function create(Request $request)
     {
-        if ($request->isManager != null)
-        {
+        if ($request->isManager != true) {
             User::createNewUserAction(
                 $request->name,
                 $request->surname,
@@ -42,7 +41,7 @@ class UserController extends Controller
                 $request->avatar,
                 $request->departmentId,
                 $request->companyId,
-                $request->isManager );
+                $request->isManager);
         }
         return response()->json("User Created");
     }
@@ -55,7 +54,6 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-
         $name = $request->name;
         $surname = $request->surname;
         $email = $request->email;
@@ -63,14 +61,12 @@ class UserController extends Controller
         $avatar = $request->avatar;
         $position = $request->position;
         $companyName = $request->companyName;
-        $companyLogo =$request->companyLogo;
+        $companyLogo = $request->companyLogo;
         $user = UserManager::createNewManagerAction(
             $name,
             $surname,
             $email,
             $password,
-            $position,
-            $avatar,
             $companyName,
             $companyLogo);
         return response()->json($user->getNameWithSurname());
@@ -96,7 +92,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-
+        //
     }
 
     /**

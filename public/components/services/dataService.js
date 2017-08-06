@@ -12,7 +12,8 @@ function dataService($http) {
         selectYourMood: selectYourMood,
         activateYourAccount: activateYourAccount,
         login: login,
-        init: init
+        init: init,
+        userRegister: userRegister
     };
     
     function listCompanyUsers(companyId, callback, errorCallback) {

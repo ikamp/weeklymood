@@ -21,7 +21,7 @@ class CreateUserTable extends Migration
             $table->string('password');
             $table->string('position')->nullable();
             $table->string('avatar')->nullable();
-            $table->integer('department_id');
+            $table->integer('department_id')->nullable();
             $table->integer('company_id');
             $table->boolean('is_manager');
             $table->boolean('is_active');

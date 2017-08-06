@@ -56,5 +56,4 @@ class CompanyManager
         $company->save();
         return $company;
     }
-
 }
