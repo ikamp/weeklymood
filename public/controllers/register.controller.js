@@ -6,7 +6,7 @@ function registerController($scope,$rootScope,$location,DataService) {
     $scope.user={};
     $rootScope.flag=false;
 
-    $scope.registerUser=function () {
+    $scope.userRegister=function () {
         DataService.userRegister($scope.user,function (response) {
             $location.path('/login');
         });
