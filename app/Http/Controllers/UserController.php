@@ -58,10 +58,10 @@ class UserController extends Controller
         $surname = $request->surname;
         $email = $request->email;
         $password = $request->password;
-        $avatar = $request->avatar;
-        $position = $request->position;
+        $avatar = "null";
+        $position = "null";
         $companyName = $request->companyName;
-        $companyLogo = $request->companyLogo;
+        $companyLogo = "null";
         $user = UserManager::createNewManagerAction(
             $name,
             $surname,
