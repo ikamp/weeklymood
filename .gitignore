@@ -7,3 +7,8 @@ public/hot
 storage/*.key
 Homestead.yaml
 Homestead.json
+
+# User-specific stuff:
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/dictionaries
