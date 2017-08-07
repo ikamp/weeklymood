@@ -20,20 +20,25 @@ angular.module('weeklyMood', ['ngRoute'])
                 controller: 'RegisterController',
                 templateUrl: '/components/directives/registerDirective/register.html'
             })
-            .when('/employee',{
-                controller:'EmployeeController',
-                templateUrl:'/components/directives/employeeDirective/employee.html'
+            .when('/employee', {
+                controller: 'EmployeeController',
+                templateUrl: '/components/directives/employeeDirective/employee.html'
             })
             .when('/password-reset', {
                 controller: 'PasswordResetController',
                 templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
             })
+            .when('/mymood', {
+                controller: 'MyMoodController',
+                templateUrl: '/components/directives/myMoodDirective/myMood.html'
+            })
+
 
             .otherwise({
                 redirectTo: '/login'
             });
     })
-    .run(function(DataService, $rootScope, $location) {
+    .run(function (DataService, $rootScope, $location) {
         DataService.init(function (response) {
             $rootScope.user = response;
             if ($rootScope.user !== null) {

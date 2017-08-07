@@ -29,6 +29,9 @@ $size :94px;
   background-color: #d2d2d2;
 
 }
+.row-margin-top{
+  margin-top: 50px;
+}
 .dashboard-areas{
   border-radius: 8px;
   width: 30%;
@@ -38,6 +41,30 @@ $size :94px;
   margin-left:30px;
   margin-top: 40px;
 
+}
+.panel-body h2,h3{
+  text-align: center;
+}
+.mymood-panel-header{
+  color: #2ab27b;
+}
+.mymood-panel-width{
+  width: 400px;
+  margin-left: 20px;
+}
+.mymood-graph-panel{
+  width: 450px;
+  margin-left: 25px;
+}
+.mymood-graph-panel-height{
+  height: 300px;
+}
+.mymood-panel-height{
+
+  height: 200px;
+}
+.mymood-areas{
+  height: 700px;
 }
 .dashboard-areas h3{
   text-align: center;
