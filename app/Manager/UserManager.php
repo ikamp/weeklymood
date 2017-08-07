@@ -5,6 +5,7 @@ use App\Entity\UserEntity;
 use App\Model\Company;
 use App\Model\Registration;
 use App\Model\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserManager
 {
@@ -77,7 +78,8 @@ class UserManager
         $company = CompanyManager::createNewCompanyAction($companyName, $companyLogo);
         $user->company_id = $company->id;
         $user->save();
-        Registration::createNewToken($user->id);
+        $token = Registration::createNewToken($user->id);
+        \Mail::to($user)->send(new \App\Mail\RegistrationMailService($user, $token));
         return self::mapper($user->id);
     }
 }

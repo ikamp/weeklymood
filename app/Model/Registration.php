@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class Registration extends Model
 {
@@ -22,11 +23,11 @@ class Registration extends Model
             ->first();
     }
 
-    public static function createNewToken($id)
+    public static function createNewToken($user_id)
     {
         $token = new Registration();
         $token->token = str_random(32);
-        $token->user_id = $id;
+        $token->user_id = $user_id;
         $token->expiration_time = Carbon::now()->addHours(8);
         $token->save();
         return $token;
