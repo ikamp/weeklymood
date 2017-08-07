@@ -7,12 +7,13 @@ use App\Model\User;
 
 class CompanyManager
 {
-    public static function mapper(Company $companyModel)
+    public static function mapper($companyId)
     {
+        $_company = self::getThisCompanyByIdAction($companyId);
         $company = new CompanyEntity();
-        $company->setId($companyModel->id);
-        $company->setName($companyModel->name);
-        $company->setLogo($companyModel->logo);
+        $company->setId($_company->id);
+        $company->setName($_company->name);
+        $company->setLogo($_company->logo);
         $company->setUsers(self::getThisCompanyMembersAction($company->getId()));
         $company->setManager(self::getThisCompanyManagerAction($company->getId()));
         return $company;
@@ -25,8 +26,7 @@ class CompanyManager
     public static function getThisCompanyMembersAction($companyId)
     {
         $usersMapped = [];
-        $i = 0;
-        $users = User::all()->where('company_id', '=', $companyId);
+        $users = User::all()->where('company_id',$companyId);
         foreach ($users as $user)
         {
           $usersMapped[$user->name] = [
@@ -43,8 +43,8 @@ class CompanyManager
     public static function getThisCompanyManagerAction($companyId)
     {
         $manager = User::all()
-            ->where('company_id', '=' ,$companyId )
-            ->where('is_manager' , '=' , true);
+            ->where('company_id' ,$companyId )
+            ->where('is_manager' ,true);
         return  $manager;
     }
 
@@ -55,5 +55,10 @@ class CompanyManager
         $company->logo = $logo;
         $company->save();
         return $company;
+    }
+
+    public static function getThisCompanyByIdAction($companyId)
+    {
+        return Company::find($companyId);
     }
 }
