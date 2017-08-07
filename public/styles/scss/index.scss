@@ -4,7 +4,8 @@ $size :94px;
   background-color: #259d6d;
 }
 .header-main{
-  background-color: #ffe9e9;
+  background-color: #FFFFFF;
+  opacity: 0.7;
   height: $size;
   width: 100%;
 }
@@ -15,7 +16,7 @@ $size :94px;
   border:3px solid #ffffff;
   margin:100px;
   margin-left: 600px;
-  background-color: #ffe9e9;
+  background-color: #d2d2d2;
 
 }
 .register-border{
@@ -25,9 +26,24 @@ $size :94px;
   border:3px solid #ffffff;
   margin:100px;
   margin-left: 600px;
-  background-color: #ffe9e9;
+  background-color: #d2d2d2;
 
 }
+.dashboard-areas{
+  border-radius: 8px;
+  width: 30%;
+  height: 400px;
+  border:3px solid #080808;
+  background-color: #d2d2d2;
+  margin-left:30px;
+  margin-top: 40px;
+
+}
+.dashboard-areas h3{
+  text-align: center;
+  border-bottom:solid #000000;
+}
+
 .logo-config{
   margin-top: 10px;
   width: 150px;
@@ -53,8 +69,12 @@ $size :94px;
 }
 .register-image{
 
-  background: url("../../images/blur_bright_colors.jpg") no-repeat;
+  background: url("../../images/landscape.jpg") no-repeat;
   background-size:cover;
+}
+.sidebar-margin{
+  margin-top:0px;
+
 }
 .fontletter{
   font-family:Arial;
@@ -133,4 +153,5 @@ $size :94px;
 .table-color{
   background: white;
 }
+
 
