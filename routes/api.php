@@ -14,8 +14,8 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::resource('mood','MoodContent');
     Route::resource('company','CompanyController');
     Route::get('company/users/{companyId}', 'CompanyController@companyUsers');
+    Route::get('/init', 'HomeController@init');
 });
 
-Route::post('/register', 'UserController@store');
+Route::post('/register', 'RegisterController@store');
 Route::get('/logout', 'UserController@logout');
-
