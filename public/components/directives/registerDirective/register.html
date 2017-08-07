@@ -10,7 +10,7 @@
                     <span class="input-group-addon" id="sizing-addon1"><span
                             class="glyphicon glyphicon-user icons-color"></span></span>
                 <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control"
-                       ng-model="user.firstName" required/>
+                       ng-model="user.name" required/>
             </div>
             <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">First name is required</span>
         </div>
@@ -22,7 +22,7 @@
                     <span class="input-group-addon" id="sizing-addon2"><span
                             class="glyphicon glyphicon-user icons-color"></span></span>
                 <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control"
-                       ng-model="user.lastName" required/>
+                       ng-model="user.surname" required/>
             </div>
             <span ng-show="form.lastName.$dirty && form.lastName.$error.required" class="help-block">Last name is required</span>
         </div>
