@@ -17,5 +17,5 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::get('/init', 'HomeController@init');
 });
 
-Route::post('/register', 'RegisterController@store');
+Route::post('/register', 'UserController@store');
 Route::get('/logout', 'UserController@logout');
