@@ -44,3 +44,11 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+#Laravel
+/vendor
+/.idea
+/.vagrant
+Homestead.json
+Homestead.yaml
+
+
