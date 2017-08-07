@@ -124,7 +124,7 @@ function dataService($http) {
         });
     }
       function userRegister(data, callback) {
-        $http.post('/api/user', data)
+        $http.post('/api/register', data)
             .then(function (response) {
                 callback(response.data);
             });
