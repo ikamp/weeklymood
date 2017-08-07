@@ -20,9 +20,9 @@ angular.module('weeklyMood', ['ngRoute'])
                 controller: 'RegisterController',
                 templateUrl: '/components/directives/registerDirective/register.html'
             })
-            .when('/employee',{
-                controller:'EmployeeController',
-                templateUrl:'/components/directives/employeeDirective/employee.html'
+            .when('/employee', {
+                controller: 'EmployeeController',
+                templateUrl: '/components/directives/employeeDirective/employee.html'
             })
             .when('/password-reset', {
                 controller: 'PasswordResetController',
@@ -33,12 +33,11 @@ angular.module('weeklyMood', ['ngRoute'])
                 redirectTo: '/login'
             });
     })
-    .run(function(DataService, $rootScope, $location) {
+    .run(function (DataService, $rootScope, $location) {
         DataService.init(function (response) {
             $rootScope.user = response;
             if ($rootScope.user !== null) {
                 $location.path('/dashboard');
             }
         });
-    })
-;
+    });

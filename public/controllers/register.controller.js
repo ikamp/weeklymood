@@ -1,7 +1,7 @@
 angular.module('weeklyMood')
     .controller('RegisterController',registerController);
 
-function registerController($scope,$rootScope,$location,DataService) {
+function registerController($scope, $rootScope, $location, DataService) {
 
     $scope.user={};
     $rootScope.flag=false;
