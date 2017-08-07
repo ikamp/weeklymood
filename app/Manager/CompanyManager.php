@@ -42,9 +42,9 @@ class CompanyManager
 
     public static function getThisCompanyManagerAction($companyId)
     {
-        $manager = User::all()
-            ->where('company_id' ,$companyId )
-            ->where('is_manager' ,true);
+        $manager = User::where('company_id' ,$companyId )
+            ->where('is_manager' ,true)
+        ->first();
         return  $manager;
     }
 
@@ -60,5 +60,14 @@ class CompanyManager
     public static function getThisCompanyByIdAction($companyId)
     {
         return Company::find($companyId);
+    }
+
+    public static function listAllCompaniesNameAction($companyId)
+    {
+        $company = [];
+        $companies = Company::all();
+        foreach ($companies as $comp)
+        {
+        }
     }
 }

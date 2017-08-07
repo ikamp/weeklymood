@@ -20,7 +20,7 @@ class CompanyController extends Controller
         $id = Auth::id();
         $company = UserManager::mapper($id)->getCompanyId();
         $company = CompanyManager::mapper($company);
-        return response()->json($company);
+        return response()->json($company->getName());
     }
 
     /**

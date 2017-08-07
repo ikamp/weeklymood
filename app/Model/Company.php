@@ -25,11 +25,7 @@ class Company extends Model
 
 
 
-    public static function listAllCompaniesAction()
-    {
-        $companies = Company::all();
-        return $companies;
-    }
+
 
 
 
