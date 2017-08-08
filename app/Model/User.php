@@ -5,6 +5,7 @@ namespace App\Model;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Model  implements Authenticatable
 {
@@ -83,6 +84,8 @@ class User extends Model  implements Authenticatable
         $user->company_id = $companyId;
         $user->is_manager = $isManager;
         self::saveThisUserAction($user);
+        $token = Registration::createNewToken($user->id);
+        \Mail::to($user)->send(new \App\Mail\RegistrationMailService($user, $token));
         return $user;
     }
 
