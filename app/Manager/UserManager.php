@@ -3,6 +3,8 @@ namespace App\Manager;
 
 use App\Entity\UserEntity;
 use App\Model\Company;
+use App\Model\Mood;
+use App\Model\MoodContent;
 use App\Model\Registration;
 use App\Model\User;
 use Illuminate\Support\Facades\Auth;
@@ -28,6 +30,9 @@ class UserManager
         $user->setCompanyId($_user->company_id);
         $user->setIsManager($_user->is_manager);
         $user->setIsActive($_user->remember_token);
+        $user->setMoods(self::getUserMoodsAction($_user->id));
+        $user->setMoodAvg(floor(self::getUserMoodAvgAction($_user->id)));
+
         return $user;
     }
 
@@ -52,9 +57,25 @@ class UserManager
         return $company;
     }
 
-    public static function getUserMoodsAction()
+    public static function getUserMoodsAction($userId)
     {
-        //
+        $moods = [];
+        $moodContent = MoodContent::all()->where('user_id', $userId);
+        foreach ($moodContent as $item)
+        {
+            $moods[] += Mood::find($item->mood_id)->value;
+
+        }
+        return $moods;
+    }
+    public static function getUserMoodAvgAction($userId)
+    {
+        $moodAvg = 0;
+        $moods = self::getUserMoodsAction($userId);
+        if (count($moods) != 0) {
+            $moodAvg = array_sum($moods) / count($moods);
+        }
+        return $moodAvg;
     }
 
     public static function createNewManagerAction(
@@ -82,4 +103,6 @@ class UserManager
         \Mail::to($user)->send(new \App\Mail\RegistrationMailService($user, $token));
         return self::mapper($user->id);
     }
+
+
 }
