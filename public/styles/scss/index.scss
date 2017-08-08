@@ -34,6 +34,7 @@ $size :94px;
 .row-margin-top{
   margin-top: 50px;
 }
+
 .dashboard-areas{
   border-radius: 8px;
   width: 30%;
@@ -47,6 +48,7 @@ $size :94px;
 .panel-body h2,h3{
   text-align: center;
 }
+
 .mymood-panel-header{
   color: #2ab27b;
 }
@@ -66,8 +68,12 @@ $size :94px;
 }
 
 .mymood-panel-height{
-
   height: 200px;
+}
+
+.table-margin-top{
+  margin-top: 100px;
+  height: 750px;
 }
 
 .mymood-areas{
@@ -78,6 +84,7 @@ $size :94px;
   text-align: center;
   border-bottom:solid #000000;
 }
+
 .logo-config{
   margin-top: 10px;
   width: 150px;
@@ -106,14 +113,12 @@ $size :94px;
 }
 
 .register-image{
-
   background: url("../../images/landscape.jpg") no-repeat;
   background-size:cover;
 }
 
 .sidebar-margin{
   margin-top:0px;
-
 }
 
 .fontletter{
@@ -127,7 +132,6 @@ $size :94px;
   padding:5px 10px;
   margin-top:20px;
   margin-right: 10px;
-
 }
 
 .register-button-conf{
@@ -202,4 +206,6 @@ $size :94px;
   background: white;
 }
 
-
+#button-li{
+  margin-left: 10px;
+}
