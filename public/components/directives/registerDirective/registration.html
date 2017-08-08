@@ -1,0 +1,11 @@
+<header-component></header-component>
+<div ng-controller="RegistrationController" class="col-md-4 col-md-offset-4 register-border">
+    <form name="form" ng-submit="" role="form">
+        <div class="form-actions">
+            <button ng-click="registration()" type="submit" ng-disabled="form.$invalid || dataLoading"
+                    class="btn btn-primary register-btn">Activate
+            </button>
+        </div>
+        <a href="#/login" class="btn btn-link cancel-btn">Sign in</a>
+    </form>
+</div>

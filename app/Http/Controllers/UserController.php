@@ -1,8 +1,10 @@
 <?php
 namespace App\Http\Controllers;
+
 use App\Manager\UserManager;
 use App\Model\Department;
 use App\Model\Mood;
+use App\Model\Registration;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -126,5 +128,35 @@ class UserController extends Controller
     {
         auth()->logout();
         return response()->json('logout');
+    }
+
+    public function passwordReset(Request $request)
+    {
+        $email = $request->email;
+        $user = UserManager::getUserByEmailAction($email);
+        $newPassword = $request->newPassword;
+        $confirmNewPassword = $request->confirmNewPassword;
+        if ($newPassword === $confirmNewPassword) {
+            $password = bcrypt($newPassword);
+        }
+        $user->password = $password;
+        $user->save();
+    }
+
+    public function passwordResetMail(Request $request)
+    {
+        $email = $request->email;
+        $user = UserManager::getUserByEmailAction($email);
+        \Mail::to($user)->send(new \App\Mail\PasswordResetMailService($user));
+    }
+
+    public function registration(Request $request) {
+        $token = $request->token;
+        $userToken = Registration::getByUserId(Auth::id())->token;
+        $user = Auth::user();
+        if ($token === $userToken) {
+            $user->is_active = 'TRUE';
+            $user->save();
+        }
     }
 }

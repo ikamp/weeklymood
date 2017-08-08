@@ -12,8 +12,8 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class RegistrationMailService extends Mailable
 {
     use Queueable, SerializesModels;
-        public $user;
-        public $registration;
+    public $user;
+    public $registration;
 
     /**
      * Create a new message instance.
@@ -33,16 +33,17 @@ class RegistrationMailService extends Mailable
      */
     public function build()
     {
-        $address = 'busragumusel@gmail.com';
+        $address = 'weeklymood.ikamp@gmail.com';
 
-        $name = 'Busra Gumusel';
+        $name = 'WeeklyMood';
 
-        $subject = 'WeeklyMood';
+        $subject = 'Welcome';
 
+        $token = $this->registration->token;
+
+        $url = 'weekly.com/#/registration/'.$token;
         return $this->from($address, $name)
-
             ->subject($subject)
-
-            ->markdown('emails.registrationMail', ['token' => $this->registration->token]);
+            ->markdown('emails.registrationMail', ['url'=> $url]);
     }
 }
