@@ -18,10 +18,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::all();
-        return response()->json($user);
-//        $user = UserManager::mapper(1);
-//        return response()->json($user->getNameWithSurname());
+        $userId = Auth::user()->getAuthIdentifier();
+
+        $user = UserManager::mapper($userId);
+        return response()->json($user->getMoods());
+
+//        return \App\Model\MoodContent::addMoodContent();
+
     }
 
     /**

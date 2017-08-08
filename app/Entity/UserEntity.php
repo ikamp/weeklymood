@@ -20,8 +20,25 @@ class UserEntity
     private $isManager;
     private $isActive;
     private $moods = [];
+    private $moodAvg;
     private $average;
     private $Comments = [];
+
+    /**
+     * @return mixed
+     */
+    public function getMoodAvg()
+    {
+        return $this->moodAvg;
+    }
+
+    /**
+     * @param mixed $moodAvg
+     */
+    public function setMoodAvg($moodAvg)
+    {
+        $this->moodAvg = $moodAvg;
+    }
 
     /**
      * @return integer
