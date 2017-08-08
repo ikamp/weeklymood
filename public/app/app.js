@@ -1,4 +1,5 @@
-angular.module('weeklyMood', ['ngRoute'])
+var app = angular
+    .module('weeklyMood', ['ngRoute'])
     .config(function ($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('');
         $routeProvider

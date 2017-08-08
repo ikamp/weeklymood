@@ -29,6 +29,8 @@
     "gulp-concat": "^2.6.1",
     "gulp-csso": "^3.0.0",
     "gulp-sass": "^3.1.0",
-    "gulp-uglify": "^3.0.0"
+    "gulp-uglify": "^3.0.0",
+    "chart.js": "2.3.x",
+    "angular-bootstrap": "^0.12.2"
   }
 }
