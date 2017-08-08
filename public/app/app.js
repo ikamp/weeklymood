@@ -25,10 +25,15 @@ var app = angular
                 controller: 'EmployeeController',
                 templateUrl: '/components/directives/employeeDirective/employee.html'
             })
-            .when('/password-reset', {
+            .when('/password/reset', {
                 controller: 'PasswordResetController',
                 templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
             })
+            .when('/mymood', {
+                controller: 'MyMoodController',
+                templateUrl: '/components/directives/myMoodDirective/myMood.html'
+            })
+
 
             .otherwise({
                 redirectTo: '/login'
