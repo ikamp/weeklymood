@@ -12,3 +12,7 @@ Homestead.json
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/dictionaries
+
+#Angular
+public/node_modules/
+
