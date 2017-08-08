@@ -1,35 +1,139 @@
 <dash-board-header-component></dash-board-header-component>
 <div id="wrapper">
 
-  <left-bar-component></left-bar-component>
+    <left-bar-component></left-bar-component>
+    <div class="row">
+        <div class="container">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <div class="col-lg-12 mymood-panel-height">
+                    <div class="table-responsive table-color table-margin-top">
+                        <ul class="nav nav-tabs">
 
-<div class="col-lg-6 ">
-                <div class="col-lg-12">
-    <div class="table-responsive table-color">
-        <table class="table table-bordered table-hover ">
-            <thead>
-            <tr>
-                <th>Employee Name</th>
-                <th>Email Address</th>
-                <th>Department</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Yalcin Tatar</td>
-                <td>yalcintatar41@gmail.com</td>
-                <td>IT</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>/about.html</td>
-                <td>261</td>
-                <td>33.3%</td>
-                <td>$234.12</td>
-            </tr>
-            </tbody>
-        </table>
+                            <button class="btn  btn-info col-md-6" ng-click="tabButton = false"> All
+                                Employee
+                            </button>
+
+
+                            <button class="btn btn-success col-md-6" ng-click="tabButton = true"> Invite
+                                New Employee
+                            </button>
+                        </ul>
+                        <div ng-hide="tabButton">
+                            <div class="col-md-10 main">
+                                <div class="tab-content">
+                                    <div id="allemp" class="tab-pane fade in active">
+                                        <form class="form-horizontal">
+                                            <div class="control-group">
+                                                <div class="controls form-inline">
+                                                    <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon3">
+                                                    <span class="glyphicon glyphicon-align-left"
+                                                          aria-hidden="true"></span>
+                                                </span>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Name / Email"
+                                                               aria-describedby="basic-addon1">
+                                                    </div>
+                                                    <div class="input-group">
+                                                <span class="input-group-addon" id="basic-addon8">
+                                                    <span class="glyphicon glyphicon-align-left"
+                                                          aria-hidden="true"></span>
+                                                </span>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="Department"
+                                                               aria-describedby="basic-addon1">
+                                                    </div>
+
+                                                    <div class="input-group">
+                                                 <span class="input-group-addon" id="basic-addon4">
+                                                    <span class="glyphicon glyphicon-align-left"
+                                                          aria-hidden="true"></span>
+                                                </span>
+                                                        <input type="text" class="form-control" placeholder="Role"
+                                                               aria-describedby="basic-addon1">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                        <table class="table">
+                                            <thead class="thead-inverse">
+                                            <tr>
+                                                <th>#</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Username</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">2</th>
+                                                <td>Jacob</td>
+                                                <td>Thornton</td>
+                                                <td>@fat</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div ng-hide="!tabButton">
+                            <div id="invemp" class="tab-pane fade in active">
+                                <form class="form-horizontal">
+                                    <div class="control-group">
+                                        <div class="controls form-inline">
+                                            <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1">
+                                            <span class="glyphicon glyphicon-align-left"
+                                                  aria-hidden="true"></span></span>
+                                                <input type="text" class="form-control" placeholder="Email"
+                                                       aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2">
+                                            <span class="glyphicon glyphicon-align-left"
+                                                  aria-hidden="true"></span></span>
+                                                </span>
+                                                <input type="text" class="form-control" placeholder="Employee"
+                                                       aria-describedby="basic-addon1">
+                                            </div>
+                                            <!-- Split button -->
+                                            <div class="btn-group">
+                                                <td>
+                                                    <div class="dropdown">
+
+                                                        <button class="btn btn-default dropdown-toggle"
+                                                                type="button"
+                                                                id="menu1" data-toggle="dropdown">Actions
+                                                            <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu" role="menu"
+                                                            aria-labelledby="menu1">
+                                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                                       href="#">Delete</a></li>
+                                                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                                                       href="#">Edit</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </td>
+                                            </div>
+                                            <button class="btn btn-warning" type="button"><span
+                                                    class="glyphicon glyphicon-ok"></span> Invite Employee
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 </div>
