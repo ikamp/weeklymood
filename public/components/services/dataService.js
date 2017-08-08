@@ -1,5 +1,5 @@
 angular.module('weeklyMood')
-    .factory('DataService',dataService);
+    .factory('DataService', dataService);
 
 function dataService($http) {
     return {
@@ -15,7 +15,7 @@ function dataService($http) {
         init: init,
         userRegister: userRegister
     };
-    
+
     function listCompanyUsers(companyId, callback, errorCallback) {
         $http({
             method: 'GET',
@@ -23,7 +23,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -34,7 +34,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -45,7 +45,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -56,7 +56,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -67,7 +67,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -78,7 +78,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -89,7 +89,7 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
@@ -100,17 +100,17 @@ function dataService($http) {
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
 
     function login(user, callback, errorCallback) {
         $http.post('/api/login', {email: user.email, password: user.password})
-        .then(function (response) {
-            callback && callback(response.data);
-        }, function (error) {
-            errorCallback &&  errorCallback(error);
-        });
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
     }
 
     function init(callback, errorCallback) {
@@ -120,10 +120,11 @@ function dataService($http) {
         }).then(function (response) {
             callback(response.data);
         }, function (error) {
-            errorCallback &&  errorCallback(error);
+            errorCallback && errorCallback(error);
         });
     }
-      function userRegister(data, callback) {
+
+    function userRegister(data, callback) {
         $http.post('/api/register', data)
             .then(function (response) {
                 callback(response.data);

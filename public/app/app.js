@@ -1,4 +1,5 @@
-angular.module('weeklyMood', ['ngRoute'])
+var app = angular
+    .module('weeklyMood', ['ngRoute', 'chart.js'])
     .config(function ($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('');
         $routeProvider
@@ -28,10 +29,7 @@ angular.module('weeklyMood', ['ngRoute'])
                 controller: 'PasswordResetController',
                 templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
             })
-            .when('/mymood', {
-                controller: 'MyMoodController',
-                templateUrl: '/components/directives/myMoodDirective/myMood.html'
-            })
+
             .otherwise({
                 redirectTo: '/login'
             });
@@ -43,5 +41,4 @@ angular.module('weeklyMood', ['ngRoute'])
                 $location.path('/dashboard');
             }
         });
-    })
-;
+    });
