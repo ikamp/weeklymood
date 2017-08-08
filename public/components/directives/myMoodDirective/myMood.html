@@ -11,7 +11,7 @@
                         <h3 class="panel-title"><b>My Mood</b></h3>
                     </div>
                     <div class="row row-margin-top">
-                        <div class="col-md-3 mymood-panel-width">
+                        <div class="col-md-4 ">
                             <div class="panel panel-default mymood-panel-height">
                                 <div class="panel-heading"><b>Total</b></div>
                                 <div class="">
@@ -20,38 +20,37 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-3 mymood-panel-width">
+                        <div class="col-md-4">
                             <div class="panel panel-default mymood-panel-height">
                                 <div class="panel-heading"><b>Average Mood</b></div>
                                 <div class="">
                                     <h2>Sad</h2>
-                                </div>
+                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-5 mymood-panel-width">
+                        <div class="col-md-4">
                             <div class="panel panel-default mymood-panel-height">
-                                <div class="panel-heading"><b>Distribution</b></div>
+                                <div class="panel-heading">Pie Chart</div>
                                 <div class="panel-body">
-                                    Panel content
+                                    <canvas id="pie" class="chart chart-pie" chart-data="pieData" chart-labels="labels"></canvas>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="" class="col-sm-12 col-md-12 col-lg-12">
-                        <div class="row">
-                            <div class="col-lg-offset-1 col-md-offset-1 col-sm-12 col-lg-9 col-md-8">
-                                <div class="panel panel-default">
-                                    <div class="panel-heading">Stacked Bar Chart</div>
-                                    <div class="">
-                                        <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="options" chart-series="series"></canvas>
+                        <div id="" class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="row">
+                                <div class="col-lg-offset-1 col-md-offset-1 col-sm-12 col-lg-9 col-md-8">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">Stacked Bar Chart</div>
+                                        <div class="">
+                                            <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="options" chart-series="series"></canvas>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
