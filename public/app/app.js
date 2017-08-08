@@ -32,8 +32,6 @@ angular.module('weeklyMood', ['ngRoute'])
                 controller: 'MyMoodController',
                 templateUrl: '/components/directives/myMoodDirective/myMood.html'
             })
-
-
             .otherwise({
                 redirectTo: '/login'
             });

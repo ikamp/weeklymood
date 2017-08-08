@@ -3,12 +3,14 @@ $size :94px;
 .body-background{
   background-color: #259d6d;
 }
+
 .header-main{
   background-color: #FFFFFF;
   opacity: 0.7;
   height: $size;
   width: 100%;
 }
+
 .login-border{
   border-radius: 8px;
   width: 30%;
@@ -17,8 +19,8 @@ $size :94px;
   margin:100px;
   margin-left: 600px;
   background-color: #d2d2d2;
-
 }
+
 .register-border{
   border-radius: 8px;
   width: 30%;
@@ -27,8 +29,8 @@ $size :94px;
   margin:100px;
   margin-left: 600px;
   background-color: #d2d2d2;
-
 }
+
 .row-margin-top{
   margin-top: 50px;
 }
@@ -40,43 +42,49 @@ $size :94px;
   background-color: #d2d2d2;
   margin-left:30px;
   margin-top: 40px;
-
 }
+
 .panel-body h2,h3{
   text-align: center;
 }
 .mymood-panel-header{
   color: #2ab27b;
 }
+
 .mymood-panel-width{
   width: 400px;
   margin-left: 20px;
 }
+
 .mymood-graph-panel{
   width: 450px;
   margin-left: 25px;
 }
+
 .mymood-graph-panel-height{
   height: 300px;
 }
+
 .mymood-panel-height{
 
   height: 200px;
 }
+
 .mymood-areas{
   height: 700px;
 }
+
 .dashboard-areas h3{
   text-align: center;
   border-bottom:solid #000000;
 }
-
 .logo-config{
   margin-top: 10px;
   width: 150px;
   height: 75px;
   margin-left: 50px;
 }
+
 .btn-md{
   max-width:188px;
   max-height:50px;
@@ -85,27 +93,33 @@ $size :94px;
   color:#ffffff;
   font-family: 'montserratregular';
 }
+
 .footer-main{
   background-color: #2e6da4;
   height: $size;
   width: 100%;
   margin-top: 500px;
 }
+
 .icons-color{
   color:#2e6da4;
 }
+
 .register-image{
 
   background: url("../../images/landscape.jpg") no-repeat;
   background-size:cover;
 }
+
 .sidebar-margin{
   margin-top:0px;
 
 }
+
 .fontletter{
   font-family:Arial;
 }
+
 .login-button-conf{
   background-color:#84a7c5;
   color:#fff;
@@ -115,6 +129,7 @@ $size :94px;
   margin-right: 10px;
 
 }
+
 .register-button-conf{
   background-color:#84a7c5;
   color:#fff;
@@ -122,8 +137,8 @@ $size :94px;
   padding:5px 10px;
   margin-top:20px;
   margin-right: 400px;
-
 }
+
 .tryit-button-conf{
   background:#84a7c5;
   color:#fff;
@@ -132,32 +147,36 @@ $size :94px;
   padding:5px 10px;
   margin-top:20px;
   margin-right: 10px;
-
 }
+
 .banner-overlay{
   background: transparent;
   height: 800px;
 }
+
 .banner-content{
   padding:195px 0;
   max-width:515px;
   color:#fff;
   margin-top:50px;
 }
+
 .register-input-width{
   width: 500px;
   margin-left: 34px;
-
 }
+
 .headerrow-opacity{
   opacity: 0.9;
 }
+
 .register-btn{
   width: 500px;
   margin-left: 34px;
   height: 40px;
   background: #84a7c5;
 }
+
 .login-btn{
   width: 500px;
   height: 40px;
@@ -166,17 +185,19 @@ $size :94px;
   border-color: #2e6da4;
   background: #84a7c5;
 }
+
 .label-have-account{
   font-size: 16px;
   display: block;
   margin-left: 150px;
   margin-top: 40px;
   font-style:italic;
-
 }
+
 .cancel-btn{
   font-size: 16px;
 }
+
 .table-color{
   background: white;
 }
