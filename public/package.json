@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate#readme",
   "dependencies": {
-    "eslint": "^4.3.0"
+
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
