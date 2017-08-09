@@ -40,13 +40,7 @@ class CompanyManager
         return $usersMapped;
     }
 
-    public static function getThisCompanyManagerAction($companyId)
-    {
-        $manager = User::all()
-            ->where('company_id', '=' ,$companyId )
-            ->where('is_manager' , '=' , true);
-        return  $manager;
-    }
+
 
     public static function createNewCompanyAction($name, $logo)
     {

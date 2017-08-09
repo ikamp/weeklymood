@@ -18,8 +18,8 @@ class CompanyController extends Controller
     public function index()
     {
         $id = Auth::id();
-        $company = User::getThisUserCompanyAction($id);
-        return response()->json($company);
+        $user = UserManager::mapper($id);
+        return response()->json($user->getUserCompany());
     }
 
     /**
@@ -91,22 +91,15 @@ class CompanyController extends Controller
     }
 
     /**
-     * @param $companyId integer
+     *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function companyUsers($companyId)
+    public function allCompanyUserAction()
     {
-        $userId = Auth::user()->getAuthIdentifier();
-        $userCompanyID = User::getThisUserCompanyAction($userId)->id;
-        \auth()->logout();
-
-        if ($userCompanyID == $companyId)
-        {
-            $company = CompanyManager::mapper(Company::getCompanyByIdAction($companyId));
-
-            return response()->json($company->getusers());
-        }
-        return response()->json(401);
+        $user = Auth::id();
+        $user = UserManager::mapper($user);
+        $users = CompanyManager::getThisCompanyMembersAction($user->getCompanyId());
+        return response()->json($users);
     }
 }
 

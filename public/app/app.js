@@ -65,7 +65,7 @@ var app = angular
             }
 
             if (!next.$$route || (!next.$$route.mail && next.$$route.originalPath != '/login') && $rootScope.user) {
-                
+
             }
 
         });
