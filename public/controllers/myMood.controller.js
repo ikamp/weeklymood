@@ -41,7 +41,6 @@ function myMoodController($scope, DataService, $timeout) {
     $scope.userLastMood = function () {
         DataService.userLastMoods(function (responseCallback) {
             $scope.data = responseCallback;
-            console.log($scope.data);
         });
 
     };
