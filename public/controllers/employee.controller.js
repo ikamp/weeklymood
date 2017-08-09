@@ -1,6 +1,9 @@
 angular.module('weeklyMood')
-    .controller('EmployeeController',employeeController);
+    .controller('EmployeeController', employeeController);
 
 function employeeController($scope, DataService) {
-    $scope.name='Yalcin T';
+    $scope.userList = [];
+    DataService.listCompanyUsers(function (response) {
+        $scope.userList = response;
+    });
 }

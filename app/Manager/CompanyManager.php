@@ -32,7 +32,7 @@ class CompanyManager
           $usersMapped[$user->name] = [
               'name' => $user->name,
               'surname' => $user->surname,
-              'email' => $user->position,
+              'email' => $user->email,
               'avatar' => $user->avatar,
               'isManager' => $user->is_manager
           ];

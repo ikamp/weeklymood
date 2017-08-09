@@ -22,10 +22,10 @@ function dataService($http) {
         userMoodAvg: userMoodAvg
     };
 
-    function listCompanyUsers(companyId, callback, errorCallback) {
+    function listCompanyUsers(callback, errorCallback) {
         $http({
             method: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/list-company-users/' + companyId // '/api/company-users/'
+            url: '/api/company/user/all'
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
@@ -175,6 +175,7 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
+  
     function userAllMoods(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -185,6 +186,7 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+  
     function userMoodAvg(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -195,5 +197,4 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
-
 }
