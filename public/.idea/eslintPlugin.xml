@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ESLintProjectComponent">
-    <option name="eslintRcFile" value="node_modules/send/node_modules/debug/.eslintrc" />
-    <option name="eslintExecutable" value="$PROJECT_DIR$/node_modules/.bin/eslint" />
-    <option name="nodeInterpreter" value="/usr/bin/node" />
-    <option name="pluginEnabled" value="true" />
-  </component>
-</project>
