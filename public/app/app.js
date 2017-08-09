@@ -3,10 +3,10 @@ var app = angular
     .config(function ($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('');
         $routeProvider
-        //.when('/', {
-        // controller: 'HomeController'
-        //templateUrl: '../views/firstpage.view.html'
-        //})
+            .when('/', {
+                controller: 'HomeController',
+                templateUrl: '/views/firstpage.view.html'
+            })
             .when('/login', {
                 controller: 'LoginController',
                 templateUrl: '/components/directives/loginDirective/login.html'
@@ -66,7 +66,7 @@ var app = angular
         }
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login')) {
+            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login') && next.$$route.originalPath != '/register') {
                 loginCheck();
             }
         });
