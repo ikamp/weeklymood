@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Department;
 use App\Model\Mood;
@@ -13,19 +14,15 @@ use App\Model\Company;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
+
         $userId = Auth::user()->getAuthIdentifier();
 
         $user = UserManager::mapper($userId);
         return response()->json($user->getMoods());
 
-//        return \App\Model\MoodContent::addMoodContent();
 
     }
 
