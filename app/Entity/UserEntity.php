@@ -23,6 +23,23 @@ class UserEntity
     private $moodAvg;
     private $average;
     private $Comments = [];
+    private $lastMoods = [];
+
+    /**
+     * @return array
+     */
+    public function getLastMoods()
+    {
+        return $this->lastMoods;
+    }
+
+    /**
+     * @param array $lastMoods
+     */
+    public function setLastMoods($lastMoods)
+    {
+        $this->lastMoods = $lastMoods;
+    }
 
     /**
      * @return mixed

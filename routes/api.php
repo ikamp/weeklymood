@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::post('/registration', 'UserController@registration');
     Route::get('/user/mood/all', 'UserController@getAllUserMoods');
     Route::get('/user/mood/level', 'UserController@getUserMoodLevel');
+    Route::get('/user/mood/last', 'UserController@getLastMoods');
 });
 
 Auth::routes();

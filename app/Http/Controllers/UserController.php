@@ -187,4 +187,11 @@ class UserController extends Controller
         return response($user->getMoodAvg());
     }
 
+    public function getLastMoods()
+    {
+        $userId = Auth::id();
+        $user = UserManager::mapper($userId);
+        return response($user->getLastMoods()   );
+    }
+
 }
