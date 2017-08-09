@@ -50,9 +50,6 @@ var app = angular
         function loginCheck() {
             DataService.init(function (response) {
                 $rootScope.user = response;
-                if ($rootScope.user !== null) {
-                    $location.path('/dashboard');
-                }
             }, function () {
                 $location.path('/login');
             });
@@ -63,10 +60,5 @@ var app = angular
             if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login') && next.$$route.originalPath != '/register') {
                 loginCheck();
             }
-
-            if (!next.$$route || (!next.$$route.mail && next.$$route.originalPath != '/login') && $rootScope.user) {
-                
-            }
-
         });
     });
