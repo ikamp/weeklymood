@@ -13,7 +13,10 @@ function dataService($http) {
         activateYourAccount: activateYourAccount,
         login: login,
         init: init,
-        userRegister: userRegister
+        userRegister: userRegister,
+        passwordReset: passwordReset,
+        passwordResetMail: passwordResetMail,
+        registration: registration
     };
 
     function listCompanyUsers(companyId, callback, errorCallback) {
@@ -124,10 +127,39 @@ function dataService($http) {
         });
     }
 
-    function userRegister(data, callback) {
+    function userRegister(data, callback, errorCallback) {
         $http.post('/api/register', data)
             .then(function (response) {
                 callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function registration(token, callback, errorCallback) {
+        $http.post('/api/registration', {token: token})
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function passwordReset(user, callback, errorCallback) {
+        $http.post('/api/password-reset', {newPassword: user.newPassword, confirmNewPassword: user.confirmNewPassword, email: user.email})
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function passwordResetMail(user, callback, errorCallback) {
+        $http.post('/api/password-reset-mail', {email: user.email})
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
             });
     }
 }

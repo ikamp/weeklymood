@@ -40,9 +40,14 @@ class UserManager
      * @param $userId
      * @return \Illuminate\Database\Eloquent\Collection|\Illuminate\Database\Eloquent\Model|null|static|static[]
      */
-    protected static function getUserByIdAction($userId)
+    public static function getUserByIdAction($userId)
     {
         return User::find($userId);
+    }
+
+    public static function getUserByEmailAction($email)
+    {
+        return User::all()->where('email', $email)->first();
     }
 
     /**
