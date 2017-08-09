@@ -60,7 +60,7 @@ var app = angular
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             var route = next.$$route.originalPath;
-            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login')) {
+            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login') && next.$$route.originalPath != '/register') {
                 loginCheck();
             }
 
