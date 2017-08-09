@@ -18,7 +18,7 @@ function dataService($http) {
         passwordReset: passwordReset,
         passwordResetMail: passwordResetMail,
         registration: registration,
-        inviteUser: inviteUser
+        inviteUser: inviteUser,
         userAllMoods: userAllMoods,
         userMoodAvg: userMoodAvg
     };
