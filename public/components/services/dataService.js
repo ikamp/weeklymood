@@ -12,6 +12,7 @@ function dataService($http) {
         selectYourMood: selectYourMood,
         activateYourAccount: activateYourAccount,
         login: login,
+        logOut: logOut,
         init: init,
         userRegister: userRegister,
         passwordReset: passwordReset,
@@ -115,6 +116,16 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
+    function logOut(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/logout'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
 
     function init(callback, errorCallback) {
         $http({
@@ -162,4 +173,5 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
+
 }

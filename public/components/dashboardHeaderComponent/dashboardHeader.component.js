@@ -3,6 +3,11 @@ angular.module('weeklyMood')
         controller: dashBoardController,
         templateUrl:'components/dashboardHeaderComponent/dashboardHeader.html'
     });
-function dashBoardController($scope,$rootScope) {
+function dashBoardController($scope,DataService) {
 
+    $scope.logOut = function () {
+        DataService.logOut(function (callback) {
+            alert(callback);
+        });
+    };
 }
