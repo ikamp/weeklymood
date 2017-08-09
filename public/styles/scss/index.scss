@@ -30,6 +30,13 @@ $size :94px;
   margin-left: 600px;
   background-color: #d2d2d2;
 }
+.employee-register-border{
+  border-radius: 8px;
+  height: 645px;
+  border:3px solid #ffffff;
+  margin:100px;
+  background-color: #d2d2d2;
+}
 
 .row-margin-top{
   margin-top: 50px;
@@ -69,6 +76,9 @@ $size :94px;
 
 .mymood-panel-height{
   height: 250px;
+}
+.commentarea-margin-top{
+  margin-top: 50px;
 }
 
 .table-margin-top{
@@ -115,6 +125,26 @@ $size :94px;
 .register-image{
   background: url("../../images/landscape.jpg") no-repeat;
   background-size:cover;
+}
+.verysad-image{
+  background: url("../../images/verysad.png") no-repeat;
+  height: 120px;
+}
+.sad-image{
+  background: url("../../images/sad.png") no-repeat;
+  height: 120px;
+}
+.normal-image{
+  background: url("../../images/normal.png") no-repeat;
+  height: 120px;
+}
+.happy-image{
+  background: url("../../images/happy.png") no-repeat;
+  height: 120px;
+}
+.veryhappy-image{
+  background: url("../../images/veryhappy.png") no-repeat;
+  height: 120px;
 }
 
 .sidebar-margin{
