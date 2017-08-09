@@ -3,10 +3,10 @@ var app = angular
     .config(function ($routeProvider, $locationProvider) {
         $locationProvider.hashPrefix('');
         $routeProvider
-            //.when('/', {
-                // controller: 'HomeController'
-                //templateUrl: '../views/firstpage.view.html'
-            //})
+        //.when('/', {
+        // controller: 'HomeController'
+        //templateUrl: '../views/firstpage.view.html'
+        //})
             .when('/login', {
                 controller: 'LoginController',
                 templateUrl: '/components/directives/loginDirective/login.html'
@@ -29,7 +29,7 @@ var app = angular
                 controller: 'EmployeeController',
                 templateUrl: '/components/directives/employeeDirective/employee.html'
             })
-            .when('/password/reset', {
+            .when('/password/reset/:id', {
                 controller: 'PasswordResetController',
                 templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
             })
@@ -53,19 +53,21 @@ var app = angular
                 redirectTo: '/login'
             });
     })
-
     .run(function (DataService, $rootScope, $location) {
         function loginCheck() {
             DataService.init(function (response) {
                 $rootScope.user = response;
-            }, function () {
-                $location.path('/login');
+                if ($rootScope.user !== null) {
+                    $location.path('/dashboard');
+                } else {
+                    $location.path('/login');
+                }
             });
         }
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
             var route = next.$$route.originalPath;
-            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login') && next.$$route.originalPath != '/register') {
+            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login')) {
                 loginCheck();
             }
         });

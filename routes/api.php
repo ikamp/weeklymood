@@ -13,7 +13,7 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::resource('mood','MoodContent');
     Route::resource('company','CompanyController');
     Route::get('/company/user/all', 'CompanyController@allCompanyUserAction');
-    Route::get('/init', 'HomeController@init');
+    Route::post('/company/user/new', 'CompanyController@mailToNewCompanyUser');
     Route::post('/registration', 'UserController@registration');
 });
 

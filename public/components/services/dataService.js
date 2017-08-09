@@ -17,7 +17,8 @@ function dataService($http) {
         userRegister: userRegister,
         passwordReset: passwordReset,
         passwordResetMail: passwordResetMail,
-        registration: registration
+        registration: registration,
+        inviteUser: inviteUser
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -167,6 +168,15 @@ function dataService($http) {
 
     function passwordResetMail(user, callback, errorCallback) {
         $http.post('/api/password-reset-mail', {email: user.email})
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function inviteUser(user, callback, errorCallback) {
+        $http.post('/api/company/user/new', {email: user.email, name: user.name, surname: user.surname})
             .then(function (response) {
                 callback && callback(response.data);
             }, function (error) {

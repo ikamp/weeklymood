@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Manager\UserManager;
 use App\Model\Registration;
 use App\Model\User;
 use Illuminate\Http\Request;
@@ -13,7 +14,7 @@ class RegistrationController extends Controller
 {
     public function getToken()
     {
-        $user = getByUserId(Auth::id());
+        $user = UserManager::getUserByIdAction(Auth::id());
         $newToken =  Registration::getByUserId(Auth::id());
         if (Auth::user()->is_active != "true") {
             $newToken->token = str_random(32);

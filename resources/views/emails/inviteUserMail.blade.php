@@ -2,7 +2,7 @@
 Hi!<br>
 
 @component('mail::button', ['url' => $url, 'color' => 'blue'])
-    Change your password!
+    Invite us!
 @endcomponent
 
 Thanks,<br>

@@ -136,24 +136,31 @@ class UserController extends Controller
     public function passwordReset(Request $request)
     {
         $email = $request->email;
+        $token = $request->token;
         $user = UserManager::getUserByEmailAction($email);
-        $newPassword = $request->newPassword;
-        $confirmNewPassword = $request->confirmNewPassword;
-        if ($newPassword === $confirmNewPassword) {
-            $password = bcrypt($newPassword);
+        $userRegistration = Registration::getByUserId($user->id);
+        $userToken = $userRegistration->token;
+        if ($token === $userToken) {
+            $newPassword = $request->newPassword;
+            $confirmNewPassword = $request->confirmNewPassword;
+            if ($newPassword === $confirmNewPassword) {
+                $password = bcrypt($newPassword);
+            }
+            $user->password = $password;
+            $user->save();
         }
-        $user->password = $password;
-        $user->save();
     }
 
     public function passwordResetMail(Request $request)
     {
         $email = $request->email;
         $user = UserManager::getUserByEmailAction($email);
-        \Mail::to($user)->send(new \App\Mail\PasswordResetMailService($user));
+        $token = Registration::getByUserId($user->id);
+        \Mail::to($user)->send(new \App\Mail\PasswordResetMailService($user, $token));
     }
 
-    public function registration(Request $request) {
+    public function registration(Request $request)
+    {
         $token = $request->token;
         $userToken = Registration::getByUserId(Auth::id())->token;
         $user = Auth::user();
