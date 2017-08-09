@@ -15,6 +15,8 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::get('/company/user/all', 'CompanyController@allCompanyUserAction');
     Route::post('/company/user/new', 'CompanyController@mailToNewCompanyUser');
     Route::post('/registration', 'UserController@registration');
+    Route::get('/user/mood/all', 'UserController@getAllUserMoods');
+    Route::get('/user/mood/level', 'UserController@getUserMoodLevel');
 });
 
 Auth::routes();

@@ -11,7 +11,6 @@ function employeeController($scope, DataService) {
 
     $scope.inviteUser=function () {
         DataService.inviteUser($scope.user ,function (response) {
-            console.log($scope.user);
         });
     };
 }

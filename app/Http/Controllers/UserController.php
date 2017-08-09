@@ -169,4 +169,22 @@ class UserController extends Controller
             $user->save();
         }
     }
+
+    /**
+     *
+     */
+    public function getAllUserMoods()
+    {
+        $userId = Auth::id();
+        $user = UserManager::mapper($userId);
+        return response($user->getMoods());
+    }
+
+    public function getUserMoodLevel()
+    {
+        $userId = Auth::id();
+        $user = UserManager::mapper($userId);
+        return response($user->getMoodAvg());
+    }
+
 }
