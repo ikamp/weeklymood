@@ -14,27 +14,35 @@
                         <div class="col-md-4 ">
                             <div class="panel panel-default mymood-panel-height">
                                 <div class="panel-heading"><b>Total</b></div>
-                                <div class="textalign">
-                                    <h2>
-                                        {{data.length}}
-                                    </h2>
+                                <div>
+                                    <h1 class="text-center">
+                                        {{userAllMoods.length}}
+                                    </h1>
                                     <h3>given mood</h3>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="panel panel-default mymood-panel-height">
-                                <div class="panel-heading"><b>Average Mood</b></div>
-                                <div class="textalign">
-                                    <h2>{{pieData[0]}}</h2>
-                                 </div>
+                                <div class="panel-heading">
+                                    <b>Average Mood</b>
+                                </div>
+                                <div class="text-center">
+                                    <h1>{{pieFirst}}
+                                        <img ng-hide="" src="../../../images/{{url}}">
+                                    </h1>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="panel panel-default mymood-panel-height">
-                                <div class="panel-heading">Pie Chart</div>
+                                <div class="panel-heading">
+                                    <b>
+                                        Distribution of Moods
+                                    </b>
+                                </div>
                                 <div class="panel-body">
-                                    <canvas id="pie" class="chart chart-pie" chart-data="pieData" chart-labels="labels"></canvas>
+                                    <canvas id="pie" class="chart chart-pie" chart-data="pieData" chart-labels="pieLabels"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -42,9 +50,9 @@
                             <div class="row">
                                 <div class="col-lg-offset-1 col-md-offset-1 col-sm-12 col-lg-9 col-md-8">
                                     <div class="panel panel-default">
-                                        <div class="panel-heading">Stacked Bar Chart</div>
+                                        <div class="panel-heading"><b>My Moods Graph (Last Six Week)</b></div>
                                         <div class="">
-                                            <canvas class="chart chart-bar" chart-data="data" chart-labels="labels" chart-options="options" chart-series="series"></canvas>
+                                            <canvas class="chart chart-bar" chart-data="data" chart-labels="labelArray" chart-options="options" chart-series="series"></canvas>
                                         </div>
                                     </div>
                                 </div>

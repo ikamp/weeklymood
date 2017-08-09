@@ -32,7 +32,7 @@ class UserManager
         $user->setIsActive($_user->remember_token);
         $user->setMoods(self::getUserMoodsAction($_user->id));
         $user->setMoodAvg(floor(self::getUserMoodAvgAction($_user->id)));
-
+        $user->setLastMoods(self::getLastMoodsAction($_user->id));
         return $user;
     }
 
@@ -108,6 +108,14 @@ class UserManager
         \Mail::to($user)->send(new \App\Mail\RegistrationMailService($user, $token));
         return self::mapper($user->id);
     }
-
-
+    public static function getLastMoodsAction($userId)
+    {
+        $lastMoods = [];
+        $moodContent = MoodContent::orderBy('id','desc')->where('user_id', $userId)->take(6)->get();
+        foreach ($moodContent as $item)
+        {
+            $lastMoods[] += Mood::find($item->mood_id)->value;
+        }
+        return $lastMoods;
+    }
 }

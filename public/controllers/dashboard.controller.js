@@ -2,8 +2,7 @@ angular.module('weeklyMood')
     .controller('DashBoardController',dashBoardController);
 
 function dashBoardController($scope, $timeout, DataService) {
-    $scope.name='Yalcin T';
-    $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+ $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     $scope.type = 'StackedBar';
     $scope.series = ['2015', '2016'];
     $scope.options = {
@@ -21,31 +20,9 @@ function dashBoardController($scope, $timeout, DataService) {
       [65, 59, 90, 81, 56, 55, 40],
       [28, 48, 40, 19, 96, 27, 100]
     ];
-      $scope.series = ['Series A', 'Series B'];
-      $scope.seriesData = [
-    [ {x: 0, y: 10},
-      {x: 0, y: 1},
-      {x: 1, y: 6},
-      {x: 4, y: 2} 
-    ],[ 
-      {x: 0, y: 2},
-      {x: 5, y: 7},
-      {x: 4, y: 2},
-      {x: 2, y: 9} ]
-  ];
-  $scope.options = {
-    scales: {
-      xAxes: [{
-        type: 'linear',
-        position: 'bottom'
-      }]
-    }
-  };
+  
 
-
-  'use strict';
-
-  $scope.colors1 = ['#45b7cd', '#ff6384', '#ff8e72'];
+  $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
 
   $scope.labels1 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   $scope.data1 = [
