@@ -17,7 +17,9 @@ function dataService($http) {
         userRegister: userRegister,
         passwordReset: passwordReset,
         passwordResetMail: passwordResetMail,
-        registration: registration
+        registration: registration,
+        userAllMoods: userAllMoods,
+        userMoodAvg: userMoodAvg
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -172,5 +174,27 @@ function dataService($http) {
             }, function (error) {
                 errorCallback && errorCallback(error);
             });
+    }
+  
+    function userAllMoods(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/user/mood/all'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+  
+    function userMoodAvg(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/user/mood/level'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
     }
 }

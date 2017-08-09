@@ -45,7 +45,7 @@ function dashBoardController($scope, $timeout, DataService) {
 
   'use strict';
 
-  $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+  $scope.colors1 = ['#45b7cd', '#ff6384', '#ff8e72'];
 
   $scope.labels1 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   $scope.data1 = [

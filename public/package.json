@@ -20,7 +20,9 @@
     "url": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate/issues"
   },
   "homepage": "https://github.com/burakolgun/AngularJs-1.6-Boilerplate#readme",
-  "dependencies": {},
+  "dependencies": {
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
