@@ -1,13 +1,16 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Company;
+use App\Model\Registration;
 use App\Model\User;
 use App\Entity\companyEntity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+
 class CompanyController extends Controller
 {
     /**
@@ -100,6 +103,26 @@ class CompanyController extends Controller
         $user = UserManager::mapper($user);
         $users = CompanyManager::getThisCompanyMembersAction($user->getCompanyId());
         return response()->json($users);
+    }
+
+    public function mailToNewCompanyUser(Request $request)
+    {
+        $name = $request->name;
+        $surname = $request->surname;
+        $email = $request->email;
+        $company_id = UserManager::getUserByIdAction(Auth::id())->company_id;
+
+        $user = new User();
+        $user->name = $name;
+        $user->surname = $surname;
+        $user->email = $email;
+        $user->company_id = $company_id;
+        $user->is_manager = 'FALSE';
+        $user->is_active = 'FALSE';
+        $user->save();
+        $token = Registration::createNewToken($user->id);
+        //return $user;
+        \Mail::to($email)->send(new \App\Mail\InviteUserMailService($user, $token));
     }
 }
 

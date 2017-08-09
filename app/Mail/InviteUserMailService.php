@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class PasswordResetMailService extends Mailable
+class InviteUserMailService extends Mailable
 {
     use Queueable, SerializesModels;
     public $user;
@@ -20,10 +20,10 @@ class PasswordResetMailService extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user, Registration)
+    public function __construct(User $user, Registration $registration)
     {
-        $this->user = $user;
         $this->registration = $registration;
+        $this->user = $user;
     }
 
     /**
@@ -37,7 +37,7 @@ class PasswordResetMailService extends Mailable
 
         $name = 'WeeklyMood';
 
-        $subject = 'Forgot Password';
+        $subject = 'Invite us!';
 
         $token = $this->registration->token;
 
@@ -47,6 +47,6 @@ class PasswordResetMailService extends Mailable
 
             ->subject($subject)
 
-            ->markdown('emails.passwordResetMail' ['url' => $url]);
+            ->markdown('emails.inviteUserMail', ['url' => $url]);
     }
 }

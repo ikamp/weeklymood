@@ -42,6 +42,7 @@ class RegistrationMailService extends Mailable
         $token = $this->registration->token;
 
         $url = 'weekly.com/#/registration/'.$token;
+
         return $this->from($address, $name)
             ->subject($subject)
             ->markdown('emails.registrationMail', ['url'=> $url]);

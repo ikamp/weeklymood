@@ -18,6 +18,7 @@ function dataService($http) {
         passwordReset: passwordReset,
         passwordResetMail: passwordResetMail,
         registration: registration,
+        inviteUser: inviteUser
         userAllMoods: userAllMoods,
         userMoodAvg: userMoodAvg
     };
@@ -118,6 +119,7 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
+  
     function logOut(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -169,6 +171,15 @@ function dataService($http) {
 
     function passwordResetMail(user, callback, errorCallback) {
         $http.post('/api/password-reset-mail', {email: user.email})
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+    function inviteUser(user, callback, errorCallback) {
+        $http.post('/api/company/user/new', {email: user.email, name: user.name, surname: user.surname})
             .then(function (response) {
                 callback && callback(response.data);
             }, function (error) {

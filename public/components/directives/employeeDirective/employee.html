@@ -81,7 +81,7 @@
                                         <span class="input-group-addon" id="basic-addon1">
                                             <span class="glyphicon glyphicon-align-left"
                                                   aria-hidden="true"></span></span>
-                                                <input type="text" class="form-control" placeholder="Email"
+                                                <input type="text" class="form-control" ng-model="user.email" placeholder="Email"
                                                        aria-describedby="basic-addon1">
                                             </div>
                                             <div class="input-group">
@@ -89,7 +89,15 @@
                                             <span class="glyphicon glyphicon-align-left"
                                                   aria-hidden="true"></span></span>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="Employee"
+                                                <input type="text" class="form-control" ng-model="user.name" placeholder="Employee"
+                                                       aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon2">
+                                            <span class="glyphicon glyphicon-align-left"
+                                                  aria-hidden="true"></span></span>
+                                                </span>
+                                                <input type="text" class="form-control" ng-model="user.surname" placeholder="Employee"
                                                        aria-describedby="basic-addon1">
                                             </div>
                                             <!-- Split button -->
@@ -110,7 +118,7 @@
                                                     </div>
                                                 </td>
                                             </div>
-                                            <button class="btn btn-warning" type="button"><span
+                                            <button ng-click="inviteUser()" class="btn btn-warning" type="button"><span
                                                     class="glyphicon glyphicon-ok"></span> Invite Employee
                                             </button>
                                         </div>
