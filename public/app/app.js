@@ -45,6 +45,10 @@ var app = angular
                 controller: 'EmployeeRegisterController',
                 templateUrl: '/components/directives/employeeRegisterDirective/employeeRegister.html'
             })
+            .when('/moodcontent', {
+                controller: 'MoodContentController',
+                templateUrl: 'components/directives/moodContentDirective/moodContent.html'
+            })
             .otherwise({
                 redirectTo: '/login'
             });
