@@ -20,10 +20,10 @@ function dataService($http) {
         registration: registration
     };
 
-    function listCompanyUsers(companyId, callback, errorCallback) {
+    function listCompanyUsers(callback, errorCallback) {
         $http({
             method: 'GET',
-            url: 'https://jsonplaceholder.typicode.com/list-company-users/' + companyId // '/api/company-users/'
+            url: '/api/company/user/all'
         }).then(function (response) {
             callback && callback(response.data);
         }, function (error) {
@@ -173,5 +173,4 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
-
 }
