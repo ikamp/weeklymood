@@ -120,7 +120,7 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
-  
+
     function logOut(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -162,7 +162,11 @@ function dataService($http) {
     }
 
     function passwordReset(user, callback, errorCallback) {
-        $http.post('/api/password-reset', {newPassword: user.newPassword, confirmNewPassword: user.confirmNewPassword, email: user.email})
+        $http.post('/api/password-reset', {
+            newPassword: user.newPassword,
+            confirmNewPassword: user.confirmNewPassword,
+            email: user.email
+        })
             .then(function (response) {
                 callback && callback(response.data);
             }, function (error) {
@@ -187,7 +191,7 @@ function dataService($http) {
                 errorCallback && errorCallback(error);
             });
     }
-  
+
     function userAllMoods(callback, errorCallback) {
         $http({
             method: 'GET',
@@ -198,7 +202,7 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
-  
+
     function userMoodAvg(callback, errorCallback) {
         $http({
             method: 'GET',
