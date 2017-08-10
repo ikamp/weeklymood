@@ -6,7 +6,9 @@ function employeeController($scope, DataService) {
     $scope.user={};
 
     DataService.listCompanyUsers(function (response) {
-        $scope.userList = response;
+        _.each(response,function (value,key) {
+            $scope.userList.push(value);
+        })
     });
 
     $scope.inviteUser=function () {

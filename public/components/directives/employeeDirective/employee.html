@@ -22,44 +22,57 @@
                                             <div class="control-group">
                                                 <div class="controls form-inline">
                                                     <div class="input-group">
-                                                        <span class="input-group-addon" id="basic-addon3">
+                                                        <span class="input-group-addon" id="basic-addon4">
                                                     <span class="glyphicon glyphicon-align-left"
                                                           aria-hidden="true"></span>
                                                         </span>
-                                                        <input type="text" class="form-control" placeholder="Name / Email" aria-describedby="basic-addon1">
+                                                        <input ng-model="search.name" type="text" class="form-control" placeholder="Search By Name" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="input-group">
                                                         <span class="input-group-addon" id="basic-addon8">
                                                     <span class="glyphicon glyphicon-align-left"
                                                           aria-hidden="true"></span>
                                                         </span>
-                                                        <input type="text" class="form-control" placeholder="Department" aria-describedby="basic-addon1">
+                                                        <input ng-model="search.email" type="text" class="form-control" placeholder="Search By Email" aria-describedby="basic-addon1">
                                                     </div>
                                                     <div class="input-group">
-                                                        <span class="input-group-addon" id="basic-addon4">
+                                                        <span class="input-group-addon" id="basic-addon5">
                                                     <span class="glyphicon glyphicon-align-left"
                                                           aria-hidden="true"></span>
                                                         </span>
-                                                        <input type="text" class="form-control" placeholder="Role" aria-describedby="basic-addon1">
+                                                        <input type="text" class="form-control" placeholder="Search By Department" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-                                        <table class="table" ng-controler="">
+                                        <table class="table">
                                             <thead class="thead-inverse">
                                                 <tr>
                                                     <th>#</th>
                                                     <th>First Name</th>
                                                     <th>Last Name</th>
                                                     <th>Email</th>
+                                                    <th>Action</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr ng-repeat="user in userList track by $index">
+                                            <tbody >
+                                                <tr ng-repeat="user in userList | filter:search track by $index ">
                                                     <th scope="row">{{$index+1}}</th>
                                                     <td>{{user.name}}</td>
                                                     <td>{{user.surname}}</td>
                                                     <td>{{user.email}}</td>
+                                                    <div class="btn-group">
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Actions
+                                                                    <span class="caret"></span></button>
+                                                                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
+                                                                    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </td>
+                                                    </div>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -86,25 +99,14 @@
                                                 <input type="text" class="form-control" ng-model="user.name" placeholder="Name" aria-describedby="basic-addon1">
                                             </div>
                                             <div class="input-group">
-                                                <span class="input-group-addon" id="basic-addon2">
+                                                <span class="input-group-addon" id="basic-addon3">
                                             <span class="glyphicon glyphicon-align-left"
                                                   aria-hidden="true"></span></span>
                                                 </span>
                                                 <input type="text" class="form-control" ng-model="user.surname" placeholder="Last Name" aria-describedby="basic-addon1">
                                             </div>
                                             <!-- Split button -->
-                                            <div class="btn-group">
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Actions
-                                                            <span class="caret"></span></button>
-                                                        <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Delete</a></li>
-                                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Edit</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </td>
-                                            </div>
+
                                             <button ng-click="inviteUser()" class="btn btn-warning" type="button"><span
                                                     class="glyphicon glyphicon-ok"></span> Invite Employee
                                             </button>
