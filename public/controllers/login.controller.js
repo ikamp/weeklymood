@@ -1,11 +1,13 @@
 angular.module('weeklyMood')
-    .controller('LoginController',loginController);
+    .controller('LoginController', loginController);
 
 function loginController($location, $scope, DataService, $rootScope) {
-    $rootScope.login=false;
-    $scope.login = function(user) {
+    $rootScope.login = false;
+    $scope.login = function (user) {
         DataService.login(user, function () {
-            $location.path('/dashboard');
+            if (user !== null) {
+                $location.path('/dashboard');
+            }
         });
     };
 }
