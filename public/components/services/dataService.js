@@ -118,7 +118,7 @@ function dataService($http) {
     function login(user, callback, errorCallback) {
         $http.post('/api/login', {email: user.email, password: user.password})
             .then(function (response) {
-                callback && callback(response.data);
+                callback && callback(response.user);
             }, function (error) {
                 errorCallback && errorCallback(error);
             });
@@ -168,7 +168,8 @@ function dataService($http) {
         $http.post('/api/password-reset', {
             newPassword: user.newPassword,
             confirmNewPassword: user.confirmNewPassword,
-            email: user.email
+            email: user.email,
+            token: user.id
         })
             .then(function (response) {
                 callback && callback(response.data);

@@ -22,8 +22,6 @@ var app = angular
             .when('/registration/:id', {
                 controller: 'RegistrationController',
                 templateUrl: '/components/directives/registerDirective/registration.html',
-                public: false,
-                mail: true
             })
             .when('/employee', {
                 controller: 'EmployeeController',
@@ -50,24 +48,40 @@ var app = angular
                 templateUrl: 'components/directives/moodContentDirective/moodContent.html'
             })
             .otherwise({
-                redirectTo: '/login'
+                redirectTo: '/'
             });
     })
     .run(function (DataService, $rootScope, $location) {
         function loginCheck() {
             DataService.init(function (response) {
-                $rootScope.user = response;
-                if ($rootScope.user !== null) {
-                    $location.path('/dashboard');
-                } else {
+                if (response === null) {
                     $location.path('/login');
+                }
+            }, function () {
+                if (response !== null) {
+                    $location.path('/login');
+                }
+            })
+        }
+
+        function pageControl() {
+            DataService.init(function (response) {
+                if (response !== null) {
+                    $location.path('/dashboard');
                 }
             });
         }
 
         $rootScope.$on("$routeChangeStart", function (event, next, current) {
-            if (!next.$$route || (!next.$$route.public && next.$$route.originalPath != '/login') && next.$$route.originalPath != '/register') {
+            if (!next.$$route || (((next.$$route.originalPath != '/login' && next.$$route.originalPath != '/register')
+                    && next.$$route.originalPath != '/password-reset-mail')) && next.$$route.originalPath != '/password-reset') {
                 loginCheck();
+            }
+
+            if((next.$$route.originalPath == '/login' || next.$$route.originalPath == '/password-reset-mail') ||
+                ((next.$$route.originalPath == '/register' || next.$$route.originalPath == '/') || next.$$route.originalPath == '/password-reset-mail')) {
+                pageControl();
             }
         });
     });
+

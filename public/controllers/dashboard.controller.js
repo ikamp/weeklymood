@@ -86,7 +86,4 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
     };
 
 
-    DataService.logOut(function () {
-        $rootScope.user = null;
-    });
 };
