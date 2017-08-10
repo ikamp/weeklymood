@@ -50,13 +50,13 @@ function myMoodController($scope, DataService, $timeout) {
     $scope.userMoodAvg = function () {
         DataService.userMoodAvg(function (response) {
             $scope.pieFirst = response;
-            if ($scope.pieFirst <= 24) {
+            if ($scope.pieFirst <= 19) {
                 $scope.url = 'verysad.png';
-            } else if ($scope.pieFirst > 19 && $scope.pieFirst < 39) {
+            } else if ($scope.pieFirst > 19 && $scope.pieFirst <= 39) {
                 $scope.url = 'sad.png'
-            } else if ($scope.pieFirst > 39 && $scope.pieFirst < 59) {
+            } else if ($scope.pieFirst > 39 && $scope.pieFirst <= 59) {
                 $scope.url = 'normal.png'
-            } else if ($scope.pieFirst > 59 && $scope.pieFirst < 79) {
+            } else if ($scope.pieFirst > 59 && $scope.pieFirst <= 79) {
                 $scope.url = 'happy.png'
             } else if ($scope.pieFirst > 79) {
                 $scope.url = 'veryhappy.png'
