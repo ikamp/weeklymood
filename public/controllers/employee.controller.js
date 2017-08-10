@@ -1,7 +1,7 @@
 angular.module('weeklyMood')
     .controller('EmployeeController', employeeController);
 
-function employeeController($scope, DataService) {
+function employeeController($scope, $rootScope, DataService) {
     $scope.userList = [];
     $scope.user={};
 
@@ -11,8 +11,13 @@ function employeeController($scope, DataService) {
         })
     });
 
-    $scope.inviteUser=function () {
+    $scope.inviteUser = function () {
         DataService.inviteUser($scope.user ,function (response) {
+        });
+    };
+
+    $scope.sendWeeklyMail = function () {
+        DataService.sendWeeklyMail(function (response) {
         });
     };
 }

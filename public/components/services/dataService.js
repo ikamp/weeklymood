@@ -23,6 +23,7 @@ function dataService($http) {
         userMoodAvg: userMoodAvg,
         userLastMoods: userLastMoods,
         companyLastFourWeek: companyLastFourWeek,
+        sendWeeklyMail: sendWeeklyMail,
         companyUsersTotalCount: companyUsersTotalCount,
         usersVoted:usersVoted
     };
@@ -240,7 +241,16 @@ function dataService($http) {
         });
     }
 
-    function usersVoted(callback, errorCallback) {
+    function sendWeeklyMail(callback, errorCallback) {
+        $http.post('/api/send/weekly/mail')
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
+  function usersVoted(callback, errorCallback) {
         $http({
             method: 'GET',
             url: '/api/company/users/voted'
@@ -261,5 +271,4 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
-
 }
