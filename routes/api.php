@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::get('/company/users/mood/weekly/avg', 'CompanyController@getCompanyUsersMoodWeeklyAvgAction');
     Route::get('/company/users/voted', 'CompanyController@votedUsersCountAction');
     Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
+    Route::get('/company/total/tag', 'CompanyController@getUsersTotalTags');
 });
 
 Auth::routes();
