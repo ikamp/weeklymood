@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         $userId = Auth::id();
         $user = UserManager::mapper($userId);
-        return response()->json($user->getNameWithSurname());
+        return response()->json($user->getDepartmentName());
     }
 
     /**

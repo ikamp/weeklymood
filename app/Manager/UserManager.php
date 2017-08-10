@@ -1,8 +1,10 @@
 <?php
+
 namespace App\Manager;
 
 use App\Entity\UserEntity;
 use App\Model\Company;
+use App\Model\Department;
 use App\Model\Mood;
 use App\Model\MoodContent;
 use App\Model\Registration;
@@ -27,6 +29,7 @@ class UserManager
         $user->setPosition($_user->position);
         $user->setAvatar($_user->avatar);
         $user->setDepartmentId($_user->department_id);
+        $user->setDepartmentName(self::getDepartmentName($user->getDepartmentId()));
         $user->setCompanyId($_user->company_id);
         $user->setIsManager($_user->is_manager);
         $user->setIsActive($_user->remember_token);
@@ -66,13 +69,13 @@ class UserManager
     {
         $moods = [];
         $moodContent = MoodContent::all()->where('user_id', $userId);
-        foreach ($moodContent as $item)
-        {
+        foreach ($moodContent as $item) {
             $moods[] += Mood::find($item->mood_id)->value;
 
         }
         return $moods;
     }
+
     public static function getUserMoodAvgAction($userId)
     {
         $moodAvg = 0;
@@ -108,14 +111,21 @@ class UserManager
         \Mail::to($user)->send(new \App\Mail\RegistrationMailService($user, $token));
         return self::mapper($user->id);
     }
+
     public static function getLastMoodsAction($userId)
     {
         $lastMoods = [];
-        $moodContent = MoodContent::orderBy('id','desc')->where('user_id', $userId)->take(6)->get();
-        foreach ($moodContent as $item)
-        {
+        $moodContent = MoodContent::orderBy('id', 'desc')->where('user_id', $userId)->take(6)->get();
+        foreach ($moodContent as $item) {
             $lastMoods[] += Mood::find($item->mood_id)->value;
         }
         return $lastMoods;
+    }
+
+    public static function getDepartmentName($departmentId)
+    {
+        $department = Department::findDepartmentByIdAction($departmentId);
+        $departmentName = $department->name;
+        return $departmentName;
     }
 }
