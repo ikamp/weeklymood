@@ -25,7 +25,8 @@ function dataService($http) {
         companyLastFourWeek: companyLastFourWeek,
         sendWeeklyMail: sendWeeklyMail,
         companyUsersTotalCount: companyUsersTotalCount,
-        usersVoted:usersVoted
+        usersVoted:usersVoted,
+        sendWeeklyMail: sendWeeklyMail
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -270,5 +271,14 @@ function dataService($http) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+
+    function sendWeeklyMail(callback, errorCallback) {
+        $http.post('/api/send/weekly/mail')
+            .then(function (response) {
+                callback && callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
     }
 }
