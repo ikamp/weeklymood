@@ -133,13 +133,15 @@ class UserController extends Controller
         $email = $request->email;
         $token = $request->token;
         $user = UserManager::getUserByEmailAction($email);
-        $userRegistration = Registration::getByUserId($user->id);
+        $userRegistration = Registration::getRegistrationByUserId($user->id);
         $userToken = $userRegistration->token;
         if ($token === $userToken) {
             $newPassword = $request->newPassword;
             $confirmNewPassword = $request->confirmNewPassword;
             if ($newPassword === $confirmNewPassword) {
                 $password = bcrypt($newPassword);
+            } else {
+                $password = $user->password;
             }
             $user->password = $password;
             $user->save();
@@ -150,19 +152,20 @@ class UserController extends Controller
     {
         $email = $request->email;
         $user = UserManager::getUserByEmailAction($email);
-        $token = Registration::getByUserId($user->id);
-        \Mail::to($user)->send(new \App\Mail\PasswordResetMailService($user, $token));
+        $user_id = $user->id;
+        $registration = Registration::createNewToken($user_id);
+        $registration->save();
+        $token = $registration->token;
+        \Mail::to($email)->send(new \App\Mail\PasswordResetMailService($user, $registration));
     }
 
     public function registration(Request $request)
     {
         $token = $request->token;
-        $userToken = Registration::getByUserId(Auth::id())->token;
-        $user = Auth::user();
-        if ($token === $userToken) {
-            $user->is_active = 'TRUE';
-            $user->save();
-        }
+        $user_id = Registration::getRegistrationIdByToken($token)->user_id;
+        $user = UserManager::getUserByIdAction($user_id);
+        $user->is_active = 'TRUE';
+        $user->save();
     }
 
     /**

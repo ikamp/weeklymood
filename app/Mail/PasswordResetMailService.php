@@ -20,10 +20,10 @@ class PasswordResetMailService extends Mailable
      *
      * @return void
      */
-    public function __construct(User $user, Registration)
+    public function __construct(User $user, Registration $registration)
     {
-        $this->user = $user;
         $this->registration = $registration;
+        $this->user = $user;
     }
 
     /**
@@ -47,6 +47,6 @@ class PasswordResetMailService extends Mailable
 
             ->subject($subject)
 
-            ->markdown('emails.passwordResetMail' ['url' => $url]);
+            ->markdown('emails.passwordResetMail', ['url' => $url]);
     }
 }

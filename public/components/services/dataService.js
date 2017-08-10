@@ -166,7 +166,8 @@ function dataService($http) {
         $http.post('/api/password-reset', {
             newPassword: user.newPassword,
             confirmNewPassword: user.confirmNewPassword,
-            email: user.email
+            email: user.email,
+            token: user.id
         })
             .then(function (response) {
                 callback && callback(response.data);
