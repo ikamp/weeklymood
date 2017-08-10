@@ -115,7 +115,7 @@ function dataService($http) {
     function login(user, callback, errorCallback) {
         $http.post('/api/login', {email: user.email, password: user.password})
             .then(function (response) {
-                callback && callback(response.data);
+                callback && callback(response.user);
             }, function (error) {
                 errorCallback && errorCallback(error);
             });

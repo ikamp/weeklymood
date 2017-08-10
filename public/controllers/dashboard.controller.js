@@ -51,7 +51,4 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         $scope.pieData = [350, 450, 100, 200];
     }, 0);
 
-    DataService.logOut(function () {
-        $rootScope.user = null;
-    });
 };

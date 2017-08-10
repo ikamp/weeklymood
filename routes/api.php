@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth:api'], function()
 });
 
 Auth::routes();
+Route::get('/init', 'HomeController@init');
 Route::post('/register', 'UserController@store');
 Route::post('/password-reset', 'UserController@passwordReset');
 Route::post('/password-reset-mail', 'UserController@passwordResetMail');
