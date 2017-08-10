@@ -118,10 +118,9 @@ class CompanyController extends Controller
         $user->email = $email;
         $user->company_id = $company_id;
         $user->is_manager = 'FALSE';
-        $user->is_active = 'FALSE';
+        $user->is_active = 'TRUE';
         $user->save();
         $token = Registration::createNewToken($user->id);
-        //return $user;
         \Mail::to($email)->send(new \App\Mail\InviteUserMailService($user, $token));
     }
 
