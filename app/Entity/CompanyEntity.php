@@ -13,6 +13,23 @@ class CompanyEntity
     private $moods = [];
     private $manager;
     private $AllMoodsAvg;
+    private $companyUsersMoods;
+
+    /**
+     * @return mixed
+     */
+    public function getCompanyUsersMoods()
+    {
+        return $this->companyUsersMoods;
+    }
+
+    /**
+     * @param mixed $companyUsersMoods
+     */
+    public function setCompanyUsersMoods($companyUsersMoods)
+    {
+        $this->companyUsersMoods = $companyUsersMoods;
+    }
 
     /**
      * @return mixed

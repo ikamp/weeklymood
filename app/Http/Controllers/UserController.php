@@ -17,13 +17,9 @@ class UserController extends Controller
 
     public function index()
     {
-
         $userId = Auth::user()->getAuthIdentifier();
-
         $user = UserManager::mapper($userId);
         return response()->json($user->getMoods());
-
-
     }
 
     /**
@@ -190,5 +186,6 @@ class UserController extends Controller
         $user = UserManager::mapper($userId);
         return response($user->getLastMoods()   );
     }
+
 
 }
