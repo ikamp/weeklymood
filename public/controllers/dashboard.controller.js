@@ -10,6 +10,11 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         });
     }
 
+    $scope.logOut = function() {
+        DataService.logOut(function (response) {
+        });
+    }
+
     $scope.getWeeklyDatasForCompany();
     $scope.pieChartNames = ['qwe'];
     $scope.type = 'StackedBar';
