@@ -2,16 +2,50 @@ angular.module('weeklyMood')
     .controller('DashBoardController', dashBoardController);
 
 function dashBoardController($scope, $rootScope, $timeout, DataService) {
+
+    $scope.pieLabel = ['Voted Users', 'Unvoted Users'];
+    $scope.votedUsers;
+    $scope.allUsers;
+    $timeout(function () {
+        $scope.pieData = [
+            $scope.allUsers,$scope.votedUsers
+        ];
+    }, 0);
+
+    $scope.$watch('votedUsers', function(data) {
+        $timeout(function () {
+            $scope.pieData.push(data)
+        }, 0);
+    });
+
+    $scope.$watch('allUsers', function(data) {
+        $timeout(function () {
+            $scope.pieData.push(data)
+        }, 0);
+    });
+
     $scope.getWeeklyDatasForCompany = function ($scope, $rootScope) {
         DataService.companyLastFourWeek(function (response, $scope) {
 
-        },function (errorCallback) {
-            alert(errorCallback.status);
+        }, function (errorCallback) {
+            console.log(errorCallback.status);
         });
     }
 
+        $scope.votedUsers = DataService.usersVoted(function (response) {
+            $scope.votedUsers = response;
+        }, function (errorCallback) {
+            console.log(errorCallback.status)
+        });
+
+    DataService.companyUsersTotalCount(function (response) {
+        $scope.allUsers = response;
+    }, function (errorCallback) {
+        console.log(errorCallback.status);
+    })
+
     $scope.getWeeklyDatasForCompany();
-    $scope.pieChartNames = ['qwe'];
+    $scope.pieChartNames = [''];
     $scope.type = 'StackedBar';
     $scope.options = {
         scales: {
@@ -44,16 +78,12 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
             type: 'line'
         }
     ];
-    $scope.labels2 = ['BAD!', 'Litte Little', 'Good', 'Happy', 'So Happy'];
-    $scope.data2 = [200, 300, 100, 125, 200];
+    $scope.donatLabels = ['BAD!', 'Litte Little', 'Good', 'Happy', 'So Happy'];
+    $scope.donatData = [200, 300, 100, 125, 200];
     $scope.datasetOverride2 = {
         hoverBackgroundColor: ['#45b7cd', '#ff6384', '#ff8e72', '#00b300', '#ff9933'],
         hoverBorderColor: ['#45b7cd', '#ff6384', '#ff8e72', '#80ff80', '#ffcc99']
     };
-    $scope.pieLabels = ['Bes Puan', 'Dort Puan', 'Uc Puan', 'Iki Puan'];
-    $scope.pieData = [0, 0, 0, 0];
-    $timeout(function () {
-        $scope.pieData = [350, 450, 100, 200];
-    }, 0);
+
 
 };
