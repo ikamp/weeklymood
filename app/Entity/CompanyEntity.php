@@ -15,6 +15,40 @@ class CompanyEntity
     private $AllMoodsAvg;
     private $companyUsersMoods;
     private $weeklyPercentUserDatas;
+    private $totalMoods = [];
+    private $totalTags = [];
+
+    /**
+     * @return array
+     */
+    public function getTotalTags()
+    {
+        return $this->totalTags;
+    }
+
+    /**
+     * @param array $totalTags
+     */
+    public function setTotalTags($totalTags)
+    {
+        $this->totalTags = $totalTags;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTotalMoods()
+    {
+        return $this->totalMoods;
+    }
+
+    /**
+     * @param array $totalMoods
+     */
+    public function setTotalMoods($totalMoods)
+    {
+        $this->totalMoods = $totalMoods;
+    }
 
     /**
      * @return mixed

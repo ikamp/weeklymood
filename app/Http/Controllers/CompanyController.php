@@ -169,5 +169,14 @@ class CompanyController extends Controller
         $company = CompanyManager::mapper($user->getCompanyId());
         return response()->json(sizeof($company->getusers()));
     }
+
+    public function getUsersTotalTags()
+    {
+        $userId = Auth::id();
+        $company = UserManager::getUserCompanyAction($userId);
+        $companyId = $company->id;
+        $company = CompanyManager::mapper($companyId);
+        return response ($company->getTotalTags());
+    }
 }
 

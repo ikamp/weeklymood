@@ -18,11 +18,13 @@ Route::group(['middleware' => 'auth:api'], function()
 
     Route::group(['middleware' => ['managerControl']], function()
     {
+        Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
         Route::get('/company/user/all', 'CompanyController@allCompanyUserAction');
         Route::post('/company/user/new', 'CompanyController@mailToNewCompanyUser');
         Route::get('/company/users/mood/avg', 'CompanyController@getCompanyUsersMoodAvgAction');
         Route::get('/company/users/mood/weekly/avg', 'CompanyController@getCompanyUsersMoodWeeklyAvgAction');
         Route::get('/company/users/voted', 'CompanyController@votedUsersCountAction');
+        Route::get('/company/total/tag', 'CompanyController@getUsersTotalTags');
     });
 });
 
