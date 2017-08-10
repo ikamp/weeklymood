@@ -7,6 +7,7 @@ use App\Entity\CompanyEntity;
 use App\Model\MoodContent;
 use App\Model\User;
 use Carbon\Carbon;
+use Illuminate\View\Compilers\Compiler;
 use Mockery\Exception;
 
 class CompanyManager
@@ -22,6 +23,7 @@ class CompanyManager
         $company->setManager(self::getThisCompanyManagerAction($company->getId()));
         $company->setAllMoodsAvg(self::getCompanyUsersMoodsAvgAction($company->getId()));
         $company->setCompanyUsersMoods(self::companyUsersMoodWeeklyAvgAction($company->getId()));
+        $company->setWeeklyPercentUserDatas(self::weeklyPercentData($company->getId()));
         return $company;
     }
 
@@ -112,5 +114,20 @@ class CompanyManager
                 });
         }
         return $getCompanyWeeklyMood;
+    }
+
+    public static function weeklyPercentData($companyId)
+    {
+        $dataUsers = CompanyManager::getThisCompanyMembersAction($companyId);
+        $votedUsers = [];
+        $lastWeekToday = Carbon::today()->subWeek(1);
+        $lastWeekToday=Carbon::parse($lastWeekToday)->format('Y-m-d h:m:s');
+        foreach ($dataUsers as $user) {
+            $votedUsers[] = MoodContent::where('user_id',  $user['id'])
+                ->where('created_at', '>', $lastWeekToday)
+                ->get();
+
+        }
+        return sizeof($votedUsers);
     }
 }

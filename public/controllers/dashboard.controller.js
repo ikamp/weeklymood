@@ -2,9 +2,17 @@ angular.module('weeklyMood')
     .controller('DashBoardController', dashBoardController);
 
 function dashBoardController($scope, $rootScope, $timeout, DataService) {
-    $scope.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $scope.getWeeklyDatasForCompany = function ($scope, $rootScope) {
+        DataService.companyLastFourWeek(function (response, $scope) {
+
+        },function (errorCallback) {
+            alert(errorCallback.status);
+        });
+    }
+
+    $scope.getWeeklyDatasForCompany();
+    $scope.pieChartNames = ['qwe'];
     $scope.type = 'StackedBar';
-    $scope.series = ['2015', '2016'];
     $scope.options = {
         scales: {
             xAxes: [{
@@ -15,14 +23,11 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
             }]
         }
     };
-    $scope.data = [
-        [65, 59, 90, 81, 56, 55, 40],
-        [28, 48, 40, 19, 96, 27, 100]
-    ];
+
     $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
-    $scope.labels1 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+    $scope.labels1 = ['4', '3', '2', '1'];
     $scope.data1 = [
-        [65, 59, 80, 81, 56, 55, 40]
+        [65, 59, 80, 81]
 
     ];
     $scope.datasetOverride1 = [

@@ -38,7 +38,7 @@ class CompanyController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -49,7 +49,7 @@ class CompanyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -62,7 +62,7 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -73,8 +73,8 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -85,7 +85,7 @@ class CompanyController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -144,7 +144,30 @@ class CompanyController extends Controller
         $id = Auth::id();
         $user = UserManager::mapper($id);
         $company = CompanyManager::mapper($user->getCompanyId());
-        return response($company->getCompanyUsersMoods());
+        return response()->json($company->getCompanyUsersMoods());
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function votedUsersCountAction()
+    {
+        $id = Auth::id();
+        $user = UserManager::mapper($id);
+        $company = CompanyManager::mapper($user->getCompanyId());
+        return response()->json($company->getWeeklyPercentUserDatas());
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     *
+     */
+    public function companyUsersTotalCountAction()
+    {
+        $id = Auth::id();
+        $user = UserManager::mapper($id);
+        $company = CompanyManager::mapper($user->getCompanyId());
+        return response()->json(sizeof($company->getusers()));
     }
 }
 
