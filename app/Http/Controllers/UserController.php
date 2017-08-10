@@ -6,22 +6,25 @@ use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Department;
 use App\Model\Mood;
+use App\Model\MoodContentTag;
 use App\Model\Registration;
 use App\Model\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Model;
 use App\Model\Company;
+use Mockery\Exception;
 
 class UserController extends Controller
 {
-
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function index()
     {
-        CompanyManager::weeklyPercentData(9);
-//        $userId = Auth::user()->getAuthIdentifier();
-//        $user = UserManager::mapper($userId);
-//        return response()->json($user->getMoods());
+        $userId = Auth::id();
+        $user = UserManager::mapper($userId);
+        return response()->json($user->getNameWithSurname());
     }
 
     /**

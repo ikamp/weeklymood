@@ -14,6 +14,7 @@ class CreateMoodContentTagTable extends Migration
     public function up()
     {
         Schema::create('moodcontenttag', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('moodcontent_id');
             $table->integer('tag_id');
 

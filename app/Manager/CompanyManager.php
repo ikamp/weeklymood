@@ -5,6 +5,7 @@ namespace App\Manager;
 use App\Model\Company;
 use App\Entity\CompanyEntity;
 use App\Model\MoodContent;
+use App\Model\MoodContentTag;
 use App\Model\User;
 use Carbon\Carbon;
 use Illuminate\View\Compilers\Compiler;
@@ -24,6 +25,7 @@ class CompanyManager
         $company->setAllMoodsAvg(self::getCompanyUsersMoodsAvgAction($company->getId()));
         $company->setCompanyUsersMoods(self::companyUsersMoodWeeklyAvgAction($company->getId()));
         $company->setWeeklyPercentUserDatas(self::weeklyPercentData($company->getId()));
+        $company->setTotalTags(self::getTotalTagsAction($company->getusers()));
         return $company;
     }
 
@@ -73,13 +75,13 @@ class CompanyManager
             }
 
         }
-        try {
-            $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+        $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+        if ($companyUsersMoods > 0 && $sizeOftheCompanyUsers > 0) {
             $totalMoodAvg = $companyUsersTotalMood / $sizeOftheCompanyUsers;
-
-        } catch (Exception $exception) {
-            return response()->json($exception->getMessage());
+        } else {
+            $totalMoodAvg = 0;
         }
+
         return $totalMoodAvg;
     }
 
@@ -121,13 +123,33 @@ class CompanyManager
         $dataUsers = CompanyManager::getThisCompanyMembersAction($companyId);
         $votedUsers = [];
         $lastWeekToday = Carbon::today()->subWeek(1);
-        $lastWeekToday=Carbon::parse($lastWeekToday)->format('Y-m-d h:m:s');
+        $lastWeekToday = Carbon::parse($lastWeekToday)->format('Y-m-d h:m:s');
         foreach ($dataUsers as $user) {
-            $votedUsers[] = MoodContent::where('user_id',  $user['id'])
+            $votedUsers[] = MoodContent::where('user_id', $user['id'])
                 ->where('created_at', '>', $lastWeekToday)
                 ->get();
 
         }
         return sizeof($votedUsers);
+    }
+
+    public static function getTotalTagsAction($users)
+    {
+        {
+            $companyTotaltags = [];
+            $company = $users;
+            foreach ($company as $item) {
+                $moodContents = \App\Model\MoodContent::all()->where('user_id', $item['id']);
+                foreach ($moodContents as $moodContent) {
+                    $userTags = MoodContentTag::all()->where('moodcontent_id', $moodContent['id']);
+                    foreach ($userTags as $tag) {
+                        array_push($companyTotaltags, $tag->tag_id);
+                    }
+
+                }
+
+            }
+        }
+        return $companyTotaltags;
     }
 }
