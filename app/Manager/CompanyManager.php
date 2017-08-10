@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Manager;
+
 use App\Model\Company;
 use App\Entity\CompanyEntity;
+use App\Model\MoodContent;
 use App\Model\User;
+use Carbon\Carbon;
 use Mockery\Exception;
 
 class CompanyManager
@@ -18,10 +21,11 @@ class CompanyManager
         $company->setUsers(self::getThisCompanyMembersAction($company->getId()));
         $company->setManager(self::getThisCompanyManagerAction($company->getId()));
         $company->setAllMoodsAvg(self::getCompanyUsersMoodsAvgAction($company->getId()));
+        $company->setCompanyUsersMoods(self::companyUsersMoodWeeklyAvgAction($company->getId()));
         return $company;
     }
 
-      /**
+    /**
      * @param $companyId
      * @return array static
      */
@@ -30,19 +34,19 @@ class CompanyManager
         $usersMapped = [];
         $i = 0;
         $users = User::all()->where('company_id', '=', $companyId);
-        foreach ($users as $user)
-        {
-          $usersMapped[$user->name] = [
-              'name' => $user->name,
-              'surname' => $user->surname,
-              'email' => $user->email,
-              'avatar' => $user->avatar,
-              'isManager' => $user->is_manager
-          ];
+        foreach ($users as $user) {
+            $usersMapped[$user->name] = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'surname' => $user->surname,
+                'email' => $user->email,
+                'avatar' => $user->avatar,
+                'isManager' => $user->is_manager,
+                'createDate' => Carbon::parse($user->created_at)->format('Y-m-d h:m:s')
+            ];
         }
         return $usersMapped;
     }
-
 
 
     public static function createNewCompanyAction($name, $logo)
@@ -56,26 +60,22 @@ class CompanyManager
 
     public static function getCompanyUsersMoodsAvgAction($companyId)
     {
-        $companyUsers = User::all()->where('company_id',$companyId);
+        $companyUsers = User::all()->where('company_id', $companyId);
         $companyUsersMoods = [];
         $companyUsersTotalMood = 0;
-        foreach ($companyUsers as $user)
-        {
+        foreach ($companyUsers as $user) {
             $userMoods = UserManager::getUserMoodsAction($user->id);
-            foreach ($userMoods as $item)
-            {
+            foreach ($userMoods as $item) {
                 $companyUsersMoods[] += $item;
                 $companyUsersTotalMood += $item;
             }
 
         }
-        try
-        {
-        $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
-        $totalMoodAvg = $companyUsersTotalMood / $sizeOftheCompanyUsers;
+        try {
+            $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+            $totalMoodAvg = $companyUsersTotalMood / $sizeOftheCompanyUsers;
 
-        }catch (Exception $exception)
-        {
+        } catch (Exception $exception) {
             return response()->json($exception->getMessage());
         }
         return $totalMoodAvg;
@@ -90,8 +90,27 @@ class CompanyManager
     public static function getThisCompanyManagerAction($companyId)
     {
         $manager = User::all()
-            ->where('company_id' ,$companyId )
-            ->where('is_manager' ,true)->first();
-        return  $manager->name;
+            ->where('company_id', $companyId)
+            ->where('is_manager', true)->first();
+        return $manager->name;
+    }
+
+    public static function companyUsersMoodWeeklyAvgAction($companyId)
+    {
+        $users = self::getThisCompanyMembersAction($companyId);
+        $lastWeekToday = Carbon::today()->subWeek(4);
+        $today = Carbon::today();
+        $today = Carbon::parse($today)->format('Y-m-d h:m:s');
+        $lastWeekToday::parse($lastWeekToday)->format('Y-m-d h:m:s');
+        $getCompanyWeeklyMood = [];
+        foreach ($users as $user) {
+            $getCompanyWeeklyMood[] = MoodContent::where('user_id', $user['id'])
+                ->where('created_at', '>', $lastWeekToday)
+                ->where('created_at', '<=', $today)
+                ->get()->groupBy(function ($date) {
+                    return Carbon::parse($date->created_at)->format('w');
+                });
+        }
+        return $getCompanyWeeklyMood;
     }
 }

@@ -134,6 +134,18 @@ class CompanyController extends Controller
         $user = UserManager::mapper($user);
         $company = CompanyManager::mapper($user->getCompanyId());
         return response()->json($company->getAllMoodsAvg());
+
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
+     */
+    public function getCompanyUsersMoodWeeklyAvgAction()
+    {
+        $id = Auth::id();
+        $user = UserManager::mapper($id);
+        $company = CompanyManager::mapper($user->getCompanyId());
+        return response($company->getCompanyUsersMoods());
     }
 }
 
