@@ -8,7 +8,7 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
     $scope.options = {
         scales: {
             xAxes: [{
-                stacked: true,
+                stacked: true
             }],
             yAxes: [{
                 stacked: true
@@ -22,8 +22,8 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
     $scope.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
     $scope.labels1 = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     $scope.data1 = [
-        [65, -59, 80, 81, -56, 55, -40],
-        [28, 48, -40, 19, 86, 27, 90]
+        [65, 59, 80, 81, 56, 55, 40]
+
     ];
     $scope.datasetOverride1 = [
         {
