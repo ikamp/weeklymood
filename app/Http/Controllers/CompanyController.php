@@ -124,5 +124,16 @@ class CompanyController extends Controller
         //return $user;
         \Mail::to($email)->send(new \App\Mail\InviteUserMailService($user, $token));
     }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getCompanyUsersMoodAvgAction()
+    {
+        $user = Auth::id();
+        $user = UserManager::mapper($user);
+        $company = CompanyManager::mapper($user->getCompanyId());
+        return response()->json($company->getAllMoodsAvg());
+    }
 }
 

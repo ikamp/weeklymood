@@ -4,17 +4,20 @@ namespace App\Manager;
 use App\Model\Company;
 use App\Entity\CompanyEntity;
 use App\Model\User;
+use Mockery\Exception;
 
 class CompanyManager
 {
-    public static function mapper(Company $companyModel)
+    public static function mapper($_companyId)
     {
+        $_company = self::getCompanyById($_companyId);
         $company = new CompanyEntity();
-        $company->setId($companyModel->id);
-        $company->setName($companyModel->name);
-        $company->setLogo($companyModel->logo);
+        $company->setId($_company->id);
+        $company->setName($_company->name);
+        $company->setLogo($_company->logo);
         $company->setUsers(self::getThisCompanyMembersAction($company->getId()));
         $company->setManager(self::getThisCompanyManagerAction($company->getId()));
+        $company->setAllMoodsAvg(self::getCompanyUsersMoodsAvgAction($company->getId()));
         return $company;
     }
 
@@ -49,5 +52,46 @@ class CompanyManager
         $company->logo = $logo;
         $company->save();
         return $company;
+    }
+
+    public static function getCompanyUsersMoodsAvgAction($companyId)
+    {
+        $companyUsers = User::all()->where('company_id',$companyId);
+        $companyUsersMoods = [];
+        $companyUsersTotalMood = 0;
+        foreach ($companyUsers as $user)
+        {
+            $userMoods = UserManager::getUserMoodsAction($user->id);
+            foreach ($userMoods as $item)
+            {
+                $companyUsersMoods[] += $item;
+                $companyUsersTotalMood += $item;
+            }
+
+        }
+        try
+        {
+        $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+        $totalMoodAvg = $companyUsersTotalMood / $sizeOftheCompanyUsers;
+
+        }catch (Exception $exception)
+        {
+            return response()->json($exception->getMessage());
+        }
+        return $totalMoodAvg;
+    }
+
+    public static function getCompanyById($companyId)
+    {
+        $company = Company::find($companyId);
+        return $company;
+    }
+
+    public static function getThisCompanyManagerAction($companyId)
+    {
+        $manager = User::all()
+            ->where('company_id' ,$companyId )
+            ->where('is_manager' ,true)->first();
+        return  $manager->name;
     }
 }
