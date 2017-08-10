@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth:api'], function()
     Route::get('/user/mood/last', 'UserController@getLastMoods');
     Route::get('/company/users/mood/avg', 'CompanyController@getCompanyUsersMoodAvgAction');
     Route::get('/company/users/mood/weekly/avg', 'CompanyController@getCompanyUsersMoodWeeklyAvgAction');
+    Route::get('/company/users/voted', 'CompanyController@votedUsersCountAction');
 });
 
 Auth::routes();

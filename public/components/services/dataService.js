@@ -21,7 +21,8 @@ function dataService($http) {
         inviteUser: inviteUser,
         userAllMoods: userAllMoods,
         userMoodAvg: userMoodAvg,
-        userLastMoods: userLastMoods
+        userLastMoods: userLastMoods,
+        companyLastFourWeek: companyLastFourWeek
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -218,6 +219,17 @@ function dataService($http) {
         $http({
             method: 'GET',
             url: '/api/user/mood/last'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
+    function companyLastFourWeek(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/users/mood/weekly/avg'
         }).then(function (response) {
             callback(response.data);
         }, function (error) {

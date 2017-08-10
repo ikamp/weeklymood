@@ -14,6 +14,23 @@ class CompanyEntity
     private $manager;
     private $AllMoodsAvg;
     private $companyUsersMoods;
+    private $weeklyPercentUserDatas;
+
+    /**
+     * @return mixed
+     */
+    public function getWeeklyPercentUserDatas()
+    {
+        return $this->weeklyPercentUserDatas;
+    }
+
+    /**
+     * @param mixed $weeklyPercentUserDatas
+     */
+    public function setWeeklyPercentUserDatas($weeklyPercentUserDatas)
+    {
+        $this->weeklyPercentUserDatas = $weeklyPercentUserDatas;
+    }
 
     /**
      * @return mixed
