@@ -32,6 +32,10 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         });
     }
 
+    $scope.logOut = function() {
+        DataService.logOut(function (response) {
+        });
+    }
         $scope.votedUsers = DataService.usersVoted(function (response) {
             $scope.votedUsers = response;
         }, function (errorCallback) {
