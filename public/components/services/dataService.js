@@ -22,7 +22,9 @@ function dataService($http) {
         userAllMoods: userAllMoods,
         userMoodAvg: userMoodAvg,
         userLastMoods: userLastMoods,
-        companyLastFourWeek: companyLastFourWeek
+        companyLastFourWeek: companyLastFourWeek,
+        companyUsersTotalCount: companyUsersTotalCount,
+        usersVoted:usersVoted
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -236,4 +238,27 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+
+    function usersVoted(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/users/voted'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
+    function companyUsersTotalCount(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/users/count'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
 }
