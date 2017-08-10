@@ -1,44 +1,38 @@
-<div ng-controller="MoodContentController" class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-md-offset-2 employee-register-border">
+<div ng-controller="MoodContentController" class="col-xs- col-sm-8 col-md-8 col-lg-8 col-md-offset-2 employee-register-border">
     <h2>
         Mood Content Page
     </h2>
     <div class="container">
         <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2 col-md-offset-1 verysad-image">
+            <div class="col-xs-12 col-sm-12  col-md-12 col-lg-12 col-lg-offset-1">
+            <input class="col-xs-2 col-sm-2 col-md-2" type="image" src="../../../images/verysad.png">
+            <input class="col-xs-2 col-sm-2 col-md-2" type="image" src="../../../images/sad.png">
+            <input class="col-xs-2 col-sm-2 col-md-2" type="image" src="../../../images/normal.png">
+            <input class="col-xs-2 col-sm-2 col-md-2" type="image" src="../../../images/happy.png">
+            <input class="col-xs-2 col-sm-2 col-md-2" type="image" src="../../../images/veryhappy.png">
 
             </div>
-            <div class="col-xs-2 col-sm-2 col-md-2  sad-image">
-
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2  normal-image">
-
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2  happy-image">
-
-            </div>
-            <div class="col-xs-2 col-sm-2 col-md-2  veryhappy-image">
-
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-sm-8  col-md-8 col-lg-12 commentarea-margin-top">
+            <div class="col-xs-6 col-sm-8  col-md-8 col-lg-12 commentarea-margin-top">
                 <div class="panel panel-default">
                     <div class="panel-heading"><b>Select one or more tags</b></div>
                     <div class="panel-body">
                         <div class="col-md-10 col-md-offset-2">
-                            <button type="button" class="btn btn-default">Work Environmental</button>
-                            <button type="button" class="btn btn-default">Working Hours</button>
-                            <button type="button" class="btn btn-default">Health</button>
-                            <button type="button" class="btn btn-default">Salary</button>
-                            <button type="button" class="btn btn-default">Team Members</button>
-                            <button type="button" class="btn btn-default">Distribution of Task</button>
+                            <label><input type="checkbox" value="">Work Environmental</label>
+                            <label><input type="checkbox" value="">Working Hours</label>
+                            <label><input type="checkbox" value="">Health</label>
+                            <label><input type="checkbox" value="">Salary</label>
+                            <label><input type="checkbox" value="">Team Members</label>
+                            <label><input type="checkbox" value="">Distribution of Task</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-sm-9 col-md-8 col-lg-12 commentarea-margin-top">
+            <div class="col-xs-6 col-sm-9 col-md-8 col-lg-12 commentarea-margin-top">
                 <div class="panel panel-default">
                     <div class="panel-heading"><b>Comment(Optional):</b></div>
                     <div class="panel-body">
@@ -46,6 +40,7 @@
                             <textarea class="form-control" rows="5" id="comment"></textarea>
                         </div>
                     </div>
+                    <button  type="button" class="col-xs-4 col-sm-9 col-md-8 col-lg-12 btn btn-success">Submit Your Weekly Review</button>
                 </div>
             </div>
         </div>

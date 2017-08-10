@@ -5,6 +5,7 @@ namespace App\Manager;
 use App\Model\Company;
 use App\Entity\CompanyEntity;
 use App\Model\MoodContent;
+use App\Model\MoodContentTag;
 use App\Model\User;
 use Carbon\Carbon;
 use Illuminate\View\Compilers\Compiler;
@@ -24,6 +25,7 @@ class CompanyManager
         $company->setAllMoodsAvg(self::getCompanyUsersMoodsAvgAction($company->getId()));
         $company->setCompanyUsersMoods(self::companyUsersMoodWeeklyAvgAction($company->getId()));
         $company->setWeeklyPercentUserDatas(self::weeklyPercentData($company->getId()));
+        $company->setTotalTags(self::getTotalTagsAction($company->getusers()));
         return $company;
     }
 
@@ -34,16 +36,17 @@ class CompanyManager
     public static function getThisCompanyMembersAction($companyId)
     {
         $usersMapped = [];
-        $i = 0;
         $users = User::all()->where('company_id', '=', $companyId);
         foreach ($users as $user) {
+            $companyUser = UserManager::mapper($user->id);
             $usersMapped[$user->name] = [
-                'id' => $user->id,
-                'name' => $user->name,
-                'surname' => $user->surname,
-                'email' => $user->email,
-                'avatar' => $user->avatar,
-                'isManager' => $user->is_manager,
+                'id' => $companyUser->getId(),
+                'name' => $companyUser->getName(),
+                'surname' => $companyUser->getSurname(),
+                'email' => $companyUser->getEmail(),
+                'avatar' => $companyUser->getAvatar(),
+                'isManager' => $companyUser->getIsManager(),
+                'department' => $companyUser->getDepartmentName(),
                 'createDate' => Carbon::parse($user->created_at)->format('Y-m-d h:m:s')
             ];
         }
@@ -73,13 +76,13 @@ class CompanyManager
             }
 
         }
-        try {
-            $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+        $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
+        if ($companyUsersMoods > 0 && $sizeOftheCompanyUsers > 0) {
             $totalMoodAvg = $companyUsersTotalMood / $sizeOftheCompanyUsers;
-
-        } catch (Exception $exception) {
-            return response()->json($exception->getMessage());
+        } else {
+            $totalMoodAvg = 0;
         }
+
         return $totalMoodAvg;
     }
 
@@ -121,13 +124,33 @@ class CompanyManager
         $dataUsers = CompanyManager::getThisCompanyMembersAction($companyId);
         $votedUsers = [];
         $lastWeekToday = Carbon::today()->subWeek(1);
-        $lastWeekToday=Carbon::parse($lastWeekToday)->format('Y-m-d h:m:s');
+        $lastWeekToday = Carbon::parse($lastWeekToday)->format('Y-m-d h:m:s');
         foreach ($dataUsers as $user) {
-            $votedUsers[] = MoodContent::where('user_id',  $user['id'])
+            $votedUsers[] = MoodContent::where('user_id', $user['id'])
                 ->where('created_at', '>', $lastWeekToday)
                 ->get();
 
         }
         return sizeof($votedUsers);
+    }
+
+    public static function getTotalTagsAction($users)
+    {
+        {
+            $companyTotaltags = [];
+            $company = $users;
+            foreach ($company as $item) {
+                $moodContents = \App\Model\MoodContent::all()->where('user_id', $item['id']);
+                foreach ($moodContents as $moodContent) {
+                    $userTags = MoodContentTag::all()->where('moodcontent_id', $moodContent['id']);
+                    foreach ($userTags as $tag) {
+                        array_push($companyTotaltags, $tag->tag_id);
+                    }
+
+                }
+
+            }
+        }
+        return $companyTotaltags;
     }
 }
