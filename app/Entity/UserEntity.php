@@ -16,6 +16,23 @@ class UserEntity
     private $position;
     private $avatar;
     private $departmentId;
+    private $departmentName;
+
+    /**
+     * @return mixed
+     */
+    public function getDepartmentName()
+    {
+        return $this->departmentName;
+    }
+
+    /**
+     * @param mixed $departmentName
+     */
+    public function setDepartmentName($departmentName)
+    {
+        $this->departmentName = $departmentName;
+    }
     private $companyId;
     private $isManager;
     private $isActive;

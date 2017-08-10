@@ -36,16 +36,17 @@ class CompanyManager
     public static function getThisCompanyMembersAction($companyId)
     {
         $usersMapped = [];
-        $i = 0;
         $users = User::all()->where('company_id', '=', $companyId);
         foreach ($users as $user) {
+            $companyUser = UserManager::mapper($user->id);
             $usersMapped[$user->name] = [
-                'id' => $user->id,
-                'name' => $user->name,
-                'surname' => $user->surname,
-                'email' => $user->email,
-                'avatar' => $user->avatar,
-                'isManager' => $user->is_manager,
+                'id' => $companyUser->getId(),
+                'name' => $companyUser->getName(),
+                'surname' => $companyUser->getSurname(),
+                'email' => $companyUser->getEmail(),
+                'avatar' => $companyUser->getAvatar(),
+                'isManager' => $companyUser->getIsManager(),
+                'department' => $companyUser->getDepartmentName(),
                 'createDate' => Carbon::parse($user->created_at)->format('Y-m-d h:m:s')
             ];
         }
