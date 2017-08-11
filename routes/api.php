@@ -27,6 +27,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
         Route::post('/send/weekly/mail', 'UserController@sendWeeklyMail');
         Route::post('/delete/user', 'UserController@deleteUser');
+        Route::post('/mood/content/review', 'CompanyController@createMoodwithTag');
     });
 });
 
@@ -37,4 +38,4 @@ Route::post('/register', 'UserController@store');
 Route::post('/password-reset', 'UserController@passwordReset');
 Route::post('/password-reset-mail', 'UserController@passwordResetMail');
 Route::get('/logout', 'UserController@logout');
-Route::post('/mood/content/review', 'CompanyController@createMoodwithTag');
+
