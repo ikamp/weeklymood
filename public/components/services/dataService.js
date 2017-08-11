@@ -18,7 +18,7 @@ function dataService($http) {
         companyLastFourWeek: companyLastFourWeek,
         sendWeeklyMail: sendWeeklyMail,
         companyUsersTotalCount: companyUsersTotalCount,
-        usersVoted:usersVoted,
+        usersVoted: usersVoted,
         postMoodContent: postMoodContent,
         deleteUser: deleteUser
     };
@@ -177,7 +177,7 @@ function dataService($http) {
             });
     }
 
-  function usersVoted(callback, errorCallback) {
+    function usersVoted(callback, errorCallback) {
         $http({
             method: 'GET',
             url: '/api/company/users/voted'
@@ -199,7 +199,7 @@ function dataService($http) {
         });
     }
 
-  function postMoodContent(data,callback,errorCallback) {
+    function postMoodContent(data, callback, errorCallback) {
         $http.post('/api/mood/content/review', data)
             .then(function (response) {
                 callback(response.data);

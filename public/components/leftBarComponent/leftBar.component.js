@@ -1,8 +1,9 @@
 angular.module('weeklyMood')
-    .component('leftBarComponent',{
+    .component('leftBarComponent', {
         controller: leftBarController,
-        templateUrl:'components/leftBarComponent/leftBar.html'
+        templateUrl: 'components/leftBarComponent/leftBar.html'
     });
-function leftBarController($scope,$rootScope) {
+
+function leftBarController($scope, $rootScope) {
     $scope.title = "WeeklyMood";
 }

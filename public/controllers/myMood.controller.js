@@ -3,7 +3,6 @@ angular
     .controller('MyMoodController', myMoodController);
 
 function myMoodController($scope, DataService, $timeout) {
-
     $scope.userAllMoods = function () {
         DataService.userAllMoods(function (responseCallback) {
             $scope.userAllMoods = responseCallback;
@@ -12,6 +11,7 @@ function myMoodController($scope, DataService, $timeout) {
             $scope.normal = [];
             $scope.happy = [];
             $scope.veryhappy = [];
+
             angular.forEach($scope.userAllMoods, function (value, key) {
                 if (value === 100) {
                     $scope.veryhappy.push(value);
@@ -25,6 +25,7 @@ function myMoodController($scope, DataService, $timeout) {
                     $scope.verysad.push(value);
                 }
             });
+
             $timeout(function () {
                 $scope.pieLabels = ['veryhappy', 'happy', 'normal', 'sad', 'verysad'];
 
@@ -38,12 +39,14 @@ function myMoodController($scope, DataService, $timeout) {
             }, 400)
         });
     };
+
     $scope.userLastMood = function () {
         DataService.userLastMoods(function (responseCallback) {
             $scope.data = responseCallback;
         });
 
     };
+
     $scope.userLastMood();
 
     $scope.userMoodAvg = function () {
@@ -62,6 +65,7 @@ function myMoodController($scope, DataService, $timeout) {
             }
         })
     };
+
     $scope.userMoodAvg();
     $scope.userAllMoods();
     $scope.labelArray = ['', '', '', '', '', ''];
@@ -79,11 +83,11 @@ function myMoodController($scope, DataService, $timeout) {
                 {
                     stacked: false,
                     ticks:
-                    {
-                        min: 0,
-                        stepSize: 10,
-                        max: 100
-                    }
+                        {
+                            min: 0,
+                            stepSize: 10,
+                            max: 100
+                        }
                 }
             ]
         }

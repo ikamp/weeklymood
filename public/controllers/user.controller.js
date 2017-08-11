@@ -1,5 +1,5 @@
 angular.module('weeklyMood')
-    .controller('UserController',userController);
+    .controller('UserController', userController);
 
 function userController($scope, $routeParams, DataService) {
 }

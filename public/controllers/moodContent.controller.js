@@ -1,8 +1,7 @@
 angular.module('weeklyMood')
     .controller('MoodContentController', moodContentController);
 
-function moodContentController($scope,$location, DataService) {
-
+function moodContentController($scope, $location, DataService) {
     $scope.tags = {
         tag1: true,
         tag2: false,
@@ -22,6 +21,7 @@ function moodContentController($scope,$location, DataService) {
     $scope.comments = {
         comment: comment
     };
+
     $scope.tagsJson = {
         moods: $scope.moods,
         tags: $scope.tags,
@@ -31,7 +31,6 @@ function moodContentController($scope,$location, DataService) {
     $scope.postMoodContents = function () {
         DataService.postMoodContent($scope.tagsJson, function (response) {
             $location.path('/mymood');
-
         });
     };
 }

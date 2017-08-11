@@ -4,17 +4,18 @@
         Register Page
     </h2>
     <form name="form" ng-submit="" role="form">
-        <div class="form-group register-input-width" ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
+        <div class="form-group register-input-width"
+             ng-class="{ 'has-error': form.firstName.$dirty && form.firstName.$error.required }">
             <label for="firstName">
 
             </label>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon1">
                         <span class="glyphicon glyphicon-user icons-color">
-
                         </span>
                     </span>
-                <input type="text" name="firstName" id="firstName" placeholder="First Name"class="form-control" ng-model="user.name" required/>
+                <input type="text" name="firstName" id="firstName" placeholder="First Name" class="form-control"
+                       ng-model="user.name" required/>
             </div>
             <span ng-show="form.firstName.$dirty && form.firstName.$error.required" class="help-block">
                 First name is required
@@ -23,12 +24,11 @@
         <div class="form-group register-input-width"
              ng-class="{ 'has-error': form.lastName.$dirty && form.lastName.$error.required }">
             <label for="lastName">
-
             </label>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon2">
                         <span
-                            class="glyphicon glyphicon-user icons-color">
+                                class="glyphicon glyphicon-user icons-color">
                         </span>
                     </span>
                 <input type="text" name="lastName" id="lastName" placeholder="Last Name" class="form-control"
@@ -41,15 +41,15 @@
         <div class="form-group register-input-width"
              ng-class="{ 'has-error': form.email.$dirty && form.email.$error.required }">
             <label for="email">
-
             </label>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon3">
                         <span
-                            class="glyphicon glyphicon-envelope icons-color">
+                                class="glyphicon glyphicon-envelope icons-color">
                         </span>
                     </span>
-                <input type="email" name="email" id="email" placeholder="Email" class="form-control" ng-model="user.email" required/>
+                <input type="email" name="email" id="email" placeholder="Email" class="form-control"
+                       ng-model="user.email" required/>
             </div>
             <span ng-show="form.email.$dirty && form.email.$error.required" class="help-block">
                   E-mail is required
@@ -58,14 +58,14 @@
         <div class="form-group register-input-width"
              ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
             <label for="password">
-
             </label>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon4">
                         <span class="glyphicon glyphicon-asterisk icons-color">
                         </span>
                     </span>
-                <input type="password" name="password" id="password" placeholder="Password" class="form-control" ng-model="user.password" required/>
+                <input type="password" name="password" id="password" placeholder="Password" class="form-control"
+                       ng-model="user.password" required/>
             </div>
             <span ng-show="form.password.$dirty && form.password.$error.required" class="help-block">
                 Password is required
@@ -74,20 +74,19 @@
         <div class="form-group register-input-width"
              ng-class="{ 'has-error': form.companyName.$dirty && form.companyName.$error.required }">
             <label for="companyName">
-
             </label>
             <div class="input-group input-group-lg">
                     <span class="input-group-addon" id="sizing-addon5">
                         <span class="glyphicon glyphicon-briefcase icons-color">
                         </span>
                     </span>
-                <input type="text" name="companyName" id="companyName" placeholder="Company Name" class="form-control" ng-model="user.companyName" required/>
+                <input type="text" name="companyName" id="companyName" placeholder="Company Name" class="form-control"
+                       ng-model="user.companyName" required/>
             </div>
             <span ng-show="form.companyName.$dirty && form.companyName.$error.required" class="help-block">
                 Company name is required
             </span>
         </div>
-
         <div class="form-actions">
             <button ng-click="userRegister()" type="submit" ng-disabled="form.$invalid || dataLoading"
                     class="btn btn-primary register-btn">Register

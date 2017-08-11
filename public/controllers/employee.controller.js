@@ -3,16 +3,16 @@ angular.module('weeklyMood')
 
 function employeeController($scope, $rootScope, DataService) {
     $scope.userList = [];
-    $scope.user={};
+    $scope.user = {};
 
     DataService.listCompanyUsers(function (response) {
-        _.each(response,function (value,key) {
+        _.each(response, function (value, key) {
             $scope.userList.push(value);
         })
     });
 
     $scope.inviteUser = function () {
-        DataService.inviteUser($scope.user ,function (response) {
+        DataService.inviteUser($scope.user, function (response) {
         });
     };
 

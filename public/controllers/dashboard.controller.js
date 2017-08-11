@@ -8,17 +8,17 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
     $scope.allUsers;
     $timeout(function () {
         $scope.pieData = [
-            $scope.allUsers,$scope.votedUsers
+            $scope.allUsers, $scope.votedUsers
         ];
     }, 0);
 
-    $scope.$watch('votedUsers', function(data) {
+    $scope.$watch('votedUsers', function (data) {
         $timeout(function () {
             $scope.pieData.push(data)
         }, 0);
     });
 
-    $scope.$watch('allUsers', function(data) {
+    $scope.$watch('allUsers', function (data) {
         $timeout(function () {
             $scope.pieData.push(data)
         }, 0);
@@ -32,15 +32,15 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         });
     }
 
-    $scope.logOut = function() {
+    $scope.logOut = function () {
         DataService.logOut(function (response) {
         });
     }
-        $scope.votedUsers = DataService.usersVoted(function (response) {
-            $scope.votedUsers = response;
-        }, function (errorCallback) {
-            console.log(errorCallback.status)
-        });
+    $scope.votedUsers = DataService.usersVoted(function (response) {
+        $scope.votedUsers = response;
+    }, function (errorCallback) {
+        console.log(errorCallback.status)
+    });
 
     DataService.companyUsersTotalCount(function (response) {
         $scope.allUsers = response;
@@ -88,6 +88,4 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         hoverBackgroundColor: ['#45b7cd', '#ff6384', '#ff8e72', '#00b300', '#ff9933'],
         hoverBorderColor: ['#45b7cd', '#ff6384', '#ff8e72', '#80ff80', '#ffcc99']
     };
-
-
 };
