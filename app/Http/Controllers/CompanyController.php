@@ -110,13 +110,13 @@ class CompanyController extends Controller
         $name = $request->name;
         $surname = $request->surname;
         $email = $request->email;
-        $company_id = UserManager::getUserByIdAction(Auth::id())->company_id;
+        $companyId = UserManager::getUserByIdAction(Auth::id())->company_id;
 
         $user = new User();
         $user->name = $name;
         $user->surname = $surname;
         $user->email = $email;
-        $user->company_id = $company_id;
+        $user->company_id = $companyId;
         $user->is_manager = false;
         $user->is_active = true;
         $user->save();

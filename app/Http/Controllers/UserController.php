@@ -156,8 +156,8 @@ class UserController extends Controller
     {
         $email = $request->email;
         $user = UserManager::getUserByEmailAction($email);
-        $user_id = $user->id;
-        $registration = Registration::createNewToken($user_id);
+        $userId = $user->id;
+        $registration = Registration::createNewToken($userId);
         $registration->save();
         $token = $registration->token;
         \Mail::to($email)->send(new \App\Mail\PasswordResetMailService($user, $registration));
@@ -166,8 +166,8 @@ class UserController extends Controller
     public function registration(Request $request)
     {
         $token = $request->token;
-        $user_id = Registration::getRegistrationIdByToken($token)->user_id;
-        $user = UserManager::getUserByIdAction($user_id);
+        $userId = Registration::getRegistrationIdByToken($token)->user_id;
+        $user = UserManager::getUserByIdAction($userId);
         $user->is_active = 'TRUE';
         $user->save();
     }
@@ -210,12 +210,19 @@ class UserController extends Controller
 
     public function deleteUser(Request $request)
     {
-        $user_id = $request->userId;
-        $user = UserManager::getUserByIdAction($user_id);
-        $is_manager = $user['is_manager'];
-        if ($is_manager !== true) {
+        $userId = $request->userId;
+        $user = UserManager::getUserByIdAction($userId);
+        $isManager = $user['is_manager'];
+        if ($isManager !== true) {
             $user->delete();
             return $user;
         }
+    }
+
+    public function managerChecker()
+    {
+        $userId = Auth::id();
+        $user = UserManager::mapper($userId);
+        return response()->json($user->getIsManager());
     }
 }
