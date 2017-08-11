@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Company;
+use App\Model\Mood;
+use App\Model\MoodContentTag;
 use App\Model\Registration;
 use App\Model\User;
 use App\Entity\companyEntity;
@@ -176,7 +178,54 @@ class CompanyController extends Controller
         $company = UserManager::getUserCompanyAction($userId);
         $companyId = $company->id;
         $company = CompanyManager::mapper($companyId);
-        return response ($company->getTotalTags());
+        return response($company->getTotalTags());
+    }
+
+    /**
+     * @param Request $request
+     */
+    public function createMoodwithTag(Request $request)
+    {
+        $userId = Auth::id();
+        $moods = $request->moods;
+        $comment = $request->comment['comment'];
+        $mood_id = 1;
+        $tags = $request->tags;
+        foreach ($moods as $item)
+        {
+            if($item == 1){
+                $mood_id = 1;
+            } elseif ($item == 2){
+                $mood_id = 2;
+            }elseif ($item == 3){
+                $mood_id = 3;
+            }elseif ($item == 4){
+                $mood_id = 4;
+            }elseif ($item == 5){
+                $mood_id = 5;
+            }
+        }
+        $mood = new \App\Model\MoodContent();
+        $mood->user_id = $userId;
+        $mood->mood_id = $mood_id;
+        $mood->comment = $comment;
+        $mood->save();
+        $i  = 1;
+        foreach ($tags as $item)
+        {
+
+
+            if ($item == true)
+            {
+                $tag = new MoodContentTag();
+                $tag->moodcontent_id = $mood->id;
+                $tag->tag_id = $i;
+                $tag->save();
+
+            }
+            $i++;
+        }
+       return response()->json('saved');
     }
 }
 

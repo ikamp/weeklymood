@@ -19,7 +19,7 @@ function dataService($http) {
         sendWeeklyMail: sendWeeklyMail,
         companyUsersTotalCount: companyUsersTotalCount,
         usersVoted:usersVoted,
-        sendWeeklyMail: sendWeeklyMail,
+        postMoodContent: postMoodContent,
         deleteUser: deleteUser
     };
 
@@ -197,5 +197,14 @@ function dataService($http) {
         }, function (error) {
             errorCallback && errorCallback(error);
         });
+    }
+
+  function postMoodContent(data,callback,errorCallback) {
+        $http.post('/api/mood/content/review', data)
+            .then(function (response) {
+                callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
     }
 }
