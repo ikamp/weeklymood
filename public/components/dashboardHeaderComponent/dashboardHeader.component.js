@@ -5,10 +5,18 @@ angular.module('weeklyMood')
     });
 
 function dashBoardController($scope, DataService) {
-
+    $scope.userName = {};
     $scope.logOut = function () {
         DataService.logOut(function (callback) {
             alert(callback);
         });
     };
+
+    $scope.getUserNameWithSurname = function () {
+        DataService.getUserNameWithSurname(function (response) {
+            $scope.userName = response;
+        });
+    };
+
+    $scope.getUserNameWithSurname();
 }
