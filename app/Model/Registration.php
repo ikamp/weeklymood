@@ -17,10 +17,10 @@ class Registration extends Model
         return $this->belongsTo('App\Model\User', 'user_id', 'id');
     }
 
-    public static function getRegistrationByUserId($user_id)
+    public static function getRegistrationByUserId($userId)
     {
         return $userToken = Registration::all()
-            ->where("user_id", $user_id)
+            ->where("user_id", $userId)
             ->first();
     }
 
@@ -31,11 +31,11 @@ class Registration extends Model
             ->first();
     }
 
-    public static function createNewToken($user_id)
+    public static function createNewToken($userId)
     {
         $token = new Registration();
         $token->token = str_random(32);
-        $token->user_id = $user_id;
+        $token->user_id = $userId;
         $token->expiration_time = Carbon::now()->addHours(8);
         $token->save();
         return $token;

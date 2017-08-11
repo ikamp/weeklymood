@@ -9,4 +9,6 @@ angular.module('weeklyMood')
 
 function headerController($scope, $rootScope) {
     $scope.title = "WeeklyMood";
+
+
 }

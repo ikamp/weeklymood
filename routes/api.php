@@ -14,7 +14,7 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/user/mood/all', 'UserController@getAllUserMoods');
     Route::get('/user/mood/level', 'UserController@getUserMoodLevel');
     Route::get('/user/mood/last', 'UserController@getLastMoods');
-
+    Route::get('/user/manager/checker', 'UserController@managerChecker');
 
     Route::group(['middleware' => ['managerControl']], function () {
         Route::get('/company/user/all', 'CompanyController@allCompanyUserAction');
