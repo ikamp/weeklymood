@@ -189,43 +189,38 @@ class CompanyController extends Controller
         $userId = Auth::id();
         $moods = $request->moods;
         $comment = $request->comment['comment'];
-        $mood_id = 1;
+        $moodId = 1;
         $tags = $request->tags;
-        foreach ($moods as $item)
-        {
-            if($item == 1){
-                $mood_id = 1;
-            } elseif ($item == 2){
-                $mood_id = 2;
-            }elseif ($item == 3){
-                $mood_id = 3;
-            }elseif ($item == 4){
-                $mood_id = 4;
-            }elseif ($item == 5){
-                $mood_id = 5;
+        foreach ($moods as $item) {
+            if ($item == 1) {
+                $moodId = 1;
+            } elseif ($item == 2) {
+                $moodId = 2;
+            } elseif ($item == 3) {
+                $moodId = 3;
+            } elseif ($item == 4) {
+                $moodId = 4;
+            } elseif ($item == 5) {
+                $moodId = 5;
             }
         }
         $mood = new \App\Model\MoodContent();
         $mood->user_id = $userId;
-        $mood->mood_id = $mood_id;
+        $mood->mood_id = $moodId;
         $mood->comment = $comment;
         $mood->save();
-        $i  = 1;
-        foreach ($tags as $item)
-        {
+        $i = 1;
+        foreach ($tags as $item) {
 
-
-            if ($item == true)
-            {
+            if ($item == true) {
                 $tag = new MoodContentTag();
                 $tag->moodcontent_id = $mood->id;
                 $tag->tag_id = $i;
                 $tag->save();
-
             }
             $i++;
         }
-       return response()->json('saved');
+        return response()->json('saved');
     }
 }
 
