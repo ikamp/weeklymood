@@ -66,7 +66,7 @@ var app = angular
                     $location.path('/login');
                 }
             }, function () {
-                    $location.path('/login');
+                $location.path('/login');
             })
         }
 
@@ -85,9 +85,8 @@ var app = angular
             }
 
             if ((next.$$route.originalPath == '/login' || next.$$route.originalPath == '/password-reset-mail')
-                    || (next.$$route.originalPath == '/register' || next.$$route.originalPath == '/password-reset-mail')) {
+                || (next.$$route.originalPath == '/register' || next.$$route.originalPath == '/password-reset-mail')) {
                 pageControl();
             }
         });
     });
-

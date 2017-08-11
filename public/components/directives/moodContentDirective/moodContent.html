@@ -7,11 +7,11 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12  col-md-12 col-lg-12 col-lg-offset-1">
                 <label class="col-xs-2 col-sm-2 col-md-2">
-                    <input class="col-xs-2 col-sm-2 col-md-2" checked="checked" name="moodButton"  ng-model="moods.mood1" value="1"
+                    <input class="col-xs-2 col-sm-2 col-md-2" checked="checked" name="moodButton" ng-model="moods.mood1"
+                           value="1"
                            type="radio"/>
                     <img src="../../../images/verysad.png">
                 </label>
-
                 <label class="col-xs-2 col-sm-2 col-md-2">
                     <input class="col-xs-2 col-sm-2 col-md-2" name="moodButton" ng-model="moods.mood2" value="2"
                            type="radio"/>
@@ -23,7 +23,7 @@
                     <img src="../../../images/normal.png">
                 </label>
                 <label class="col-xs-2 col-sm-2 col-md-2">
-                    <input class="col-xs-2 col-sm-2 col-md-2" name="moodButton" ng-model="moods.mood4"value="4"
+                    <input class="col-xs-2 col-sm-2 col-md-2" name="moodButton" ng-model="moods.mood4" value="4"
                            type="radio"/>
                     <img src="../../../images/happy.png">
                 </label>
@@ -31,9 +31,7 @@
                     <input class="col-xs-2 col-sm-2 col-md-2" name="moodButton" ng-model="moods.mood5" value="5"
                            type="radio"/>
                     <img src="../../../images/veryhappy.png">
-
                 </label>
-
             </div>
         </div>
     </div>
@@ -43,7 +41,7 @@
                 <div class="panel-heading"><b>Select one or more tags</b></div>
                 <div class="panel-body">
                     <div class="col-md-10 col-md-offset-4">
-                        <label><input type="checkbox" value="1" checked  ng-model="tags.tag1" >Work Environmental</label>
+                        <label><input type="checkbox" value="1" checked ng-model="tags.tag1">Work Environmental</label>
                         <label><input type="checkbox" ng-model="tags.tag2" value="2">Working Hours</label>
                         <label><input type="checkbox" ng-model="tags.tag3" value="3">Health</label>
                         <label><input type="checkbox" ng-model="tags.tag4" value="4">Salary</label>
@@ -59,11 +57,12 @@
                 <div class="panel-heading"><b>Comment(Optional):</b></div>
                 <div class="panel-body">
                     <div class="col-md-12">
-                        <textarea type="text" ng-model="comments.comment" class="form-control" rows="5" id="comment"></textarea>
+                        <textarea type="text" ng-model="comments.comment" class="form-control" rows="5"
+                                  id="comment"></textarea>
                     </div>
-
                 </div>
-                <button type="button" ng-click="postMoodContents()" class="col-xs-4 col-sm-9 col-md-8 col-lg-12 btn btn-success">Submit Your Weekly
+                <button type="button" ng-click="postMoodContents()"
+                        class="col-xs-4 col-sm-9 col-md-8 col-lg-12 btn btn-success">Submit Your Weekly
                     Review
                 </button>
             </div>

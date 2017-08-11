@@ -1,6 +1,6 @@
 angular.module('weeklyMood')
-    .directive('employeeRegisterDirective',function () {
+    .directive('employeeRegisterDirective', function () {
         return {
-            templateUrl:'components/directives/employeeRegisterDirective/employeeRegister.html'
+            templateUrl: 'components/directives/employeeRegisterDirective/employeeRegister.html'
         };
     });

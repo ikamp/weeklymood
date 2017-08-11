@@ -1,6 +1,6 @@
 angular.module('weeklyMood')
-    .directive('myMoodDirective',function () {
+    .directive('myMoodDirective', function () {
         return {
-            templateUrl:'components/directives/myMoodDirective/myMood.html'
+            templateUrl: 'components/directives/myMoodDirective/myMood.html'
         };
     });

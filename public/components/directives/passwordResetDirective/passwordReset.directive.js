@@ -1,6 +1,6 @@
 angular.module('weeklyMood')
-    .directive('passwordResetDirective',function () {
+    .directive('passwordResetDirective', function () {
         return {
-            templateUrl:'components/directives/passwordResetDirective/password-reset.html'
+            templateUrl: 'components/directives/passwordResetDirective/password-reset.html'
         };
     });
