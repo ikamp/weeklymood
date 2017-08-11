@@ -21,11 +21,8 @@ function dataService($http) {
         usersVoted: usersVoted,
         postMoodContent: postMoodContent,
         deleteUser: deleteUser,
-<<<<<<< 1c99d0139eaf4fd5a5eef4e075585092deebb9c2
-        getUserNameWithSurname: getUserNameWithSurname
-=======
+        getUserNameWithSurname: getUserNameWithSurname,
         companyTotalTags:companyTotalTags
->>>>>>> Totaltagsgraph modified.
     };
 
     function listCompanyUsers(callback, errorCallback) {
