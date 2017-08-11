@@ -8,5 +8,4 @@ class Sessions extends Model
 {
     protected $table = 'sessions';
     public $timestamp = false;
-
 }

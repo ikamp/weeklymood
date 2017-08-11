@@ -20,7 +20,8 @@ function dataService($http) {
         companyUsersTotalCount: companyUsersTotalCount,
         usersVoted: usersVoted,
         postMoodContent: postMoodContent,
-        deleteUser: deleteUser
+        deleteUser: deleteUser,
+        getUserNameWithSurname: getUserNameWithSurname
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -206,5 +207,16 @@ function dataService($http) {
             }, function (error) {
                 errorCallback && errorCallback(error);
             });
+    }
+
+    function getUserNameWithSurname(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/user'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
     }
 }
