@@ -272,13 +272,4 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
-
-    function sendWeeklyMail(callback, errorCallback) {
-        $http.post('/api/send/weekly/mail')
-            .then(function (response) {
-                callback && callback(response.data);
-            }, function (error) {
-                errorCallback && errorCallback(error);
-            });
-    }
 }

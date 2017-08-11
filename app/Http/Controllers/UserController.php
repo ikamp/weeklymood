@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\Model;
 use App\Model\Company;
 use App\Mail;
 use Mockery\Exception;
-use App\Mail;
 
 class UserController extends Controller
 {
