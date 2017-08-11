@@ -20,13 +20,19 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
 
     $scope.$watch('votedUsers', function (data) {
         $timeout(function () {
-            $scope.pieData.push(data)
+            $scope.pieData.push(data);
         }, 0);
     });
 
     $scope.$watch('allUsers', function (data) {
         $timeout(function () {
-            $scope.pieData.push(data)
+            $scope.pieData.push(data);
+        }, 0);
+    });
+
+    $scope.$watch('allCompanyTags', function (data) {
+        $timeout(function () {
+            console.log(data);
         }, 0);
     });
 
@@ -43,12 +49,12 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         }, function (errorCallback) {
             console.log(errorCallback.status);
         });
-    }
+    };
 
     $scope.logOut = function () {
         DataService.logOut(function (response) {
         });
-    }
+    };
 
     $scope.votedUsers = DataService.usersVoted(function (response) {
         $scope.votedUsers = response;
@@ -60,7 +66,26 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         $scope.allUsers = response;
     }, function (errorCallback) {
         console.log(errorCallback.status);
-    })
+    });
+
+    $scope.dataGetAllTags = DataService.companyTotalTags(function (response) {
+        $scope.dataGetAllTags = response;
+        angular.forEach($scope.dataGetAllTags, function (value, key) {
+            if (value === 1) {
+                $scope.workEnvironmetal += 1;
+            } else if (value === 2) {
+                $scope.health += 1;
+            } else if (value === 3) {
+                $scope.workingHour += 1;
+            } else if (value === 4) {
+                $scope.salary += 1;
+            } else if (value === 5) {
+                $scope.teamMembers += 1;
+            }$scope.donatData = [$scope.workEnvironmetal, $scope.health, $scope.workingHour, $scope.salary, $scope.teamMembers];
+        });
+    }, function (errorCallback) {
+        console.log(errorCallback.status);
+    });
 
     $scope.dataGetAllTags = DataService.companyTotalTags(function (response) {
         $scope.dataGetAllTags = response;

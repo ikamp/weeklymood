@@ -231,4 +231,15 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+
+    function companyTotalTags(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/total/tag'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
 }
