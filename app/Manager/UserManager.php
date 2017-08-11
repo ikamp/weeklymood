@@ -128,4 +128,5 @@ class UserManager
         $departmentName = $department->name;
         return $departmentName;
     }
+
 }

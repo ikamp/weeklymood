@@ -24,7 +24,8 @@ function dataService($http) {
         userLastMoods: userLastMoods,
         companyLastFourWeek: companyLastFourWeek,
         companyUsersTotalCount: companyUsersTotalCount,
-        usersVoted:usersVoted
+        usersVoted:usersVoted,
+        postMoodContent:postMoodContent
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -261,5 +262,14 @@ function dataService($http) {
             errorCallback && errorCallback(error);
         });
     }
+    function postMoodContent(data,callback,errorCallback) {
+        $http.post('/api/mood/content/review', data)
+            .then(function (response) {
+                callback(response.data);
+            }, function (error) {
+                errorCallback && errorCallback(error);
+            });
+    }
+
 
 }
