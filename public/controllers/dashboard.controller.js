@@ -36,6 +36,13 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         }, 0);
     });
 
+    $scope.$watch('allCompanyTags', function (data) {
+        $timeout(function () {
+            console.log(data);
+        }, 0);
+    });
+
+
     $scope.getWeeklyDatasForCompany = function ($scope, $rootScope) {
         DataService.companyLastFourWeek(function (response, $scope) {
 
@@ -80,6 +87,25 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
         console.log(errorCallback.status);
     });
 
+    $scope.dataGetAllTags = DataService.companyTotalTags(function (response) {
+        $scope.dataGetAllTags = response;
+        angular.forEach($scope.dataGetAllTags, function (value, key) {
+            if (value === 1) {
+                $scope.workEnvironmetal += 1;
+            } else if (value === 2) {
+                $scope.health += 1;
+            } else if (value === 3) {
+                $scope.workingHour += 1;
+            } else if (value === 4) {
+                $scope.salary += 1;
+            } else if (value === 5) {
+                $scope.teamMembers += 1;
+            }$scope.donatData = [$scope.workEnvironmetal, $scope.health, $scope.workingHour, $scope.salary, $scope.teamMembers];
+        });
+    }, function (errorCallback) {
+        console.log(errorCallback.status);
+    });
+
     $scope.getWeeklyDatasForCompany();
     $scope.pieChartNames = [''];
     $scope.type = 'StackedBar';
@@ -98,7 +124,6 @@ function dashBoardController($scope, $rootScope, $timeout, DataService) {
     $scope.labels1 = ['4', '3', '2', '1'];
     $scope.data1 = [
         [65, 59, 80, 81]
-
     ];
 
     $scope.datasetOverride1 = [

@@ -22,7 +22,7 @@ function dataService($http) {
         postMoodContent: postMoodContent,
         deleteUser: deleteUser,
         getUserNameWithSurname: getUserNameWithSurname,
-        companyTotalTags: companyTotalTags
+        companyTotalTags:companyTotalTags
     };
 
     function listCompanyUsers(callback, errorCallback) {
@@ -194,6 +194,17 @@ function dataService($http) {
         $http({
             method: 'GET',
             url: '/api/company/users/count'
+        }).then(function (response) {
+            callback(response.data);
+        }, function (error) {
+            errorCallback && errorCallback(error);
+        });
+    }
+
+    function companyTotalTags(callback, errorCallback) {
+        $http({
+            method: 'GET',
+            url: '/api/company/total/tag'
         }).then(function (response) {
             callback(response.data);
         }, function (error) {
