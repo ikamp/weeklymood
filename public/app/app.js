@@ -27,6 +27,14 @@ var app = angular
                 controller: 'EmployeeController',
                 templateUrl: '/components/directives/employeeDirective/employee.html'
             })
+            .when('/delete/user', {
+                controller: 'EmployeeController',
+                templateUrl: '/components/directives/employeeDirective/employee.html'
+            })
+            .when('/send/weekly/mail', {
+                controller: 'EmployeeController',
+                templateUrl: '/components/directives/employeeDirective/employee.html'
+            })
             .when('/password/reset/:id', {
                 controller: 'PasswordResetController',
                 templateUrl: '/components/directives/passwordResetDirective/password-reset.html'
