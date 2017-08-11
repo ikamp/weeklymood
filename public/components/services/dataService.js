@@ -25,7 +25,8 @@ function dataService($http) {
         companyLastFourWeek: companyLastFourWeek,
         sendWeeklyMail: sendWeeklyMail,
         companyUsersTotalCount: companyUsersTotalCount,
-        usersVoted:usersVoted
+        usersVoted:usersVoted,
+        sendWeeklyMail: sendWeeklyMail
     };
 
     function listCompanyUsers(callback, errorCallback) {

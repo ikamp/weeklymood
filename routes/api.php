@@ -15,9 +15,8 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::get('/user/mood/level', 'UserController@getUserMoodLevel');
     Route::get('/user/mood/last', 'UserController@getLastMoods');
 
-    Route::group(['middleware' => ['managerControl']], function()
-    {
-        Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
+
+    Route::group(['middleware' => ['managerControl']], function () {
         Route::get('/company/user/all', 'CompanyController@allCompanyUserAction');
         Route::post('/company/user/new', 'CompanyController@mailToNewCompanyUser');
         Route::get('/company/users/mood/avg', 'CompanyController@getCompanyUsersMoodAvgAction');
@@ -25,6 +24,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/company/users/voted', 'CompanyController@votedUsersCountAction');
         Route::post('/send/weekly/mail', 'UserController@sendWeeklyMail');
         Route::get('/company/total/tag', 'CompanyController@getUsersTotalTags');
+        Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
+        Route::post('/send/weekly/mail', 'UserController@sendWeeklyMail');
     });
 });
 
