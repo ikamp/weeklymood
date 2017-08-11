@@ -19,7 +19,6 @@ class CreateMoodContentTable extends Migration
             $table->integer('user_id');
             $table->string('comment')->nullable();
             $table->timestamps();
-
             $table->foreign('user_id')->references('id')->on('user');
             $table->foreign('mood_id')->references('id')->on('mood');
         });

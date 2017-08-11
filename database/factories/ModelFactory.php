@@ -21,7 +21,7 @@ $factory->define(App\Model\Department::class, function (Faker\Generator $faker) 
 $factory->define(App\Model\Company::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->company,
-        'logo' => $faker->imageUrl(640,480,null,true,null),
+        'logo' => $faker->imageUrl(640, 480, null, true, null),
     ];
 });
 
@@ -34,9 +34,9 @@ $factory->define(App\Model\User::class, function (Faker\Generator $faker) {
         'email' => $faker->unique()->safeEmail,
         'password' => $password ?: $password = bcrypt('12345'),
         'position' => $faker->name,
-        'avatar' => $faker->imageUrl(640,480,null,true,null),
+        'avatar' => $faker->imageUrl(640, 480, null, true, null),
         'department_id' => $faker->numberBetween(1, 20),
-        'company_id' => $faker->numberBetween(1,20),
+        'company_id' => $faker->numberBetween(1, 20),
         'is_manager' => $faker->boolean(false),
         'is_active' => $faker->boolean(true),
         'remember_token' => str_random(10)

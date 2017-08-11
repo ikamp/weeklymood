@@ -11,6 +11,6 @@ class MoodContent extends Model
 
     public function moodContentTags()
     {
-        return $this->hasMany('Model\MoodContentTag','moodcontent_id');
+        return $this->hasMany('Model\MoodContentTag', 'moodcontent_id');
     }
 }

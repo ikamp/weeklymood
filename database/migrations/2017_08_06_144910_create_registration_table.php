@@ -18,7 +18,6 @@ class CreateRegistrationTable extends Migration
             $table->string('token');
             $table->integer('user_id');
             $table->dateTime('expiration_time');
-
             $table->foreign('user_id')->references('id')->on('user');
         });
     }

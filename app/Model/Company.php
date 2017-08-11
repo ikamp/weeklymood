@@ -23,15 +23,11 @@ class Company extends Model
         return Company::find($companyid);
     }
 
-
-
     public static function listAllCompaniesAction()
     {
         $companies = Company::all();
         return $companies;
     }
-
-
 
     public static function updateCompanyAction($companyId, $name, $logo)
     {

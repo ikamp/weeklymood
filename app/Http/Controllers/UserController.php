@@ -202,7 +202,7 @@ class UserController extends Controller
         $manager = UserManager::mapper($managerId);
         $companyId = $manager->getCompanyId();
         $userList = CompanyManager::getThisCompanyMembersAction($companyId);
-        foreach ($userList as $user){
+        foreach ($userList as $user) {
             $email = $user['email'];
             \Mail::to($email)->send(new \App\Mail\WeeklyMailService);
         }

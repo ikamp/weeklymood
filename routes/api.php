@@ -37,4 +37,4 @@ Route::post('/register', 'UserController@store');
 Route::post('/password-reset', 'UserController@passwordReset');
 Route::post('/password-reset-mail', 'UserController@passwordResetMail');
 Route::get('/logout', 'UserController@logout');
-Route::post('/mood/content/review','CompanyController@createMoodwithTag');
+Route::post('/mood/content/review', 'CompanyController@createMoodwithTag');

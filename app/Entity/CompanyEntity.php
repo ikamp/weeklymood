@@ -199,7 +199,7 @@ class CompanyEntity
      */
     public function UpdateCompany()
     {
-        Company::updateCompanyAction($this->getId(),$this->getName(),$this->getLogo());
+        Company::updateCompanyAction($this->getId(), $this->getName(), $this->getLogo());
     }
 
 }

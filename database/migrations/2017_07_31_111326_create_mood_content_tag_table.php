@@ -18,7 +18,6 @@ class CreateMoodContentTagTable extends Migration
             $table->integer('moodcontent_id');
             $table->integer('tag_id');
             $table->timestamps();
-
             $table->foreign('moodcontent_id')->references('id')->on('moodcontent');
             $table->foreign('tag_id')->references('id')->on('tag');
         });
