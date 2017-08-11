@@ -53,7 +53,11 @@ class CompanyManager
         return $usersMapped;
     }
 
-
+    /**
+     * @param $name
+     * @param $logo
+     * @return Company
+     */
     public static function createNewCompanyAction($name, $logo)
     {
         $company = new Company();
@@ -63,6 +67,10 @@ class CompanyManager
         return $company;
     }
 
+    /**
+     * @param $companyId
+     * @return float|int
+     */
     public static function getCompanyUsersMoodsAvgAction($companyId)
     {
         $companyUsers = User::all()->where('company_id', $companyId);
@@ -74,7 +82,6 @@ class CompanyManager
                 $companyUsersMoods[] += $item;
                 $companyUsersTotalMood += $item;
             }
-
         }
         $sizeOftheCompanyUsers = sizeof($companyUsersMoods);
         if ($companyUsersMoods > 0 && $sizeOftheCompanyUsers > 0) {

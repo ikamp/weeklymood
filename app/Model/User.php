@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as AuthenticableTrait;
 use Illuminate\Support\Facades\Auth;
 
-class User extends Model  implements Authenticatable
+class User extends Model implements Authenticatable
 {
     use AuthenticableTrait;
     protected $table = 'user';
@@ -18,7 +18,7 @@ class User extends Model  implements Authenticatable
      */
     public function department()
     {
-        return $this->hasOne('App\Model\Department','id','department_id');
+        return $this->hasOne('App\Model\Department', 'id', 'department_id');
     }
 
     /**
@@ -26,7 +26,7 @@ class User extends Model  implements Authenticatable
      */
     public function moodContents()
     {
-        return $this->hasMany('App\Model\MoodContent','user_id');
+        return $this->hasMany('App\Model\MoodContent', 'user_id');
     }
 
     /**
@@ -34,12 +34,12 @@ class User extends Model  implements Authenticatable
      */
     public function company()
     {
-        return $this->hasOne('App\Model\Company','id','company_id');
+        return $this->hasOne('App\Model\Company', 'id', 'company_id');
     }
 
     public function token()
     {
-        return $this->hasOne('App\Model\Token','user_id','id');
+        return $this->hasOne('App\Model\Token', 'user_id', 'id');
     }
 
     /**
@@ -71,7 +71,7 @@ class User extends Model  implements Authenticatable
         $avatar,
         $departmentId,
         $companyId,
-        $isManager )
+        $isManager)
     {
         $user = new User();
         $user->name = $name;
@@ -89,13 +89,20 @@ class User extends Model  implements Authenticatable
         return $user;
     }
 
-
-
     /**
      * @param User $user
+     * @param $name
+     * @param $surname
+     * @param $email
+     * @param $password
+     * @param $position
+     * @param $avatar
+     * @param $departmentId
+     * @param $companyId
+     * @param $isManager
      */
     public static function updateThisUserAction(
-       User $user,
+        User $user,
         $name,
         $surname,
         $email,
@@ -125,5 +132,4 @@ class User extends Model  implements Authenticatable
     {
         $user->save();
     }
-
 }

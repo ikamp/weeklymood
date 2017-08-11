@@ -19,7 +19,7 @@ class Tag extends Model
      */
     public function moodContentTags()
     {
-        return $this->hasMany('Model\MoodContentTag','tag_id');
+        return $this->hasMany('Model\MoodContentTag', 'tag_id');
     }
 
     /**

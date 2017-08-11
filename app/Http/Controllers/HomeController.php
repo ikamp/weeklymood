@@ -35,7 +35,8 @@ class HomeController extends Controller
         return Auth::user();
     }
 
-    public function logout() {
+    public function logout()
+    {
         return Auth::logout();
     }
 

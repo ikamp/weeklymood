@@ -14,7 +14,7 @@ class Registration extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Model\User','user_id','id');
+        return $this->belongsTo('App\Model\User', 'user_id', 'id');
     }
 
     public static function getRegistrationByUserId($user_id)
@@ -27,8 +27,8 @@ class Registration extends Model
     public static function getRegistrationIdByToken($token)
     {
         return $registration = Registration::all()
-        ->where("token", $token)
-        ->first();
+            ->where("token", $token)
+            ->first();
     }
 
     public static function createNewToken($user_id)

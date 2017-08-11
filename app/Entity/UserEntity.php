@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Company;
@@ -33,6 +34,7 @@ class UserEntity
     {
         $this->departmentName = $departmentName;
     }
+
     private $companyId;
     private $isManager;
     private $isActive;
@@ -308,7 +310,7 @@ class UserEntity
      */
     public function getNameWithSurname()
     {
-        return $this->getName().' '.$this->getSurname();
+        return $this->getName() . ' ' . $this->getSurname();
     }
 
     /**

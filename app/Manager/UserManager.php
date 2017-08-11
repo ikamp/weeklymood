@@ -65,6 +65,10 @@ class UserManager
         return $company;
     }
 
+    /**
+     * @param $userId
+     * @return array
+     */
     public static function getUserMoodsAction($userId)
     {
         $moods = [];
@@ -76,6 +80,10 @@ class UserManager
         return $moods;
     }
 
+    /**
+     * @param $userId
+     * @return float|int
+     */
     public static function getUserMoodAvgAction($userId)
     {
         $moodAvg = 0;
@@ -86,6 +94,15 @@ class UserManager
         return $moodAvg;
     }
 
+    /**
+     * @param $name
+     * @param $surname
+     * @param $email
+     * @param $password
+     * @param $companyName
+     * @param $companyLogo
+     * @return UserEntity
+     */
     public static function createNewManagerAction(
         $name,
         $surname,
@@ -112,6 +129,10 @@ class UserManager
         return self::mapper($user->id);
     }
 
+    /**
+     * @param $userId
+     * @return array
+     */
     public static function getLastMoodsAction($userId)
     {
         $lastMoods = [];
@@ -122,6 +143,10 @@ class UserManager
         return $lastMoods;
     }
 
+    /**
+     * @param $departmentId
+     * @return mixed
+     */
     public static function getDepartmentName($departmentId)
     {
         $department = Department::findDepartmentByIdAction($departmentId);

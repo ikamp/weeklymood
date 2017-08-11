@@ -9,9 +9,9 @@ class Mood extends Model
     protected $table = 'mood';
     public $timestamps = false;
 
-    public function  moodContent()
+    public function moodContent()
     {
-        return $this->hasOne('Model\MoodContent','id','mood_id');
+        return $this->hasOne('Model\MoodContent', 'id', 'mood_id');
     }
 
     public static function getAllMoodsAction()
@@ -34,12 +34,7 @@ class Mood extends Model
 
     public static function getUserSelectedStarMoodsAction($userId, $moodId)
     {
-        $UsersMoods = MoodContent::all()->where('mood_id','=', $moodId)->where('user_id', '=', $userId);
+        $UsersMoods = MoodContent::all()->where('mood_id', '=', $moodId)->where('user_id', '=', $userId);
         return $UsersMoods;
     }
-
-
-
-
-
 }

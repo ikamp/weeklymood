@@ -27,10 +27,8 @@ class CreateUserTable extends Migration
             $table->boolean('is_active');
             $table->timestamps();
             $table->rememberToken();
-
             $table->foreign('department_id')->references('id')->on('department');
             $table->foreign('company_id')->references('id')->on('company');
-
         });
     }
 
@@ -44,3 +42,4 @@ class CreateUserTable extends Migration
         Schema::dropIfExists('user');
     }
 }
+

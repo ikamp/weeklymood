@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         factory(App\Model\Department::class, 20)->create();
         factory(App\Model\Company::class, 20)->create();
-        factory(App\Model\User::class,50)->create();
+        factory(App\Model\User::class, 50)->create();
 
         DB::table('mood')->insert([
             'type' => 'Extremely Sad',
