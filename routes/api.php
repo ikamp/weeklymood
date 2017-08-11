@@ -26,6 +26,7 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('/company/total/tag', 'CompanyController@getUsersTotalTags');
         Route::get('/company/users/count', 'CompanyController@companyUsersTotalCountAction');
         Route::post('/send/weekly/mail', 'UserController@sendWeeklyMail');
+        Route::post('/delete/user', 'UserController@deleteUser');
     });
 });
 
