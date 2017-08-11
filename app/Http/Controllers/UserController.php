@@ -62,17 +62,19 @@ class UserController extends Controller
         $surname = $request->surname;
         $email = $request->email;
         $password = $request->password;
-        $avatar = "null";
-        $position = "null";
+        $avatar = null;
+        $position = null;
+        $department = null;
         $companyName = $request->companyName;
-        $companyLogo = "null";
+        $companyLogo = 'logo';
         $user = UserManager::createNewManagerAction(
             $name,
             $surname,
             $email,
             $password,
             $companyName,
-            $companyLogo);
+            $companyLogo,
+            $department);
         return response()->json($user->getNameWithSurname());
     }
 
@@ -168,7 +170,7 @@ class UserController extends Controller
         $token = $request->token;
         $userId = Registration::getRegistrationIdByToken($token)->user_id;
         $user = UserManager::getUserByIdAction($userId);
-        $user->is_active = 'TRUE';
+        $user->is_active = true;
         $user->save();
     }
 

@@ -109,11 +109,12 @@ class UserManager
         $email,
         $password,
         $companyName,
-        $companyLogo)
+        $companyLogo,
+        $department)
     {
         $user = new User();
         $user->is_manager = true;
-        $user->department_id = null;
+        $user->department_id = 2;
         $user->is_active = false;
         $user->name = $name;
         $user->surname = $surname;
