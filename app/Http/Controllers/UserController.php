@@ -207,4 +207,15 @@ class UserController extends Controller
             \Mail::to($email)->send(new \App\Mail\WeeklyMailService);
         }
     }
+
+    public function deleteUser(Request $request)
+    {
+        $user_id = $request->userId;
+        $user = UserManager::getUserByIdAction($user_id);
+        $is_manager = $user['is_manager'];
+        if ($is_manager !== true) {
+            $user->delete();
+            return $user;
+        }
+    }
 }

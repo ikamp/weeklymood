@@ -20,4 +20,9 @@ function employeeController($scope, $rootScope, DataService) {
         DataService.sendWeeklyMail(function (response) {
         });
     };
+
+    $scope.deleteUser = function (user) {
+        DataService.deleteUser(user, function (response) {
+        });
+    };
 }
