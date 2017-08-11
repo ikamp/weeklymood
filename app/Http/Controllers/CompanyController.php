@@ -5,11 +5,9 @@ namespace App\Http\Controllers;
 use App\Manager\CompanyManager;
 use App\Manager\UserManager;
 use App\Model\Company;
-use App\Model\Mood;
 use App\Model\MoodContentTag;
 use App\Model\Registration;
 use App\Model\User;
-use App\Entity\companyEntity;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -135,7 +133,6 @@ class CompanyController extends Controller
         $user = UserManager::mapper($user);
         $company = CompanyManager::mapper($user->getCompanyId());
         return response()->json($company->getAllMoodsAvg());
-
     }
 
     /**
@@ -211,7 +208,6 @@ class CompanyController extends Controller
         $mood->save();
         $i = 1;
         foreach ($tags as $item) {
-
             if ($item == true) {
                 $tag = new MoodContentTag();
                 $tag->moodcontent_id = $mood->id;
